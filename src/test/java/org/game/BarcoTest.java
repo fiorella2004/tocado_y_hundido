@@ -78,6 +78,6 @@ public class BarcoTest {
 
     // Assert
     assertTrue(golpeada);
-    assertEquals(barco.getDibujo, '⚫' );
+    assertEquals(barco.getDibujo(), '⚫' );
   }
 }

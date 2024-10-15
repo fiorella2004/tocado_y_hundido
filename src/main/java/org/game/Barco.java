@@ -19,6 +19,9 @@ public class Barco extends Casilla {
     return golpeada;
   }
 
+  //@Override
+  public char getDibujo() { return barcoDibujo; }
+
   @Override
   public void recibirGolpe() {
     golpeada = true;
