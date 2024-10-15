@@ -16,5 +16,4 @@ public abstract class Casilla {
   public abstract boolean esGolpeada();
   public abstract void recibirGolpe();
   public abstract void printCasilla();
-
 }
