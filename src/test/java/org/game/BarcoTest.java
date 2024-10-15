@@ -35,7 +35,7 @@ public class BarcoTest {
   @Test
   public void testConstructor_columnaNegativa_expectedException() {
     // Arrange
-    Exception exception = assertThrows(IllegalArgumentException.class, () -> {new Barco(0, '`');});
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {new Barco(1, '`');});
 
     // Assert
     assertEquals("La columna debe estar entre 'A' y 'J'.", exception.getMessage());
