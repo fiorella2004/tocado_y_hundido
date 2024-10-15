@@ -2,7 +2,7 @@ package org.game;
 
 public class Agua extends Casilla{
 
-  char aguaDibujo = '⬜';
+  protected char aguaDibujo = '⬜';
 
   Agua(int fila, char col) {
 
