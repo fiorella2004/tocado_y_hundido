@@ -51,7 +51,7 @@ public class AguaTest {
 
     // Assert
     assertFalse(golpeada);
-    assertEquals(agua.aguaDibujo, '⬜' );
+    assertEquals(agua.getDibujo(), '⬜' );
   }
 
   @Test
@@ -65,7 +65,7 @@ public class AguaTest {
 
     // Assert
     assertTrue(golpeada);
-    assertEquals(agua.aguaDibujo, '☒' );
+    assertEquals(agua.getDibujo(), '☒' );
   }
 
   @Test
@@ -80,7 +80,7 @@ public class AguaTest {
 
     // Assert
     assertTrue(golpeada);
-    assertEquals(agua.aguaDibujo, '☒' );
+    assertEquals(agua.getDibujo(), '☒' );
   }
 }
 

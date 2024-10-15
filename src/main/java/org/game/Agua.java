@@ -18,6 +18,12 @@ public class Agua extends Casilla{
   }
 
   @Override
+  public char getDibujo()
+  {
+    return aguaDibujo;
+  }
+
+  @Override
   public boolean esGolpeada()
   {
     return golpeada;
