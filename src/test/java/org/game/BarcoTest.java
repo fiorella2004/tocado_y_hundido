@@ -29,7 +29,7 @@ public class BarcoTest {
     Exception exception = assertThrows(IllegalArgumentException.class, () -> {new Barco(-1, 'A');});
 
     // Assert
-    assertEquals("La fila debe estar entre 0 y 9.", exception.getMessage());
+    assertEquals("La fila debe estar entre 1 y 10.", exception.getMessage());
   }
 
   @Test
