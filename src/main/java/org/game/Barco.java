@@ -2,7 +2,7 @@ package org.game;
 
 public class Barco extends Casilla {
 
-  char barcoDibujo = '⚪';
+  protected char barcoDibujo = '⚪';
 
   Barco(int fila, char col) {
     super(fila, col);

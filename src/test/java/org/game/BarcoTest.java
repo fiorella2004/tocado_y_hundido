@@ -65,4 +65,19 @@ public class BarcoTest {
     // Assert
     assertTrue(golpeada);
   }
+
+  @Test
+  public void testRecibirVariosGolpes_expectedTrue() {
+    // Arrange
+    Barco barco = new Barco(1, 'A');
+
+    // Act
+    barco.recibirGolpe();
+    barco.recibirGolpe();
+    boolean golpeada = barco.esGolpeada();
+
+    // Assert
+    assertTrue(golpeada);
+    assertEquals(barco.getDibujo, '⚫' );
+  }
 }
