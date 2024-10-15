@@ -2,9 +2,9 @@ package org.game;
 
 public abstract class Casilla {
 
-  public int fila;
-  public char columna;
-  boolean golpeada;
+  protected int fila;
+  protected char columna;
+  protected boolean golpeada;
 
   Casilla(int fila, char col)
   {
@@ -13,6 +13,7 @@ public abstract class Casilla {
     golpeada = false;
   }
 
+  public abstract char getDibujo();
   public abstract boolean esGolpeada();
   public abstract void recibirGolpe();
   public abstract void printCasilla();
