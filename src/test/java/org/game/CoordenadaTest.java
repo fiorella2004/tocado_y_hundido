@@ -33,7 +33,7 @@ class CoordenadaTest {
     Coordenada coordenada2 = new Coordenada(1, 6);
 
     // Assert
-    assertTrue(coordenada1.equals(coordenada2));
+    assertFalse(coordenada1.equals(coordenada2));
   }
 
   @Test
@@ -43,6 +43,6 @@ class CoordenadaTest {
     Coordenada coordenada2 = new Coordenada(5, 7);
 
     // Assert
-    assertTrue(coordenada1.equals(coordenada2));
+    assertFalse(coordenada1.equals(coordenada2));
   }
 }
