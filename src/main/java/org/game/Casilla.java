@@ -6,20 +6,30 @@ public abstract class Casilla {
   protected Coordenada coordenada;
   protected boolean golpeada;
 
-  public Casilla(Coordenada coordenada)
-  {
+  public Casilla(Coordenada coordenada) {
     this.coordenada = coordenada;
     golpeada = false;
     id = 0;
   }
 
   public abstract String getDibujo();
-  public boolean esGolpeada() {return golpeada; }
+
+  public boolean esGolpeada() {
+    return golpeada;
+  }
+
   public abstract void recibirGolpe();
 
-  public void setId(int id) {this.id = id;}
-  public int getId() {return id;}
+  public void setId(int id) {
+    this.id = id;
+  }
 
-  public Coordenada obtenerCoordenada() {return coordenada;}
+  public int getId() {
+    return id;
+  }
+
+  public Coordenada obtenerCoordenada() {
+    return coordenada;
+  }
 
 }

@@ -4,15 +4,22 @@ public class Coordenada {
   public int fila;
   public int col;
 
-  public Coordenada(int fila, int col){
+  public Coordenada(int fila, int col) {
     this.fila = fila;
     this.col = col;
   }
 
-  public int getFila() {return fila;}
-  public int getCol() {return col;}
+  public int getFila() {
+    return fila;
+  }
 
-  public void setCol(int col) {this.col = col;}
+  public int getCol() {
+    return col;
+  }
+
+  public void setCol(int col) {
+    this.col = col;
+  }
 
   @Override
   public boolean equals(Object o) {
