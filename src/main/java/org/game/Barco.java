@@ -15,5 +15,7 @@ public class Barco extends Casilla {
 
   @Override
   public void recibirGolpe() {
+    golpeada = true;
+    dibujo = "💥";
   }
 }
