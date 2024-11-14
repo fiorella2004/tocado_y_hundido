@@ -3,14 +3,16 @@ package org.game;
 public class Tablero {
   private ArrayList<Casilla> tablero = new ArrayList<>();
   private int idBarco = 1;
-  private final int numFilas;
-  private final int numCol;
+  private int numFilas;
+  private int numCols;
 
   public Tablero(int numFilas, int numCol){
 
   }
 
+  public void setNumFilas(int filas) {this.numFilas = filas;}
+  public void setNumCol(int cols) {this.numCols = cols;}
   public int getNumFilas() {return numFilas;}
-  public int getNumCol() {return numCol;}
+  public int getNumCol() {return numCols;}
   public ArrayList<Casilla> obtenerTablero() {return tablero;}
 }
