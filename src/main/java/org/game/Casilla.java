@@ -2,19 +2,24 @@ package org.game;
 
 public abstract class Casilla {
 
-  protected int fila;
-  protected char columna;
+  protected int id;
+  protected Coordenada coordenada;
   protected boolean golpeada;
 
-  Casilla(int fila, char col)
+  public Casilla(Coordenada coordenada)
   {
-    this.fila = fila;
-    this.columna = col;
+    this.coordenada = coordenada;
     golpeada = false;
+    id = 0;
   }
 
-  public abstract char getDibujo();
-  public abstract boolean esGolpeada();
+  public abstract String getDibujo();
+  public boolean esGolpeada() {return golpeada; }
   public abstract void recibirGolpe();
-  public abstract void printCasilla();
+
+  public void setId(int id) {this.id = id;}
+  public int getId() {return id;}
+
+  public Coordenada obtenerCoordenada() {return coordenada;}
+
 }
