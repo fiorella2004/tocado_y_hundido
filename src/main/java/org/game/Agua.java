@@ -15,6 +15,7 @@ public class Agua extends Casilla {
 
   @Override
   public void recibirGolpe() {
-
+    golpeada = true;
+    aguaDibujo = "⬜";
   }
 }
