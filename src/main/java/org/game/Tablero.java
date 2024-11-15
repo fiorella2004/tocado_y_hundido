@@ -27,10 +27,10 @@ public class Tablero {
 
     int dimensionAux;
 
-    if (dimension < 10) {
+    if (dimension <= 10) {
       dimensionAux = 10;
       return dimensionAux;
-    } else if (dimension > 15) {
+    } else if (dimension >= 15) {
       dimensionAux = 15;
       return dimensionAux;
     }
@@ -39,6 +39,8 @@ public class Tablero {
   }
 
   public void setDimension(int dimension) {
+    dimension = comprobarDimension(dimension);
+    this.numFilas = dimension; this.numCols = dimension;
   }
 
   public int getNumFilas() {
