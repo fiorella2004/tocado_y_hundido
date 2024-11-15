@@ -56,17 +56,43 @@ public class Tablero {
   }
 
   public boolean colocarBarco(ArrayList<Coordenada> coordenadas){
-
+    if(!comprobarBarcoDentroTablero(coordenadas) && !comprobarSolaparBarco(coordenadas)){
+      return false;
+    }
+    for (Coordenada coordenada : coordenadas) {
+      for (int i = 0; i < tablero.size(); i++) {
+        Casilla casilla = tablero.get(i);
+        Coordenada coordenadaCasilla = casilla.obtenerCoordenada();
+        if (coordenadaCasilla.equals(coordenada)) {
+          tablero.set(i, new Barco(coordenadaCasilla));
+          tablero.get(i).setId(idBarco);
+        }
+      }
+    }
+    idBarco++;
     return true;
   }
 
   public boolean comprobarSolaparBarco(ArrayList<Coordenada> coordenadas){
-
+    for(Coordenada coordenada : coordenadas){
+      for(Casilla casilla : tablero){
+        Coordenada coordenadaCasilla = casilla.obtenerCoordenada();
+        if(coordenadaCasilla.equals(coordenada)){
+          if (casilla.getId() != 0)
+            return false;
+        }
+      }
+    }
     return true;
   }
 
   public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas){
-
+    for(Coordenada coordenada : coordenadas) {
+      if((coordenada.getFila() >= numFilas && coordenada.getFila() < 0) &&
+          (coordenada.getCol() >= numCols && coordenada.getCol() < 0)){
+        return false;
+      }
+    }
     return true;
   }
 
