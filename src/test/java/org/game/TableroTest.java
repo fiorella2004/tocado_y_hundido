@@ -5,26 +5,28 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TableroTest {
-  Tablero tablero = new Tablero(10,10);
+  Tablero tablero = new Tablero(10);
 
   @Test
-  public void testConstructor10Row10Col_expectedTrue() {
-    // Act
+  public void testConstructorDimension10_expectedTrue() {
+    //Arrange
+    tablero.setDimension(10);
+
+    //Act
     int filas = tablero.getNumFilas();
     int columnas = tablero.getNumCol();
 
-    // Assert
+    //Assert
     assertEquals(10, filas);
     assertEquals(10, columnas);
   }
 
   @Test
-  public void testConstructor9Row10Col_expectedTrue() {
+  public void testConstructorDimension9_expectedTrue() {
     //Arrange
-    tablero.setNumFilas(9);
-    tablero.setNumCol(10);
+    tablero.setDimension(9);
 
-    // Act
+    //Act
     int filas = tablero.getNumFilas();
     int columnas = tablero.getNumCol();
 
@@ -50,10 +52,9 @@ class TableroTest {
   @Test
   public void testConstructorDimension16_expectedTrue() {
     //Arrange
-    tablero.setNumFilas(11);
-    tablero.setNumCol(10);
+    tablero.setDimension(16);
 
-    // Act
+    //Act
     int filas = tablero.getNumFilas();
     int columnas = tablero.getNumCol();
 
@@ -65,46 +66,43 @@ class TableroTest {
   @Test
   public void testConstructorDimension12_expectedTrue() {
     //Arrange
-    tablero.setNumFilas(10);
-    tablero.setNumCol(11);
+    tablero.setDimension(12);
 
-    // Act
+    //Act
     int filas = tablero.getNumFilas();
     int columnas = tablero.getNumCol();
 
     //Assert
-    assertEquals(10, filas);
-    assertEquals(10, columnas);
+    assertEquals(12, filas);
+    assertEquals(12, columnas);
   }
 
   @Test
   public void testConstructorDimension20_expectedTrue() {
     //Arrange
-    tablero.setNumFilas(11);
-    tablero.setNumCol(11);
+    tablero.setDimension(20);
 
-    // Act
+    //Act
+    int filas = tablero.getNumFilas();
+    int columnas = tablero.getNumCol();
+
+    //Assert
+    assertEquals(15, filas);
+    assertEquals(15, columnas);
+  }
+
+  @Test
+  public void testConstructorDimension11_expectedTrue() {
+    //Arrange
+    tablero.setDimension(11);
+
+    //Act
     int filas = tablero.getNumFilas();
     int columnas = tablero.getNumCol();
 
     //Assert
     assertEquals(11, filas);
     assertEquals(11, columnas);
-  }
-
-  @Test
-  public void testConstructorDimension11_expectedTrue() {
-    //Arrange
-    tablero.setNumFilas(0);
-    tablero.setNumCol(10);
-
-    // Act
-    int filas = tablero.getNumFilas();
-    int columnas = tablero.getNumCol();
-
-    //Assert
-    assertEquals(10, filas);
-    assertEquals(10, columnas);
   }
 
   @Test
