@@ -54,4 +54,27 @@ public class Tablero {
   public ArrayList<Casilla> obtenerTablero() {
     return tablero;
   }
+
+  public boolean colocarBarco(ArrayList<Coordenada> coordenadas){
+
+    return true;
+  }
+
+  public boolean comprobarSolaparBarco(ArrayList<Coordenada> coordenadas){
+
+    return true;
+  }
+
+  public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas){
+
+    return true;
+  }
+
+  public void recibirGolpe(Coordenada coordenada){
+
+  }
+
+  public Casilla buscarCasilla(Coordenada coordenada) {
+    return null;
+  }
 }
