@@ -9,12 +9,9 @@ public class Tablero {
   private int numCols;
 
   public Tablero(int dimension) {
-
     dimension = comprobarDimension(dimension);
-
     this.numFilas = dimension;
     this.numCols = dimension;
-
 
     for (int fila = 0; fila < this.numFilas; fila++) {
       for (int col = 0; col < this.numCols; col++) {
@@ -24,9 +21,7 @@ public class Tablero {
   }
 
   public int comprobarDimension(int dimension) {
-
     int dimensionAux;
-
     if (dimension <= 10) {
       dimensionAux = 10;
       return dimensionAux;
@@ -34,7 +29,6 @@ public class Tablero {
       dimensionAux = 15;
       return dimensionAux;
     }
-
     return dimension;
   }
 
@@ -56,7 +50,7 @@ public class Tablero {
   }
 
   public boolean colocarBarco(ArrayList<Coordenada> coordenadas){
-    if(!comprobarBarcoDentroTablero(coordenadas) && !comprobarSolaparBarco(coordenadas)){
+    if(!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas)){
       return false;
     }
     for (Coordenada coordenada : coordenadas) {
@@ -88,8 +82,8 @@ public class Tablero {
 
   public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas){
     for(Coordenada coordenada : coordenadas) {
-      if((coordenada.getFila() >= numFilas && coordenada.getFila() < 0) &&
-          (coordenada.getCol() >= numCols && coordenada.getCol() < 0)){
+      if(coordenada.getFila() > numFilas || coordenada.getFila() <= 0 ||
+          coordenada.getCol() > numCols || coordenada.getCol() <= 0){
         return false;
       }
     }

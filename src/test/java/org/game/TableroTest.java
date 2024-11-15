@@ -254,7 +254,7 @@ class TableroTest {
   }
 
   @Test
-  public void testColocarBarco2Casillas_SinSolapar_expectedTrue() {
+  public void testColocarBarco2Casillas_expectedTrue() {
     //Arrange
     Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
@@ -262,8 +262,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(1, 2));
 
     // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarSolaparBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas);
 
     //Assert
     assertTrue(resultado);
@@ -310,7 +309,7 @@ class TableroTest {
   }
 
   @Test
-  public void testColocarBarco5Casillas_SinSolaparHorizontal_expectedTrue() {
+  public void testColocarBarco5Casillas_expectedTrue() {
     //Arrange
     Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
@@ -321,8 +320,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(1, 5));
 
     // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarSolaparBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas);
 
     //Assert
     assertTrue(resultado);
