@@ -6,8 +6,7 @@ public class Tablero {
   private int numFilas;
   private int numCols;
 
-  public Tablero(int numFilas, int numCol){
-
+  public Tablero(int dimension){
   }
 
   public void setNumFilas(int filas) {this.numFilas = filas;}
