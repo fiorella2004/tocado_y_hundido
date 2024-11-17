@@ -1,5 +1,7 @@
 package org.game;
 
+import java.util.ArrayList;
+
 public class Jugador {
   private String nombre;
   private Tablero tableroPrincipal;
@@ -17,5 +19,21 @@ public class Jugador {
 
   public String getNombre() {
     return nombre;
+  }
+
+  public Tablero obtenerTableroPrincipal() {
+    return tableroPrincipal;
+  }
+
+  public Tablero obtenerTableroSecundario() {
+    return tableroSecundario;
+  }
+
+  public boolean colocarBarcos(ArrayList<Coordenada> casillasBarco) {
+
+  }
+
+  public void recibirGolpe(Coordenada coordenada) {
+
   }
 }
