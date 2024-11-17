@@ -19,5 +19,4 @@ class JugadorTest {
     assertEquals("Fiorella", jugador.getNombre());
   }
 
-
 }
