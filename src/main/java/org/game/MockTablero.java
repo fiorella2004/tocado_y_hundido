@@ -14,7 +14,7 @@ public class MockTablero extends Tablero {
     return resultado;
   }
 
-  public boolean comprobarBarcosHundidos(ArrayList<Coordenada> casillasBarco) {
+  public boolean comprobarTodosBarcosHundidos() {
     return resultado;
   }
 }

@@ -37,7 +37,7 @@ public class Jugador {
     tableroSecundario.recibirGolpe(coordenada);
   }
 
-  public boolean comprobarBarcosHundidos(ArrayList<Coordenada> casillasBarco) {
-
+  public boolean comprobarTodosBarcosHundidos() {
+    return tableroPrincipal.comprobarTodosBarcosHundidos();
   }
 }
