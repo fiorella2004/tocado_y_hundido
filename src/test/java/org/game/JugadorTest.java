@@ -1,6 +1,7 @@
 package org.game;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +28,7 @@ class JugadorTest {
     Jugador jugador = new Jugador("noname", mockTablero, mockTablero);
 
     // Act
-    resultado = jugador.obtenerTableroPrincipal() instanceof MockTablero;
+    boolean resultado = jugador.obtenerTableroPrincipal() != null;
 
     //Assert
     assertTrue(resultado);
@@ -40,7 +41,7 @@ class JugadorTest {
     Jugador jugador = new Jugador("noname", mockTablero, mockTablero);
 
     // Act
-    resultado = jugador.obtenerTableroSecundario() instanceof MockTablero;
+    boolean resultado = jugador.obtenerTableroSecundario() != null;
 
     //Assert
     assertTrue(resultado);

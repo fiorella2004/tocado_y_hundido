@@ -30,10 +30,10 @@ public class Jugador {
   }
 
   public boolean colocarBarcos(ArrayList<Coordenada> casillasBarco) {
-
+    return tableroPrincipal.colocarBarco(casillasBarco);
   }
 
   public void recibirGolpe(Coordenada coordenada) {
-
+    tableroSecundario.recibirGolpe(coordenada);
   }
 }
