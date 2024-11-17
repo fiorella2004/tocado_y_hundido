@@ -1,9 +1,17 @@
 package org.game;
 
-public class MockTablero extends Tablero {
+import java.util.ArrayList;
 
-  public MockTablero(int dimension) {
+public class MockTablero extends Tablero {
+  private boolean colocarBarcoResult;
+
+  public MockTablero(int dimension, boolean resultadoColocarBarco) {
     super(dimension);
+    this.colocarBarcoResult = resultadoColocarBarco;
   }
 
+  @Override
+  public boolean colocarBarco(ArrayList<Coordenada> coordenadas) {
+    return colocarBarcoResult;
+  }
 }
