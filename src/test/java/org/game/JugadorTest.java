@@ -78,4 +78,36 @@ class JugadorTest {
     // Assert
     assertFalse(resultado);
   }
+
+  @Test
+  void testComprobarBarcosHundidos_expectedTrue() {
+    // Arrange
+    MockTablero mockTablero = new MockTablero(10, true);
+    Jugador jugador = new Jugador("noname", mockTablero, mockTablero);
+    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+    coordenadasBarco.add(new Coordenada(5, 6));
+    coordenadasBarco.add(new Coordenada(5, 6));
+
+    // Act
+    boolean resultado = jugador.comprobarBarcosHundidos(coordenadasBarco);
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  void testComprobarBarcosHundidos_expectedFalse() {
+    // Arrange
+    MockTablero mockTablero = new MockTablero(10, false);
+    Jugador jugador = new Jugador("noname", mockTablero, mockTablero);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(5, 6));
+    coordenadas.add(new Coordenada(5, 6));
+
+    // Act
+    boolean resultado = jugador.comprobarBarcosHundidos(coordenadas);
+
+    // Assert
+    assertFalse(resultado);
+  }
 }

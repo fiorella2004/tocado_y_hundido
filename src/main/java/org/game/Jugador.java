@@ -36,4 +36,8 @@ public class Jugador {
   public void recibirGolpe(Coordenada coordenada) {
     tableroSecundario.recibirGolpe(coordenada);
   }
+
+  public boolean comprobarBarcosHundidos(ArrayList<Coordenada> casillasBarco) {
+
+  }
 }

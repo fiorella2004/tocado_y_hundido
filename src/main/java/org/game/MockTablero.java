@@ -3,15 +3,18 @@ package org.game;
 import java.util.ArrayList;
 
 public class MockTablero extends Tablero {
-  private boolean colocarBarcoResult;
+  private boolean resultado;
 
-  public MockTablero(int dimension, boolean resultadoColocarBarco) {
+  public MockTablero(int dimension, boolean resultado) {
     super(dimension);
-    this.colocarBarcoResult = resultadoColocarBarco;
+    this.resultado = resultado;
   }
 
-  @Override
   public boolean colocarBarco(ArrayList<Coordenada> coordenadas) {
-    return colocarBarcoResult;
+    return resultado;
+  }
+
+  public boolean comprobarBarcosHundidos(ArrayList<Coordenada> casillasBarco) {
+    return resultado;
   }
 }
