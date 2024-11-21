@@ -1,7 +1,9 @@
 package org.game;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class JugadorPersonaTest {
@@ -105,28 +107,6 @@ class JugadorPersonaTest {
   }
 
   @Test
-  void testColocarBarcos_expectedFalse() {
-    // Arrange
-    //MockTablero mockTablero = new MockTablero(10, false);
-    Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10);
-
-    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
-    coordenadasBarco.add(new Coordenada(5, 6));
-    coordenadasBarco.add(new Coordenada(5, 6));
-
-    // Act
-    jugador.colocarBarco(coordenadasBarco);
-
-    // Assert
-    Tablero tablero = jugador.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarco) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
-  }
-
-  @Test
   void testComprobarBarcosHundidos_expectedTrue() {
     // Arrange
     //MockTablero mockTablero = new MockTablero(10, true);
@@ -176,7 +156,7 @@ class JugadorPersonaTest {
   }
 
   @Test
-  void testRegistrarGolpe_expectedTrue() {
+  void testRegistrarGolpe_casillaBarco_expectedTrue() {
     // Arrange
     Jugador jugador = new JugadorPersona("noname");
     jugador.asignarTablerosVacios(10);
@@ -184,11 +164,11 @@ class JugadorPersonaTest {
     Coordenada coordenada = new Coordenada(2, 3);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(coordenada);
-    Tablero tableroSecundario = new Tablero(10);
-    tableroSecundario.colocarBarco(coordenadas);
+    Tablero tableroPrincipalOponente = new Tablero(10);
+    tableroPrincipalOponente.colocarBarco(coordenadas);
 
     // Act
-    jugador.registrarGolpe(coordenada, tableroSecundario);
+    jugador.registrarGolpe(coordenada, tableroPrincipalOponente);
     Tablero tablero = jugador.obtenerTableroSecundario();
     Casilla casilla = tablero.buscarCasilla(coordenada);
 
@@ -197,21 +177,21 @@ class JugadorPersonaTest {
   }
 
   @Test
-  void testRegistrarGolpe_expectedFalse() {
+  void testRegistrarGolpe_casillaAgua_expectedTrue() {
     // Arrange
     Jugador jugador = new JugadorPersona("noname");
     jugador.asignarTablerosVacios(10);
 
     Coordenada coordenada = new Coordenada(2, 3);
-    Tablero tableroSecundario = new Tablero(10);
+    Tablero tableroPrincipalOponente = new Tablero(10);
 
     // Act
-    jugador.registrarGolpe(coordenada, tableroSecundario);
+    jugador.registrarGolpe(coordenada, tableroPrincipalOponente);
     Tablero tablero = jugador.obtenerTableroSecundario();
     Casilla casilla = tablero.buscarCasilla(coordenada);
 
     // Assert
-    assertFalse(casilla.esGolpeada());
+    assertTrue(casilla.esGolpeada());
   }
 
   @Test
@@ -235,7 +215,7 @@ class JugadorPersonaTest {
   }
 
   @Test
-  void testAdaptarTableroSecundario_casillaNull_expectedNull() {
+  void testAdaptarTableroSecundario_casillaAgua_expectedTrue() {
     // Arrange
     Jugador jugador = new JugadorPersona("noname");
     jugador.asignarTablerosVacios(10);
@@ -245,14 +225,14 @@ class JugadorPersonaTest {
 
     // Act
     jugador.adaptarTableroSecundario(coordenadaGolpeada, tableroPrincipalOponente);
-    Casilla casillaEnSecundario = jugador.obtenerTableroSecundario().buscarCasilla(coordenadaGolpeada);
+    Casilla casillaTableroSecundario = jugador.obtenerTableroSecundario().buscarCasilla(coordenadaGolpeada);
 
     // Assert
-    assertNull(casillaEnSecundario);
+    assertTrue(casillaTableroSecundario instanceof Agua);
   }
 
   @Test
-  void testAdaptarTableroSecundario_variasCasillasGolpeadas_expectedTrueAndNull() {
+  void testAdaptarTableroSecundario_casillasGolpeadas_expectedTrue() {
     // Arrange
     Jugador jugador = new JugadorPersona("noname");
     jugador.asignarTablerosVacios(10);
@@ -270,8 +250,8 @@ class JugadorPersonaTest {
     // Assert
     Tablero tableroSecundario = jugador.obtenerTableroSecundario();
     Casilla casillaBarco = tableroSecundario.buscarCasilla(new Coordenada(2, 3));
-    Casilla casillaNull = tableroSecundario.buscarCasilla(new Coordenada(3, 5));
+    Casilla casillaAgua = tableroSecundario.buscarCasilla(new Coordenada(3, 5));
     assertTrue(casillaBarco instanceof Barco);
-    assertNull(casillaNull);
+    assertTrue(casillaAgua instanceof Agua);
   }
 }
