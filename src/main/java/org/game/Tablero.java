@@ -90,8 +90,8 @@ public class Tablero {
     return true;
   }
 
-  public void recibirGolpe(Coordenada coordenada){
-
+  public boolean recibirGolpe(Coordenada coordenada){
+    return false;
   }
 
   public Casilla buscarCasilla(Coordenada coordenada) {
