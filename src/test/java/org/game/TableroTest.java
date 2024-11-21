@@ -11,7 +11,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension10_expectedTrue() {
     //Arrange
-    //tablero.setDimension(10);
+    Tablero tablero = new Tablero(10);
 
     //Act
     int filas = tablero.getNumFilas();
