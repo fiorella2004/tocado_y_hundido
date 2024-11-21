@@ -111,6 +111,11 @@ public class Tablero {
   }
 
   public boolean comprobarTodosBarcosHundidos() {
-    return false;
+    for (Casilla casilla : tablero) {
+      if (casilla.getId() != 0 && !casilla.esGolpeada()) {
+        return false;
+      }
+    }
+    return true;
   }
 }
