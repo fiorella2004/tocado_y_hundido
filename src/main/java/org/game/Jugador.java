@@ -11,12 +11,6 @@ public abstract class Jugador {
     this.nombre = nombre;
   }
 
-  public Jugador(String nombre, Tablero tableroPrincipal, Tablero tableroSecundario) {
-    this.nombre = nombre;
-    this.tableroPrincipal = tableroPrincipal;
-    this.tableroSecundario = tableroSecundario;
-  }
-
   public void asignarNombre(String nombre) {
     this.nombre = nombre;
   }
@@ -49,6 +43,12 @@ public abstract class Jugador {
   public abstract void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponent);
 
   public void adaptarTableroSecundario(Coordenada coordenada, Tablero tableroPrincipalOponente) {
-
+    ArrayList<Coordenada> coordenadaGolpeada = new ArrayList<>();
+    Casilla casillaGolpeada = tableroPrincipalOponente.buscarCasilla(coordenada);
+    Coordenada coordGolpeada = casillaGolpeada.obtenerCoordenada();
+    coordenadaGolpeada.add(coordGolpeada);
+    if (casillaGolpeada.getId() != 0) { // hay un barco en la casilla
+      tableroSecundario.colocarBarco(coordenadaGolpeada);
+    }
   }
 }
