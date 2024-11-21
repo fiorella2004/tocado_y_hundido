@@ -1,4 +1,4 @@
-package org.game;
+/*package org.game;
 
 import java.util.ArrayList;
 
@@ -21,4 +21,4 @@ public class MockTablero extends Tablero {
   public boolean recibirGolpe(Coordenada coordenada) {
     return resultado;
   }
-}
+}*/

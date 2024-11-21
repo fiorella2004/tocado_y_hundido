@@ -8,33 +8,14 @@ public class Tablero {
   private int numFilas;
   private int numCols;
 
-  public Tablero(int dimension) {
-    dimension = comprobarDimension(dimension);
-    this.numFilas = dimension;
-    this.numCols = dimension;
-
+  public Tablero(int numFilas, int numCols) {
+    this.numFilas = numFilas;
+    this.numCols = numCols;
     for (int fila = 0; fila < this.numFilas; fila++) {
       for (int col = 0; col < this.numCols; col++) {
         tablero.add(new Agua(new Coordenada(fila, col)));
       }
     }
-  }
-
-  public int comprobarDimension(int dimension) {
-    int dimensionAux;
-    if (dimension <= 10) {
-      dimensionAux = 10;
-      return dimensionAux;
-    } else if (dimension >= 15) {
-      dimensionAux = 15;
-      return dimensionAux;
-    }
-    return dimension;
-  }
-
-  public void setDimension(int dimension) {
-    dimension = comprobarDimension(dimension);
-    this.numFilas = dimension; this.numCols = dimension;
   }
 
   public int getNumFilas() {
@@ -49,8 +30,8 @@ public class Tablero {
     return tablero;
   }
 
-  public boolean colocarBarco(ArrayList<Coordenada> coordenadas){
-    if(!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas)){
+  public boolean colocarBarco(ArrayList<Coordenada> coordenadas) {
+    if (!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas)) {
       return false;
     }
     for (Coordenada coordenada : coordenadas) {
@@ -67,11 +48,11 @@ public class Tablero {
     return true;
   }
 
-  public boolean comprobarSolaparBarco(ArrayList<Coordenada> coordenadas){
-    for(Coordenada coordenada : coordenadas){
-      for(Casilla casilla : tablero){
+  public boolean comprobarSolaparBarco(ArrayList<Coordenada> coordenadas) {
+    for (Coordenada coordenada : coordenadas) {
+      for (Casilla casilla : tablero) {
         Coordenada coordenadaCasilla = casilla.obtenerCoordenada();
-        if(coordenadaCasilla.equals(coordenada)){
+        if (coordenadaCasilla.equals(coordenada)) {
           if (casilla.getId() != 0)
             return false;
         }
@@ -80,10 +61,10 @@ public class Tablero {
     return true;
   }
 
-  public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas){
-    for(Coordenada coordenada : coordenadas) {
-      if(coordenada.getFila() > numFilas || coordenada.getFila() <= 0 ||
-          coordenada.getCol() > numCols || coordenada.getCol() <= 0){
+  public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas) {
+    for (Coordenada coordenada : coordenadas) {
+      if (coordenada.getFila() > numFilas || coordenada.getFila() <= 0 ||
+          coordenada.getCol() > numCols || coordenada.getCol() <= 0) {
         return false;
       }
     }
