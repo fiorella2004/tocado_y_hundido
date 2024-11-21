@@ -2,10 +2,10 @@ package org.game;
 
 import java.util.ArrayList;
 
-public class Jugador {
-  private String nombre;
-  private Tablero tableroPrincipal;
-  private Tablero tableroSecundario;
+public abstract class Jugador {
+  protected String nombre;
+  protected Tablero tableroPrincipal;
+  protected Tablero tableroSecundario;
 
   public Jugador(String nombre, Tablero tableroPrincipal, Tablero tableroSecundario) {
     this.nombre = nombre;
@@ -17,27 +17,18 @@ public class Jugador {
     this.nombre = nombre;
   }
 
-  public String getNombre() {
-    return nombre;
+  public void asignarTablerosVacios(int numFilas, int numColumnas){
+    tableroPrincipal = new Tablero(numFilas, numColumnas);
+    tableroSecundario = new Tablero(numFilas, numColumnas);
   }
 
-  public Tablero obtenerTableroPrincipal() {
-    return tableroPrincipal;
-  }
+  public Tablero obtenerTableroPrincipal() {return tableroPrincipal;}
 
-  public Tablero obtenerTableroSecundario() {
-    return tableroSecundario;
-  }
+  public Tablero obtenerTableroSecundario() {return tableroSecundario;}
 
-  public boolean colocarBarcos(ArrayList<Coordenada> casillasBarco) {
-    return tableroPrincipal.colocarBarco(casillasBarco);
-  }
+  public boolean comprovarTodosBarcosHundidos() {return tableroPrincipal.comprobarTodosBarcosHundidos();}
 
-  public void recibirGolpe(Coordenada coordenada) {
-    tableroSecundario.recibirGolpe(coordenada);
-  }
+  public abstract void colocarBarcos(ArrayList<Coordenada> casillasBarco);
 
-  public boolean comprobarTodosBarcosHundidos() {
-    return tableroPrincipal.comprobarTodosBarcosHundidos();
-  }
+  public abstract void recibirGolpe(Coordenada coordenada);
 }
