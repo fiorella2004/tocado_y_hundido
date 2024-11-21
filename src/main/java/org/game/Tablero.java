@@ -8,14 +8,27 @@ public class Tablero {
   private int numFilas;
   private int numCols;
 
-  public Tablero(int numFilas, int numCols) {
-    this.numFilas = numFilas;
-    this.numCols = numCols;
+  public Tablero(int dimension) {
+    dimension = comprobarDimension(dimension);
+    this.numFilas = dimension;
+    this.numCols = dimension;
     for (int fila = 0; fila < this.numFilas; fila++) {
       for (int col = 0; col < this.numCols; col++) {
         tablero.add(new Agua(new Coordenada(fila, col)));
       }
     }
+  }
+
+  public int comprobarDimension(int dimension) {
+    int dimensionAux;
+    if (dimension <= 10) {
+      dimensionAux = 10;
+      return dimensionAux;
+    } else if (dimension >= 15) {
+      dimensionAux = 15;
+      return dimensionAux;
+    }
+    return dimension;
   }
 
   public int getNumFilas() {

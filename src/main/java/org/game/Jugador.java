@@ -25,9 +25,9 @@ public abstract class Jugador {
     return nombre;
   }
 
-  public void asignarTablerosVacios(int numFilas, int numColumnas) {
-    tableroPrincipal = new Tablero(numFilas, numColumnas);
-    tableroSecundario = new Tablero(numFilas, numColumnas);
+  public void asignarTablerosVacios(int dimension) {
+    tableroPrincipal = new Tablero(dimension);
+    tableroSecundario = new Tablero(dimension);
   }
 
   public Tablero obtenerTableroPrincipal() {
@@ -48,7 +48,7 @@ public abstract class Jugador {
 
   public abstract void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponent);
 
-  public void adaptarTableroSecundario(Coordenada coordenada, Tablero tablePrincipalOponente) {
+  public void adaptarTableroSecundario(Coordenada coordenada, Tablero tableroPrincipalOponente) {
 
   }
 }

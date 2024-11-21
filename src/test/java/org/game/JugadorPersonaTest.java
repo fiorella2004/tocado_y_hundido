@@ -26,7 +26,7 @@ class JugadorPersonaTest {
     // Arrange
     //MockTablero mockTableroPrincipal = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
     Coordenada coordenada = new Coordenada(1, 1);
 
     // Act
@@ -43,13 +43,13 @@ class JugadorPersonaTest {
     // Arrange
     //MockTablero mockTableroPrincipal = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
     Coordenada coordenada = new Coordenada(16, 16);
 
     // Act
     jugador.recibirGolpe(coordenada);
     Casilla casillaGolpeada = jugador.obtenerTableroPrincipal().buscarCasilla(coordenada);
-    boolean resultado = casillaGolpeada.esGolpeada();
+    boolean resultado = !(casillaGolpeada == null);
 
     // Assert
     assertFalse(resultado);
@@ -60,7 +60,7 @@ class JugadorPersonaTest {
     // Arrange
     //MockTablero mockTablero = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
 
     // Act
     boolean resultado = jugador.obtenerTableroPrincipal() != null;
@@ -75,7 +75,7 @@ class JugadorPersonaTest {
     //MockTablero mockTableroPrincipal = new MockTablero(10, true);
     //MockTablero mockTableroSecundario = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
 
     // Act
     boolean resultado = jugador.obtenerTableroSecundario() != null;
@@ -89,7 +89,7 @@ class JugadorPersonaTest {
     // Arrange
     //MockTablero mockTablero = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
 
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
     coordenadasBarco.add(new Coordenada(2, 3));
@@ -112,7 +112,7 @@ class JugadorPersonaTest {
     // Arrange
     //MockTablero mockTablero = new MockTablero(10, false);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
 
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
     coordenadasBarco.add(new Coordenada(5, 6));
@@ -134,7 +134,7 @@ class JugadorPersonaTest {
     // Arrange
     //MockTablero mockTablero = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
 
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
     coordenadasBarco.add(new Coordenada(2, 3));
@@ -156,7 +156,7 @@ class JugadorPersonaTest {
   void testComprobarBarcosHundidos_expectedFalse() {
     // Arrange
     Jugador jugador = new JugadorPersona("noname");
-    jugador.asignarTablerosVacios(10, 10);
+    jugador.asignarTablerosVacios(10);
 
     ArrayList<Coordenada> coordenadasBarco1 = new ArrayList<>();
     coordenadasBarco1.add(new Coordenada(2, 3));
@@ -177,4 +177,44 @@ class JugadorPersonaTest {
     // Assert
     assertFalse(resultado);
   }
+
+  @Test
+  void testRegistrarGolpe_expectedTrue() {
+    // Arrange
+    Jugador jugador = new JugadorPersona("noname");
+    jugador.asignarTablerosVacios(10);
+
+    Coordenada coordenada = new Coordenada(2, 3);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(coordenada);
+    Tablero tableroSecundario = new Tablero(10);
+    tableroSecundario.colocarBarco(coordenadas);
+
+    // Act
+    jugador.registrarGolpe(coordenada, tableroSecundario);
+
+    // Assert
+    Tablero tablero = jugador.obtenerTableroSecundario();
+    Casilla casilla = tablero.buscarCasilla(coordenada);
+    assertTrue(casilla.esGolpeada());
+  }
+
+  @Test
+  void testRegistrarGolpe_expectedFalse() {
+    // Arrange
+    Jugador jugador = new JugadorPersona("noname");
+    jugador.asignarTablerosVacios(10);
+
+    Coordenada coordenada = new Coordenada(2, 3);
+    Tablero tableroSecundario = new Tablero(10);
+
+    // Act
+    jugador.registrarGolpe(coordenada, tableroSecundario);
+
+    // Assert
+    Tablero tablero = jugador.obtenerTableroSecundario();
+    Casilla casilla = tablero.buscarCasilla(coordenada);
+    assertFalse(casilla.esGolpeada());
+  }
+
 }

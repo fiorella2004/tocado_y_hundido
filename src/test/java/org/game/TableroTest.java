@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TableroTest {
-  Tablero tablero = new Tablero(10, 10);
 
   @Test
   public void testConstructorDimension10_expectedTrue() {
@@ -26,7 +25,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension9_expectedTrue() {
     //Arrange
-    //tablero.setDimension(9);
+    Tablero tablero = new Tablero(9);
 
     //Act
     int filas = tablero.getNumFilas();
@@ -40,7 +39,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension15_expectedTrue() {
     //Arrange
-    //tablero.setDimension(15);
+    Tablero tablero = new Tablero(15);
 
     //Act
     int filas = tablero.getNumFilas();
@@ -54,7 +53,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension16_expectedTrue() {
     //Arrange
-    //tablero.setDimension(16);
+    Tablero tablero = new Tablero(16);
 
     //Act
     int filas = tablero.getNumFilas();
@@ -68,7 +67,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension12_expectedTrue() {
     //Arrange
-    //tablero.setDimension(12);
+    Tablero tablero = new Tablero(12);
 
     //Act
     int filas = tablero.getNumFilas();
@@ -82,7 +81,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension20_expectedTrue() {
     //Arrange
-    //tablero.setDimension(20);
+    Tablero tablero = new Tablero(20);
 
     //Act
     int filas = tablero.getNumFilas();
@@ -96,7 +95,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension11_expectedTrue() {
     //Arrange
-    //tablero.setDimension(11);
+    Tablero tablero = new Tablero(11);
 
     //Act
     int filas = tablero.getNumFilas();
@@ -110,7 +109,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension14_expectedTrue() {
     //Arrange
-    //tablero.setDimension(14);
+    Tablero tablero = new Tablero(14);
 
     // Act
     int filas = tablero.getNumFilas();
@@ -124,7 +123,7 @@ class TableroTest {
   @Test
   public void testConstructorDimensionNegative_expectedTrue() {
     //Arrange
-    //tablero.setDimension(-1);
+    Tablero tablero = new Tablero(-1);
 
     // Act
     int filas = tablero.getNumFilas();
@@ -138,7 +137,7 @@ class TableroTest {
   @Test
   public void testConstructorDimension0_expectedTrue() {
     //Arrange
-    //tablero.setDimension(0);
+    Tablero tablero = new Tablero(0);
 
     // Act
     int filas = tablero.getNumFilas();
@@ -152,7 +151,7 @@ class TableroTest {
   @Test
   public void testColocarBarco2Casillas_DentroTablero_expectedTrue() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(1, 1));
     coordenadas.add(new Coordenada(1, 2));
@@ -168,7 +167,7 @@ class TableroTest {
   @Test
   public void testColocarBarco2Casillas_FueraTableroHorizontal_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(1, 10));
     coordenadas.add(new Coordenada(1, 11));
@@ -184,7 +183,7 @@ class TableroTest {
   @Test
   public void testColocarBarco2Casillas_FueraTableroVertical_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(10, 1));
     coordenadas.add(new Coordenada(11, 1));
@@ -200,7 +199,7 @@ class TableroTest {
   @Test
   public void testColocarBarco5Casillas_DentroTablero_expectedTrue() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(1, 1));
     coordenadas.add(new Coordenada(1, 2));
@@ -219,7 +218,7 @@ class TableroTest {
   @Test
   public void testColocarBarco5Casillas_FueraTableroHorizontal_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(1, 7));
     coordenadas.add(new Coordenada(1, 8));
@@ -237,7 +236,7 @@ class TableroTest {
   @Test
   public void testColocarBarco5Casillas_FueraTableroVertical_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(7, 1));
     coordenadas.add(new Coordenada(8, 1));
@@ -256,7 +255,7 @@ class TableroTest {
   @Test
   public void testColocarBarco2Casillas_expectedTrue() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(1, 1));
     coordenadas.add(new Coordenada(1, 2));
@@ -271,7 +270,7 @@ class TableroTest {
   @Test
   public void testColocarBarco2Casillas_SolaparHorizontal_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas1 = new ArrayList<>();
     coordenadas1.add(new Coordenada(1, 6));
     coordenadas1.add(new Coordenada(1, 7));
@@ -291,7 +290,7 @@ class TableroTest {
   @Test
   public void testColocarBarco2Casillas_SolaparVertical_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas1 = new ArrayList<>();
     coordenadas1.add(new Coordenada(6, 1));
     coordenadas1.add(new Coordenada(7, 1));
@@ -311,7 +310,7 @@ class TableroTest {
   @Test
   public void testColocarBarco5Casillas_expectedTrue() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(1, 1));
     coordenadas.add(new Coordenada(1, 2));
@@ -329,7 +328,7 @@ class TableroTest {
   @Test
   public void testColocarBarco5Casillas_SolaparHorizontal_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas1 = new ArrayList<>();
     coordenadas1.add(new Coordenada(1, 1));
     coordenadas1.add(new Coordenada(1, 2));
@@ -355,7 +354,7 @@ class TableroTest {
   @Test
   public void testColocarBarco5Casillas_SolaparVertical_expectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
 
     ArrayList<Coordenada> coordenadas1 = new ArrayList<>();
     coordenadas1.add(new Coordenada(1, 1));
@@ -382,7 +381,7 @@ class TableroTest {
   @Test
   public void testBuscarCasilla_Agua_ExpectedTrue() {
     // Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(1, 1);
     Casilla casillaABuscar = new Agua(coordenada);
 
@@ -397,7 +396,7 @@ class TableroTest {
   @Test
   public void testBuscarCasilla_ExpectedFalse() {
     // Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(16, 20);
     Casilla casillaABuscar = new Agua(coordenada);
 
@@ -412,7 +411,7 @@ class TableroTest {
   @Test
   public void testRecibirGolpe_CasillaExiste() {
     // Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(1, 1);
 
     //Act
@@ -425,7 +424,7 @@ class TableroTest {
   @Test
   public void testRecibirGolpe_CasillaNoExiste() {
     // Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(20, 20);
 
     //Act
@@ -438,7 +437,7 @@ class TableroTest {
   @Test
   public void testTodosBarcosHundidos1Barco_ExpectedTrue() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
 
     ArrayList<Coordenada> coords = new ArrayList<>();
     Coordenada coordenada = new Coordenada(0, 1);
@@ -456,7 +455,7 @@ class TableroTest {
   @Test
   public void testTodosBarcosHundidos5Barco_ExpectedTrue() {
     // Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
 
     // Barco de 2 coordenadas
     ArrayList<Coordenada> coords1 = new ArrayList<>();
@@ -521,7 +520,7 @@ class TableroTest {
   @Test
   public void testTodosBarcosHundidos1Barco_ExpectedFalse() {
     //Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
 
     ArrayList<Coordenada> coords = new ArrayList<>();
     Coordenada coordenada = new Coordenada(0, 1);
@@ -541,7 +540,7 @@ class TableroTest {
   @Test
   public void testTodosBarcosHundidos5Barco_ExpectedFalse() {
     // Arrange
-    Tablero tablero = new Tablero(10, 10);
+    Tablero tablero = new Tablero(10);
 
     // Barco de 2 coordenadas
     ArrayList<Coordenada> coords1 = new ArrayList<>();

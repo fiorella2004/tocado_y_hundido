@@ -19,8 +19,8 @@ public class JugadorPersona extends Jugador {
   }
 
   @Override
-  public void registrarGolpe(Coordenada coordenada, Tablero tablePrincipalOponente) {
-    adaptarTableroSecundario(coordenada, tablePrincipalOponente);
+  public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente) {
+    adaptarTableroSecundario(coordenada, tableroPrincipalOponente);
     tableroSecundario.recibirGolpe(coordenada);
   }
 }
