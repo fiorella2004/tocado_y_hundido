@@ -434,4 +434,170 @@ class TableroTest {
     assertFalse(golpeada);
   }
 
+  @Test
+  public void testTodosBarcosHundidos1Barco_ExpectedTrue() {
+    //Arrange
+    Tablero tablero = new Tablero(10);
+
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada = new Coordenada(0,1);
+    coords.add(coordenada);
+    tablero.colocarBarco(coords);
+    tablero.recibirGolpe(coordenada);
+
+    // Act
+    boolean resultado = tablero.comprobarTodosBarcosHundidos();
+
+    // Test
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void testTodosBarcosHundidos5Barco_ExpectedTrue() {
+    // Arrange
+    Tablero tablero = new Tablero(10);  // Suponemos un tablero de 10x10
+
+    // Barco de 2 coordenadas
+    ArrayList<Coordenada> coords1 = new ArrayList<>();
+    coords1.add(new Coordenada(0, 1));
+    coords1.add(new Coordenada(0, 2));
+    tablero.colocarBarco(coords1);
+
+    // Barco de 3 coordenadas
+    ArrayList<Coordenada> coords2 = new ArrayList<>();
+    coords2.add(new Coordenada(1, 1));
+    coords2.add(new Coordenada(1, 2));
+    coords2.add(new Coordenada(1, 3));
+    tablero.colocarBarco(coords2);
+
+    // Barco de 3 coordenadas
+    ArrayList<Coordenada> coords3 = new ArrayList<>();
+    coords3.add(new Coordenada(2, 1));
+    coords3.add(new Coordenada(2, 2));
+    coords3.add(new Coordenada(2, 3));
+    tablero.colocarBarco(coords3);
+
+    // Barco de 4 coordenadas
+    ArrayList<Coordenada> coords4 = new ArrayList<>();
+    coords4.add(new Coordenada(3, 1));
+    coords4.add(new Coordenada(3, 2));
+    coords4.add(new Coordenada(3, 3));
+    coords4.add(new Coordenada(3, 4));
+    tablero.colocarBarco(coords4);
+
+    // Barco de 5 coordenadas
+    ArrayList<Coordenada> coords5 = new ArrayList<>();
+    coords5.add(new Coordenada(4, 1));
+    coords5.add(new Coordenada(4, 2));
+    coords5.add(new Coordenada(4, 3));
+    coords5.add(new Coordenada(4, 4));
+    coords5.add(new Coordenada(4, 5));
+    tablero.colocarBarco(coords5);
+
+    // Act
+    // Simular que todos los barcos han sido golpeados
+    for (Coordenada coord : coords1) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords2) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords3) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords4) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords5) {
+      tablero.recibirGolpe(coord);
+    }
+
+    boolean resultado = tablero.comprobarTodosBarcosHundidos();
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void testTodosBarcosHundidos1Barco_ExpectedFalse() {
+    //Arrange
+    Tablero tablero = new Tablero(10);
+
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada = new Coordenada(0,1);
+    Coordenada coordenada2 = new Coordenada(0,2);
+    coords.add(coordenada);
+    coords.add(coordenada2);
+    tablero.colocarBarco(coords);
+    tablero.recibirGolpe(coordenada);
+
+    // Act
+    boolean resultado = tablero.comprobarTodosBarcosHundidos();
+
+    // Test
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testTodosBarcosHundidos5Barco_ExpectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);  // Suponemos un tablero de 10x10
+
+    // Barco de 2 coordenadas
+    ArrayList<Coordenada> coords1 = new ArrayList<>();
+    coords1.add(new Coordenada(0, 1));
+    coords1.add(new Coordenada(0, 2));
+    tablero.colocarBarco(coords1);
+
+    // Barco de 3 coordenadas
+    ArrayList<Coordenada> coords2 = new ArrayList<>();
+    coords2.add(new Coordenada(1, 1));
+    coords2.add(new Coordenada(1, 2));
+    coords2.add(new Coordenada(1, 3));
+    tablero.colocarBarco(coords2);
+
+    // Barco de 3 coordenadas
+    ArrayList<Coordenada> coords3 = new ArrayList<>();
+    coords3.add(new Coordenada(2, 1));
+    coords3.add(new Coordenada(2, 2));
+    coords3.add(new Coordenada(2, 3));
+    tablero.colocarBarco(coords3);
+
+    // Barco de 4 coordenadas
+    ArrayList<Coordenada> coords4 = new ArrayList<>();
+    coords4.add(new Coordenada(3, 1));
+    coords4.add(new Coordenada(3, 2));
+    coords4.add(new Coordenada(3, 3));
+    coords4.add(new Coordenada(3, 4));
+    tablero.colocarBarco(coords4);
+
+    // Barco de 5 coordenadas
+    ArrayList<Coordenada> coords5 = new ArrayList<>();
+    coords5.add(new Coordenada(4, 1));
+    coords5.add(new Coordenada(4, 2));
+    coords5.add(new Coordenada(4, 3));
+    coords5.add(new Coordenada(4, 4));
+    coords5.add(new Coordenada(4, 5));
+    tablero.colocarBarco(coords5);
+
+    // Act
+    // Simular que todos los barcos han sido golpeados
+    for (Coordenada coord : coords1) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords2) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords3) {
+      tablero.recibirGolpe(coord);
+    }
+    for (Coordenada coord : coords4) {
+      tablero.recibirGolpe(coord);
+    }
+
+    boolean resultado = tablero.comprobarTodosBarcosHundidos();
+
+    // Assert
+    assertFalse(resultado);
+  }
 }

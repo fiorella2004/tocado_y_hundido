@@ -109,4 +109,8 @@ public class Tablero {
     }
     return null;
   }
+
+  public boolean comprobarTodosBarcosHundidos() {
+    return false;
+  }
 }
