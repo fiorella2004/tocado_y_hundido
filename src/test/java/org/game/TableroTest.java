@@ -378,4 +378,60 @@ class TableroTest {
     assertFalse(resultado);
   }
 
+  @Test
+  public void testBuscarCasilla_Agua_ExpectedTrue() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    Coordenada coordenada = new Coordenada(1, 1);
+    Casilla casillaABuscar = new Agua(coordenada);
+
+    // Act
+    Casilla casillaEncontrada = tablero.buscarCasilla(coordenada);
+
+    // Asssert
+    assertNotNull(casillaEncontrada);
+    assertEquals(casillaABuscar, casillaABuscar);
+  }
+
+  @Test
+  public void testBuscarCasilla_ExpectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    Coordenada coordenada = new Coordenada(16, 20);
+    Casilla casillaABuscar = new Agua(coordenada);
+
+    // Act
+    Casilla casillaEncontrada = tablero.buscarCasilla(coordenada);
+
+    // Asssert
+    assertNull(casillaEncontrada);
+    assertNotEquals(casillaABuscar, casillaABuscar);
+  }
+
+  @Test
+  public void testRecibirGolpe_CasillaExiste() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    Coordenada coordenada = new Coordenada(1, 1);
+
+    //Act
+    boolean golpeada = tablero.recibirGolpe(coordenada);
+
+    //Test
+    assertTrue(golpeada);
+  }
+
+  @Test
+  public void testRecibirGolpe_CasillaNoExiste() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    Coordenada coordenada = new Coordenada(20, 20);
+
+    //Act
+    boolean golpeada = tablero.recibirGolpe(coordenada);
+
+    //Test
+    assertFalse(golpeada);
+  }
+
 }
