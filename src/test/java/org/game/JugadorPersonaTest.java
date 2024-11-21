@@ -1,9 +1,7 @@
 package org.game;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class JugadorPersonaTest {
@@ -49,10 +47,9 @@ class JugadorPersonaTest {
     // Act
     jugador.recibirGolpe(coordenada);
     Casilla casillaGolpeada = jugador.obtenerTableroPrincipal().buscarCasilla(coordenada);
-    boolean resultado = !(casillaGolpeada == null);
 
     // Assert
-    assertFalse(resultado);
+    assertNull(casillaGolpeada);
   }
 
   @Test
@@ -192,10 +189,10 @@ class JugadorPersonaTest {
 
     // Act
     jugador.registrarGolpe(coordenada, tableroSecundario);
-
-    // Assert
     Tablero tablero = jugador.obtenerTableroSecundario();
     Casilla casilla = tablero.buscarCasilla(coordenada);
+
+    // Assert
     assertTrue(casilla.esGolpeada());
   }
 
@@ -210,11 +207,71 @@ class JugadorPersonaTest {
 
     // Act
     jugador.registrarGolpe(coordenada, tableroSecundario);
-
-    // Assert
     Tablero tablero = jugador.obtenerTableroSecundario();
     Casilla casilla = tablero.buscarCasilla(coordenada);
+
+    // Assert
     assertFalse(casilla.esGolpeada());
   }
 
+  @Test
+  void testAdaptarTableroSecundario_casillaBarco_expectedTrue() {
+    // Arrange
+    Jugador jugador = new JugadorPersona("noname");
+    jugador.asignarTablerosVacios(10);
+
+    Tablero tableroPrincipalOponente = new Tablero(10);
+    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+    coordenadasBarco.add(new Coordenada(2, 3));
+    tableroPrincipalOponente.colocarBarco(coordenadasBarco);
+
+    // Act
+    Coordenada coordenadaGolpeada = new Coordenada(2, 3);
+    jugador.adaptarTableroSecundario(coordenadaGolpeada, tableroPrincipalOponente);
+    Casilla casillaTableroSecundario = jugador.obtenerTableroSecundario().buscarCasilla(coordenadaGolpeada);
+
+    // Assert
+    assertTrue(casillaTableroSecundario instanceof Barco);
+  }
+
+  @Test
+  void testAdaptarTableroSecundario_casillaNull_expectedNull() {
+    // Arrange
+    Jugador jugador = new JugadorPersona("noname");
+    jugador.asignarTablerosVacios(10);
+
+    Tablero tableroPrincipalOponente = new Tablero(10);
+    Coordenada coordenadaGolpeada = new Coordenada(2, 3);
+
+    // Act
+    jugador.adaptarTableroSecundario(coordenadaGolpeada, tableroPrincipalOponente);
+    Casilla casillaEnSecundario = jugador.obtenerTableroSecundario().buscarCasilla(coordenadaGolpeada);
+
+    // Assert
+    assertNull(casillaEnSecundario);
+  }
+
+  @Test
+  void testAdaptarTableroSecundario_variasCasillasGolpeadas_expectedTrueAndNull() {
+    // Arrange
+    Jugador jugador = new JugadorPersona("noname");
+    jugador.asignarTablerosVacios(10);
+
+    Tablero tableroPrincipalOponente = new Tablero(10);
+    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+    coordenadasBarco.add(new Coordenada(2, 3));
+    coordenadasBarco.add(new Coordenada(2, 4));
+    tableroPrincipalOponente.colocarBarco(coordenadasBarco);
+
+    // Act
+    jugador.adaptarTableroSecundario(new Coordenada(2, 3), tableroPrincipalOponente);
+    jugador.adaptarTableroSecundario(new Coordenada(3, 5), tableroPrincipalOponente);
+
+    // Assert
+    Tablero tableroSecundario = jugador.obtenerTableroSecundario();
+    Casilla casillaBarco = tableroSecundario.buscarCasilla(new Coordenada(2, 3));
+    Casilla casillaNull = tableroSecundario.buscarCasilla(new Coordenada(3, 5));
+    assertTrue(casillaBarco instanceof Barco);
+    assertNull(casillaNull);
+  }
 }
