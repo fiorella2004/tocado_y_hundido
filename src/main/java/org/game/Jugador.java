@@ -25,7 +25,7 @@ public abstract class Jugador {
 
   public Tablero obtenerTableroSecundario() {return tableroSecundario;}
 
-  public boolean comprovarTodosBarcosHundidos() {return tableroPrincipal.comprobarTodosBarcosHundidos();}
+  public boolean comprobarTodosBarcosHundidos() {return tableroPrincipal.comprobarTodosBarcosHundidos();}
 
   public abstract boolean colocarBarcos(ArrayList<Coordenada> casillasBarco);
 
