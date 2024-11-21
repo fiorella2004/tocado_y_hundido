@@ -1,5 +1,7 @@
 package org.game;
 
+import java.util.Objects;
+
 public abstract class Casilla {
 
   protected int id;
@@ -14,11 +16,11 @@ public abstract class Casilla {
 
   public abstract String getDibujo();
 
+  public abstract void recibirGolpe();
+
   public boolean esGolpeada() {
     return golpeada;
   }
-
-  public abstract void recibirGolpe();
 
   public void setId(int id) {
     this.id = id;
@@ -32,4 +34,14 @@ public abstract class Casilla {
     return coordenada;
   }
 
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+    Casilla other = (Casilla) obj;
+    return id == other.id && Objects.equals(coordenada, other.coordenada);
+  }
 }

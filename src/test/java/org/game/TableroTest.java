@@ -379,7 +379,7 @@ class TableroTest {
   }
 
   @Test
-  public void testBuscarCasilla_Agua_ExpectedTrue() {
+  public void testBuscarCasilla_Agua_ExpectedNotNullAndEquals() {
     // Arrange
     Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(1, 1);
@@ -390,11 +390,11 @@ class TableroTest {
 
     // Asssert
     assertNotNull(casillaEncontrada);
-    assertEquals(casillaABuscar, casillaABuscar);
+    assertEquals(casillaABuscar, casillaEncontrada);
   }
 
   @Test
-  public void testBuscarCasilla_ExpectedFalse() {
+  public void testBuscarCasilla_ExpectedNullAndNotEquals() {
     // Arrange
     Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(16, 20);
@@ -405,7 +405,7 @@ class TableroTest {
 
     // Asssert
     assertNull(casillaEncontrada);
-    assertNotEquals(casillaABuscar, casillaABuscar);
+    assertNotEquals(casillaABuscar, casillaEncontrada);
   }
 
   @Test
@@ -592,7 +592,6 @@ class TableroTest {
     for (Coordenada coord : coords4) {
       tablero.recibirGolpe(coord);
     }
-
     boolean resultado = tablero.comprobarTodosBarcosHundidos();
 
     // Assert

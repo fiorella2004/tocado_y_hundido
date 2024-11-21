@@ -76,8 +76,8 @@ public class Tablero {
 
   public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas) {
     for (Coordenada coordenada : coordenadas) {
-      if (coordenada.getFila() > numFilas || coordenada.getFila() <= 0 ||
-          coordenada.getCol() > numCols || coordenada.getCol() <= 0) {
+      if (coordenada.getFila() >= numFilas || coordenada.getFila() < 0 ||
+          coordenada.getCol() >= numCols || coordenada.getCol() < 0) {
         return false;
       }
     }
