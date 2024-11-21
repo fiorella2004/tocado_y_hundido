@@ -90,11 +90,23 @@ public class Tablero {
     return true;
   }
 
-  public boolean recibirGolpe(Coordenada coordenada){
+  public boolean recibirGolpe(Coordenada coordenada) {
+    Casilla casillaGolpeada = buscarCasilla(coordenada);
+
+    if (casillaGolpeada != null) {
+      casillaGolpeada.recibirGolpe();
+      return true;
+    }
     return false;
   }
 
   public Casilla buscarCasilla(Coordenada coordenada) {
+    for (Casilla casilla : tablero) {
+      Coordenada coordenadaCasilla = casilla.obtenerCoordenada();
+      if (coordenadaCasilla.equals(coordenada)) {
+        return casilla;
+      }
+    }
     return null;
   }
 }
