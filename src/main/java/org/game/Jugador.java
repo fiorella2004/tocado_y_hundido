@@ -17,9 +17,8 @@ public abstract class Jugador {
     this.nombre = nombre;
   }
 
-  public void asignarTablerosVacios(int numFilas, int numColumnas){
-    tableroPrincipal = new Tablero(numFilas, numColumnas);
-    tableroSecundario = new Tablero(numFilas, numColumnas);
+  public String getNombre() {
+    return nombre;
   }
 
   public Tablero obtenerTableroPrincipal() {return tableroPrincipal;}
@@ -28,7 +27,7 @@ public abstract class Jugador {
 
   public boolean comprovarTodosBarcosHundidos() {return tableroPrincipal.comprobarTodosBarcosHundidos();}
 
-  public abstract void colocarBarcos(ArrayList<Coordenada> casillasBarco);
+  public abstract boolean colocarBarcos(ArrayList<Coordenada> casillasBarco);
 
-  public abstract void recibirGolpe(Coordenada coordenada);
+  public abstract boolean recibirGolpe(Coordenada coordenada);
 }

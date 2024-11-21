@@ -17,4 +17,8 @@ public class MockTablero extends Tablero {
   public boolean comprobarTodosBarcosHundidos() {
     return resultado;
   }
+
+  public boolean recibirGolpe(Coordenada coordenada) {
+    return resultado;
+  }
 }
