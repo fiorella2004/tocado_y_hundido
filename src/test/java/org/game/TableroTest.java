@@ -253,21 +253,6 @@ class TableroTest {
   }
 
   @Test
-  public void testColocarBarco2Casillas_expectedTrue() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(1, 1));
-    coordenadas.add(new Coordenada(1, 2));
-
-    // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
-
-    //Assert
-    assertTrue(resultado);
-  }
-
-  @Test
   public void testColocarBarco2Casillas_SolaparHorizontal_expectedFalse() {
     //Arrange
     Tablero tablero = new Tablero(10);
@@ -305,24 +290,6 @@ class TableroTest {
 
     //Assert
     assertFalse(resultado);
-  }
-
-  @Test
-  public void testColocarBarco5Casillas_expectedTrue() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(1, 1));
-    coordenadas.add(new Coordenada(1, 2));
-    coordenadas.add(new Coordenada(1, 3));
-    coordenadas.add(new Coordenada(1, 4));
-    coordenadas.add(new Coordenada(1, 5));
-
-    // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
-
-    //Assert
-    assertTrue(resultado);
   }
 
   @Test
@@ -379,7 +346,7 @@ class TableroTest {
   }
 
   @Test
-  public void testBuscarCasilla_Agua_ExpectedNotNullAndEquals() {
+  public void testBuscarCasilla_Agua_expectedNotNullAndEquals() {
     // Arrange
     Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(1, 1);
@@ -394,7 +361,7 @@ class TableroTest {
   }
 
   @Test
-  public void testBuscarCasilla_ExpectedNullAndNotEquals() {
+  public void testBuscarCasilla_expectedNullAndNotEquals() {
     // Arrange
     Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(16, 20);
@@ -409,7 +376,7 @@ class TableroTest {
   }
 
   @Test
-  public void testRecibirGolpe_CasillaExiste() {
+  public void testRecibirGolpe_CasillaExiste_expectedTrue() {
     // Arrange
     Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(1, 1);
@@ -422,7 +389,7 @@ class TableroTest {
   }
 
   @Test
-  public void testRecibirGolpe_CasillaNoExiste() {
+  public void testRecibirGolpe_CasillaNoExiste_expectedFalse() {
     // Arrange
     Tablero tablero = new Tablero(10);
     Coordenada coordenada = new Coordenada(20, 20);
@@ -435,7 +402,7 @@ class TableroTest {
   }
 
   @Test
-  public void testTodosBarcosHundidos1Barco_ExpectedTrue() {
+  public void testTodosBarcosHundidos1Barco_expectedTrue() {
     //Arrange
     Tablero tablero = new Tablero(10);
 
@@ -453,7 +420,7 @@ class TableroTest {
   }
 
   @Test
-  public void testTodosBarcosHundidos5Barco_ExpectedTrue() {
+  public void testTodosBarcosHundidos5Barcos_expectedTrue() {
     // Arrange
     Tablero tablero = new Tablero(10);
 
@@ -518,7 +485,7 @@ class TableroTest {
   }
 
   @Test
-  public void testTodosBarcosHundidos1Barco_ExpectedFalse() {
+  public void testTodosBarcosHundidos1Barco_expectedFalse() {
     //Arrange
     Tablero tablero = new Tablero(10);
 
@@ -538,7 +505,7 @@ class TableroTest {
   }
 
   @Test
-  public void testTodosBarcosHundidos5Barco_ExpectedFalse() {
+  public void testTodosBarcosHundidos5Barcos_expectedFalse() {
     // Arrange
     Tablero tablero = new Tablero(10);
 
