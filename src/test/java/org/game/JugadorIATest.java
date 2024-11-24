@@ -1,73 +1,463 @@
 package org.game;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class JugadorIATest {
 
-  @Test
-  public void testLoopColocarBarco0Iteraciones() {
-    // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA", Collections.emptyList());
-    jugadorIA.colocarBarco(new ArrayList<>());
+  int dimensionTablero = 10;
+  ArrayList<Coordenada> casillasBarco = new ArrayList<>();
 
-    //Assert
-    verify(jugadorIA, times(0)).colocarBarcoAleatoriamente(anyInt());
+  @Test
+  public void testColocarBarcoVerticalArriba2Dimensiones_ExpectedTrue() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(9, 0); // 9 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(1); //Arriba
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco, 2);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(8, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
   }
 
   @Test
-  public void testLoopColocarBarco1Iteracion() {
+  public void testColocarBarcoVerticalAbajo2Dimensiones_ExpectedTrue() {
     // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA", Arrays.asList(2));
-    jugadorIA.colocarBarco(new ArrayList<>());
+    Random randomMock = mock(Random.class);
 
-    //Assert
-    verify(jugadorIA, times(1)).colocarBarcoAleatoriamente(anyInt());
+    when(randomMock.nextInt(10)).thenReturn(0, 0); // 0 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(2); //Abajo
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(1, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
   }
 
   @Test
-  public void testLoopColocarBarco2Iteraciones() {
+  public void testColocarBarcoHorizontalIzquierda2Dimensiones_ExpectedTrue() {
     // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA", Arrays.asList(2, 3));
-    jugadorIA.colocarBarco(new ArrayList<>());
+    Random randomMock = mock(Random.class);
 
-    //Assert
-    verify(jugadorIA, times(2)).colocarBarcoAleatoriamente(anyInt());
+    when(randomMock.nextInt(10)).thenReturn(0, 9); // 0 para fila, 9 para columna
+    when(randomMock.nextInt(4)).thenReturn(3); //Izquierda
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 9));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 8));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
   }
 
   @Test
-  public void testLoopColocarBarcoMMenorNIteraciones() {
+  public void testColocarBarcoHorizontalDerecha2Dimensiones_ExpectedTrue() {
     // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA", Arrays.asList(2, 3, 3));
-    jugadorIA.colocarBarco(new ArrayList<>());
+    Random randomMock = mock(Random.class);
 
-    //Assert
-    verify(jugadorIA, times(3)).colocarBarcoAleatoriamente(anyInt());
+    when(randomMock.nextInt(10)).thenReturn(9, 8); // 9 para fila, 8 para columna
+    when(randomMock.nextInt(4)).thenReturn(4); //Derecha
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 9));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
   }
 
   @Test
-  public void testLoopColocarBarcoNMenos1Iteraciones() {
+  public void testColocarBarcoVerticalArriba2Dimensiones_ExpectedFalse() {
     // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA", Arrays.asList(2, 3, 3, 4));
-    jugadorIA.colocarBarco(new ArrayList<>());
+    Random randomMock = mock(Random.class);
 
-    //Assert
-    verify(jugadorIA, times(4)).colocarBarcoAleatoriamente(anyInt());
+    when(randomMock.nextInt(10)).thenReturn(0, 0); // 0 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(1); //Arriba
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
+    coordenadasNoBarco.add(new Coordenada(0, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasNoBarco) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
   }
 
   @Test
-  public void testLoopColocarBarcoNIteraciones() {
+  public void testColocarBarcoVerticalAbajo2Dimensiones_ExpectedFalse() {
     // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA", Arrays.asList(2, 3, 3, 4, 5));
-    jugadorIA.colocarBarco(new ArrayList<>());
+    Random randomMock = mock(Random.class);
 
-    //Assert
-    verify(jugadorIA, times(5)).colocarBarcoAleatoriamente(anyInt());
+    when(randomMock.nextInt(10)).thenReturn(9, 0); // 9 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(2); //Abajo
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
+    coordenadasNoBarco.add(new Coordenada(9, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasNoBarco) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoHorizontalIzquierda2Dimensiones_ExpectedFalse() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(0, 0); // 0 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(3); //Izquierda
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
+    coordenadasNoBarco.add(new Coordenada(0, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasNoBarco) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoHorizontalaDerecha2Dimensiones_ExpectedFalse() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(9, 9); // 9 para fila, 9 para columna
+    when(randomMock.nextInt(4)).thenReturn(4); //Derecha
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,2);
+
+    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
+    coordenadasNoBarco.add(new Coordenada(9, 9));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasNoBarco) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoVerticalArriba5Dimensiones_ExpectedTrue() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(9, 0); // 9 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(1); //Arriba
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(8, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(7, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(6, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(5, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoVerticalAbajo5Dimensiones_ExpectedTrue() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(0, 0); // 0 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(2); //Abajo
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(1, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(2, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(3, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(4, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoHorizontalIzquierda5Dimensiones_ExpectedTrue() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(0, 9); // 0 para fila, 9 para columna
+    when(randomMock.nextInt(4)).thenReturn(3); //Izquierda
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 9));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 8));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 7));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 6));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 5));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoHorizontalDerecha5Dimensiones_ExpectedTrue() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(9, 5); // 9 para fila, 5 para columna
+    when(randomMock.nextInt(4)).thenReturn(4); //Derecha
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 5));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 6));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 7));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 9));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertTrue(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoVerticalArriba5Dimensiones_ExpectedFalse() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(3, 0); // 3 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(1); //Arriba
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(3, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(2, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(1, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoVerticalAbajo5Dimensiones_ExpectedFalse() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(6, 0); // 6 para fila, 0 para columna
+    when(randomMock.nextInt(4)).thenReturn(2); //Abajo
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(6, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(7, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(8, 0));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoHorizontalIzquierda5Dimensiones_ExpectedFalse() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(0, 3); // 0 para fila, 3 para columna
+    when(randomMock.nextInt(4)).thenReturn(3); //Izquierda
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 3));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 2));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 1));
+    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
+  }
+
+  @Test
+  public void testColocarBarcoHorizontalDerecha5Dimensiones_ExpectedFalse() {
+    // Arrange
+    Random randomMock = mock(Random.class);
+
+    when(randomMock.nextInt(10)).thenReturn(9, 6); // 0 para fila, 6 para columna
+    when(randomMock.nextInt(4)).thenReturn(4); //Derecha
+
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Tablero tableroPrincipal = new Tablero(10);
+
+    // Act
+    jugadorIA.colocarBarco(casillasBarco,5);
+
+    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 6));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 7));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
+    coordenadasBarcoEsperadas.add(new Coordenada(9, 9));
+
+    // Assert
+    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
+    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+      Casilla casilla = tablero.buscarCasilla(coordenada);
+      assertFalse(casilla instanceof Barco);
+    }
   }
 }
