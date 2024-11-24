@@ -9,8 +9,8 @@ public class JugadorPersona extends Jugador{
   }
 
   @Override
-  public boolean colocarBarcos(ArrayList<Coordenada> casillasBarco) {
-    tableroPrincipal.colocarBarco(casillasBarco);
+  public boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco) {
+    return tableroPrincipal.colocarBarco(casillasBarco);
   }
 
   @Override
