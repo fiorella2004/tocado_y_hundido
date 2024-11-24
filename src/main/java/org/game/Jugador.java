@@ -32,11 +32,9 @@ public abstract class Jugador {
     return tableroSecundario;
   }
 
-  public boolean comprobarTodosBarcosHundidos() {
-    return tableroPrincipal.comprobarTodosBarcosHundidos();
-  }
+  public boolean comprobarTodosBarcosHundidos() {return tableroPrincipal.comprobarTodosBarcosHundidos();}
 
-  public abstract void colocarBarco(ArrayList<Coordenada> casillasBarco);
+  public abstract boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco);
 
   public abstract void recibirGolpe(Coordenada coordenada);
 
