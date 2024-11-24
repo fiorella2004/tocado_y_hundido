@@ -517,6 +517,65 @@ public class JugadorIATest {
     assertFalse(casillaGolpeada.esGolpeada());
   }
 
+  @Test
+  public void testGolpearCoordenadaExistenteValorFrontera0_ExpectedTrue(){
+    // Arrange
+    Random randomMock = mock(Random.class);
+    when(randomMock.nextInt(10)).thenReturn(0, 0);
 
+    //Act
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Coordenada coordenadaAGolpear = jugadorIA.golpear();
 
+    //Assert
+    assertEquals(0, coordenadaAGolpear.getFila());
+    assertEquals(0, coordenadaAGolpear.getCol());
+  }
+
+  @Test
+  public void testGolpearCoordenadaExistenteValorFrontera9_ExpectedTrue(){
+    // Arrange
+    Random randomMock = mock(Random.class);
+    when(randomMock.nextInt(10)).thenReturn(9, 9);
+
+    //Act
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Coordenada coordenadaAGolpear = jugadorIA.golpear();
+
+    //Assert
+    assertEquals(9, coordenadaAGolpear.getFila());
+    assertEquals(9, coordenadaAGolpear.getCol());
+  }
+
+  @Test
+  public void testGolpearCoordenadaNoExistenteMenorLimite_ExpectedTrue(){
+    // Arrange
+    Random randomMock = mock(Random.class);
+    when(randomMock.nextInt(10)).thenReturn(-1, -1);
+
+    //Act
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Coordenada coordenadaAGolpear = jugadorIA.golpear();
+
+    //Assert
+    assertNull(coordenadaAGolpear);
+  }
+
+  @Test
+  public void testGolpearCoordenadaNoExistenteMayorLimite_ExpectedTrue(){
+    // Arrange
+    Random randomMock = mock(Random.class);
+    when(randomMock.nextInt(10)).thenReturn(10, 10);
+
+    //Act
+    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+    Coordenada coordenadaAGolpear = jugadorIA.golpear();
+
+    //Assert
+    assertNull(coordenadaAGolpear);
+  }
 }

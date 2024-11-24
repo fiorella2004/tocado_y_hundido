@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 public class JugadorIA extends Jugador{
-  //public Random random;
+  public Random random;
 
-  public JugadorIA(String nombre /*, Random random*/) {
+  public JugadorIA(String nombre , Random random) {
     super(nombre);
     //this.random = random;
   }
@@ -72,6 +72,10 @@ public class JugadorIA extends Jugador{
       coordenadas.add(new Coordenada(nuevaFila, nuevaCol));
     }
     return coordenadas;
+  }
+
+  public Coordenada golpear(){
+    return new Coordenada(0,0);
   }
 }
 
