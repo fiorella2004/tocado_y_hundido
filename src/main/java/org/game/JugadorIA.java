@@ -5,22 +5,23 @@ import java.util.List;
 
 public class JugadorIA extends Jugador{
 
-  private List<Integer> barcos;
-
-  public JugadorIA(String nombre, List<Integer> barcos) {
+  public JugadorIA(String nombre) {
     super(nombre);
-    this.barcos = barcos;
   }
 
   @Override
-  public void colocarBarco(ArrayList<Coordenada> casillasBarco) {
-    for (int dimensionBarco : barcos) {
-      colocarBarcoAleatoriamente(dimensionBarco);
-    }
+  public boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco) {
+      return true;
   }
 
-  public boolean colocarBarcoAleatoriamente(int dimensionBarco) {
-    return true;
+  @Override
+  public void recibirGolpe(Coordenada coordenada) {
+
+  }
+
+  @Override
+  public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente) {
+
   }
 }
 
