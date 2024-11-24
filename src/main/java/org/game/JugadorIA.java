@@ -75,7 +75,10 @@ public class JugadorIA extends Jugador{
   }
 
   public Coordenada golpear(){
-    return new Coordenada(0,0);
+    int fila = generarCoordenadaAleatoria();
+    int col = generarCoordenadaAleatoria();
+    Coordenada coordenadaAGolpear = new Coordenada(fila,col);
+    return coordenadaAGolpear;
   }
 }
 
