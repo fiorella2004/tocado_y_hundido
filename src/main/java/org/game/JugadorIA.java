@@ -29,7 +29,7 @@ public class JugadorIA extends Jugador{
 
   @Override
   public void recibirGolpe(Coordenada coordenada) {
-
+    tableroPrincipal.recibirGolpe(coordenada);
   }
 
   @Override
