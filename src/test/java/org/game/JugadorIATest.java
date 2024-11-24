@@ -23,7 +23,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco, 2);
@@ -50,7 +49,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -77,7 +75,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -104,7 +101,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -131,7 +127,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -157,7 +152,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -183,7 +177,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -209,7 +202,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,2);
@@ -235,7 +227,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
@@ -265,7 +256,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
@@ -295,7 +285,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
@@ -325,7 +314,6 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
@@ -355,20 +343,19 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
 
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(3, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(2, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(1, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
+    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
+    coordenadasBarcoNoEsperadas.add(new Coordenada(3, 0));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(2, 0));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(1, 0));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 0));
 
     // Assert
     Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
       Casilla casilla = tablero.buscarCasilla(coordenada);
       assertFalse(casilla instanceof Barco);
     }
@@ -384,20 +371,19 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
 
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(6, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(7, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(8, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
+    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
+    coordenadasBarcoNoEsperadas.add(new Coordenada(6, 0));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(7, 0));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(8, 0));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 0));
 
     // Assert
     Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
       Casilla casilla = tablero.buscarCasilla(coordenada);
       assertFalse(casilla instanceof Barco);
     }
@@ -413,20 +399,19 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
 
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 3));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 2));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 1));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
+    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
+    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 3));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 2));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 1));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 0));
 
     // Assert
     Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
       Casilla casilla = tablero.buscarCasilla(coordenada);
       assertFalse(casilla instanceof Barco);
     }
@@ -442,22 +427,23 @@ public class JugadorIATest {
 
     JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
-    Tablero tableroPrincipal = new Tablero(10);
 
     // Act
     jugadorIA.colocarBarco(casillasBarco,5);
 
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 6));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 7));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 9));
+    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
+    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 6));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 7));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 8));
+    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 9));
 
     // Assert
     Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
+    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
       Casilla casilla = tablero.buscarCasilla(coordenada);
       assertFalse(casilla instanceof Barco);
     }
   }
+
+
 }
