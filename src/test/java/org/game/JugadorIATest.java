@@ -445,5 +445,78 @@ public class JugadorIATest {
     }
   }
 
+  @Test
+  public void testRecibirGolpValorLimite0_ExpectedTrue(){
+    // Arrange
+    JugadorIA jugadorIA = new JugadorIA("IA");
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+
+    Coordenada coordenadaGolpear = new Coordenada(0,0);
+
+    //Act
+    jugadorIA.recibirGolpe(coordenadaGolpear);
+
+    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
+    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
+
+    //Assert
+    assertTrue(casillaGolpeada.esGolpeada());
+  }
+
+  @Test
+  public void testRecibirGolpValorLimite9_ExpectedTrue(){
+    // Arrange
+    JugadorIA jugadorIA = new JugadorIA("IA");
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+
+    Coordenada coordenadaGolpear = new Coordenada(9,9);
+
+    //Act
+    jugadorIA.recibirGolpe(coordenadaGolpear);
+
+    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
+    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
+
+    //Assert
+    assertTrue(casillaGolpeada.esGolpeada());
+  }
+
+  @Test
+  public void testRecibirGolpeValorFrontera10_ExpectedFalse(){
+    // Arrange
+    JugadorIA jugadorIA = new JugadorIA("IA");
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+
+    Coordenada coordenadaGolpear = new Coordenada(10,10);
+
+    //Act
+    jugadorIA.recibirGolpe(coordenadaGolpear);
+
+    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
+    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
+
+    //Assert
+    assertFalse(casillaGolpeada.esGolpeada());
+  }
+
+  @Test
+  public void testRecibirGolpeValorFronteraNegativo_ExpectedFalse(){
+    // Arrange
+    JugadorIA jugadorIA = new JugadorIA("IA");
+    jugadorIA.asignarTablerosVacios(dimensionTablero);
+
+    Coordenada coordenadaGolpear = new Coordenada(-1,-1);
+
+    //Act
+    jugadorIA.recibirGolpe(coordenadaGolpear);
+
+    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
+    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
+
+    //Assert
+    assertFalse(casillaGolpeada.esGolpeada());
+  }
+
+
 
 }
