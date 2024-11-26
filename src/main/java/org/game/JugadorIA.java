@@ -9,7 +9,11 @@ public class JugadorIA extends Jugador{
 
   public JugadorIA(String nombre , Random random) {
     super(nombre);
-    //this.random = random;
+    this.random = random;
+  }
+
+  public JugadorIA(String nombre) {
+    super(nombre);
   }
 
   @Override
