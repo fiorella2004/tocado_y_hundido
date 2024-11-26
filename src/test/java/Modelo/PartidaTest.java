@@ -1,6 +1,165 @@
 package Modelo;
 
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
+
 class PartidaTest {
-  
+
+  @Test
+  public void constructorPartida_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+
+    // Act
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    //Assert
+    Mockito.verify(mockJugadorPersona).asignarTablerosVacios(10);
+    Mockito.verify(mockJugadorIA).asignarTablerosVacios(10);
+    assertEquals(mockJugadorIA, partida.getjugadorIA());
+    assertEquals(mockJugadorPersona, partida.getJugadorPersona());
+  }
+
+  @Test
+  public void colocarBarcoJugador_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+
+    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0,0);
+    Coordenada coordenada2 = new Coordenada(1,0);
+    coordenadasBarco.add(coordenada1);
+    coordenadasBarco.add(coordenada2);
+
+    // Act
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Mockito.when(mockJugadorPersona.colocarBarco(coordenadasBarco, 2)).thenReturn(true);
+    boolean resultado = partida.colocarBarcoJugador(coordenadasBarco, 2);
+
+    //Assert
+    assertTrue(resultado);
+    Mockito.verify(mockJugadorPersona).colocarBarco(coordenadasBarco, 2);
+  }
+
+  @Test
+  public void colocarBarcoJugador_expectedFalse(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+
+    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0,0);
+    Coordenada coordenada2 = new Coordenada(1,0);
+    coordenadasBarco.add(coordenada1);
+    coordenadasBarco.add(coordenada2);
+
+    // Act
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Mockito.when(mockJugadorPersona.colocarBarco(coordenadasBarco, 2)).thenReturn(false);
+    boolean resultado = partida.colocarBarcoJugador(coordenadasBarco, 2);
+
+    //Assert
+    assertFalse(resultado);
+    Mockito.verify(mockJugadorPersona).colocarBarco(coordenadasBarco, 2);
+  }
+
+  @Test
+  public void colocarBarcosIA_verifyMethod() {
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+
+    // Act
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Mockito.when(mockJugadorIA.colocarBarco(coordenadasBarco, 2));
+    partida.colocarBarcoJugador(coordenadasBarco, 2);
+
+    //Assert
+    Mockito.verify(mockJugadorPersona).colocarBarco(coordenadasBarco, 2);
+  }
+
+  @Test
+  public void golpeaJugadorPersona_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+
+    // Act
+    Mockito.when(mockJugadorIA.recibirGolpe(coordenadaAGolpear)).thenReturn(true);
+    boolean resultado = partida.golpeaJugadorPersona(coordenadaAGolpear);
+
+    //Assert
+    Mockito.verify(mockJugadorIA).recibirGolpe(coordenadaAGolpear);
+    Mockito.verify(mockJugadorPersona).registrarGolpe(coordenadaAGolpear, mockJugadorIA.obtenerTableroPrincipal());
+    Mockito.verify(mockJugadorIA).obtenerTableroPrincipal();
+
+    assertTrue(resultado);
+
+  }
+
+  @Test
+  public void golpeaJugadorPersona_expectedFalse(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+
+    // Act
+    Mockito.when(mockJugadorIA.recibirGolpe(coordenadaAGolpear)).thenReturn(false);
+    boolean resultado = partida.golpeaJugadorPersona(coordenadaAGolpear);
+
+    //Assert
+    Mockito.verify(mockJugadorIA).recibirGolpe(coordenadaAGolpear);
+    Mockito.verify(mockJugadorPersona).registrarGolpe(coordenadaAGolpear, mockJugadorIA.obtenerTableroPrincipal());
+    Mockito.verify(mockJugadorIA).obtenerTableroPrincipal();
+
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void golpeaJugadorIA_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+
+    // Act
+    Mockito.when(mockJugadorPersona.recibirGolpe(coordenadaAGolpear)).thenReturn(true);
+    boolean resultado = partida.golpeaJugadorIA();
+
+    // Assert
+    Mockito.verify(mockJugadorPersona).recibirGolpe(coordenadaAGolpear);
+    Mockito.verify(mockJugadorIA).registrarGolpe(coordenadaAGolpear, mockJugadorPersona.obtenerTableroPrincipal());
+    Mockito.verify(mockJugadorPersona).obtenerTableroPrincipal();
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void golpeaJugadorIA_expectedFalse(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+
+    // Act
+    Mockito.when(mockJugadorPersona.recibirGolpe(coordenadaAGolpear)).thenReturn(false);
+    boolean resultado = partida.golpeaJugadorIA();
+
+    // Assert
+    Mockito.verify(mockJugadorPersona).recibirGolpe(coordenadaAGolpear);
+    Mockito.verify(mockJugadorIA).registrarGolpe(coordenadaAGolpear, mockJugadorPersona.obtenerTableroPrincipal());
+    Mockito.verify(mockJugadorPersona).obtenerTableroPrincipal();
+    assertFalse(resultado);
+  }
+
 }
