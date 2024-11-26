@@ -36,12 +36,9 @@ public class JugadorIATest {
   @Test
   public void testColocarBarcoVerticalAbajo2Dimensiones_ExpectedTrue() {
     // Arrange
-    Random randomMock = mock(Random.class);
+    MockRandom mockRandom = new MockRandom(new int[] {0, 0, 2}); // fila: 0; col : 0; direccion: 2 (abajo)
 
-    when(randomMock.nextInt(10)).thenReturn(0, 0); // 0 para fila, 0 para columna
-    when(randomMock.nextInt(4)).thenReturn(2); //Abajo
-
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -250,7 +247,7 @@ public class JugadorIATest {
     // Arrange
     MockRandom mockRandom = new MockRandom(new int[] {0, 9, 3}); // fila: 0; col : 9; direccion: 3 (izquierda)
 
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -274,12 +271,9 @@ public class JugadorIATest {
   @Test
   public void testColocarBarcoHorizontalDerecha5Dimensiones_ExpectedTrue() {
     // Arrange
-    Random randomMock = mock(Random.class);
+    MockRandom mockRandom = new MockRandom(new int[] {9, 5, 4}); // fila: 9; col: 5; direccion: 4 (derecha)
 
-    when(randomMock.nextInt(10)).thenReturn(9, 5); // 9 para fila, 5 para columna
-    when(randomMock.nextInt(4)).thenReturn(4); //Derecha
-
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -303,12 +297,9 @@ public class JugadorIATest {
   @Test
   public void testColocarBarcoVerticalArriba5Dimensiones_ExpectedFalse() {
     // Arrange
-    Random randomMock = mock(Random.class);
+    MockRandom mockRandom = new MockRandom(new int[] {3, 0, 1}); // fila: 3; col: 0; direccion: 1 (arriba)
 
-    when(randomMock.nextInt(10)).thenReturn(3, 0); // 3 para fila, 0 para columna
-    when(randomMock.nextInt(4)).thenReturn(1); //Arriba
-
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -331,12 +322,9 @@ public class JugadorIATest {
   @Test
   public void testColocarBarcoVerticalAbajo5Dimensiones_ExpectedFalse() {
     // Arrange
-    Random randomMock = mock(Random.class);
+    MockRandom mockRandom = new MockRandom(new int[] {6, 0, 2}); // fila: 6; col: 0; direccion: 2 (abajo)
 
-    when(randomMock.nextInt(10)).thenReturn(6, 0); // 6 para fila, 0 para columna
-    when(randomMock.nextInt(4)).thenReturn(2); //Abajo
-
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -359,12 +347,9 @@ public class JugadorIATest {
   @Test
   public void testColocarBarcoHorizontalIzquierda5Dimensiones_ExpectedFalse() {
     // Arrange
-    Random randomMock = mock(Random.class);
+    MockRandom mockRandom = new MockRandom(new int[] {0, 3, 3}); // fila: 0; col: 3; direccion: 3 (izquierda)
 
-    when(randomMock.nextInt(10)).thenReturn(0, 3); // 0 para fila, 3 para columna
-    when(randomMock.nextInt(4)).thenReturn(3); //Izquierda
-
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -387,12 +372,9 @@ public class JugadorIATest {
   @Test
   public void testColocarBarcoHorizontalDerecha5Dimensiones_ExpectedFalse() {
     // Arrange
-    Random randomMock = mock(Random.class);
+    MockRandom mockRandom = new MockRandom(new int[] {9, 6, 4}); // fila: 9; col: 6; direccion: 4 (derecha)
 
-    when(randomMock.nextInt(10)).thenReturn(9, 6); // 0 para fila, 6 para columna
-    when(randomMock.nextInt(4)).thenReturn(4); //Derecha
-
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
@@ -487,11 +469,10 @@ public class JugadorIATest {
   @Test
   public void testGolpearCoordenadaExistenteValorFrontera0_ExpectedTrue() {
     // Arrange
-    Random randomMock = mock(Random.class);
-    when(randomMock.nextInt(10)).thenReturn(0, 0);
+    MockRandom mockRandom = new MockRandom(new int[] {0, 0}); // fila: 0; col: 0
 
     //Act
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
     Coordenada coordenadaAGolpear = jugadorIA.golpear();
 
@@ -532,11 +513,10 @@ public class JugadorIATest {
   @Test
   public void testGolpearCoordenadaNoExistenteMayorLimite_ExpectedTrue() {
     // Arrange
-    Random randomMock = mock(Random.class);
-    when(randomMock.nextInt(10)).thenReturn(10, 10);
+    MockRandom mockRandom = new MockRandom(new int[] {10, 10}); // fila: 10; col: 10
 
     //Act
-    JugadorIA jugadorIA = new JugadorIA("IA", randomMock);
+    JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
     Coordenada coordenadaAGolpear = jugadorIA.golpear();
 
