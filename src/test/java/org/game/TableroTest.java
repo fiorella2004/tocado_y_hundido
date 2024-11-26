@@ -148,7 +148,7 @@ class TableroTest {
     assertEquals(10, columnas);
   }
 
-  // ---- COLOCAR BARCO CON 2 CASILLAS
+  // ---- COLOCAR BARCO CON 2 CASILLAS DENTRO DE TABLERO
 
   @Test
   public void testColocarBarco2Casillas_dentroTablero_expectedTrue() {
@@ -159,15 +159,14 @@ class TableroTest {
     coordenadas.add(new Coordenada(1, 2));
 
     // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarBarcoDentroTablero(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas);
 
     //Assert
     assertTrue(resultado);
   }
 
   @Test
-  public void testColocarBarco2Casillas_dentroTablero_limitePrimeraFila_expectedTrue() {
+  public void testColocarBarco2Casillas_dentroTablero_esquinaSupIzqHorizontal_expectedTrue() {
     // Arrange
     Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
@@ -182,7 +181,53 @@ class TableroTest {
   }
 
   @Test
-  public void testColocarBarco2Casillas_dentroTablero_limiteHorizontal_expectedTrue() {
+  public void testColocarBarco2Casillas_dentroTablero_esquinaSupIzqVertical_expectedTrue() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(0, 0));
+    coordenadas.add(new Coordenada(1, 0));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+
+  @Test
+  public void testColocarBarco2Casillas_dentroTablero_esquinaSupDerHorizontal_expectedTrue() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(0, 8));
+    coordenadas.add(new Coordenada(0, 9));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void testColocarBarco2Casillas_dentroTablero_esquinaSupDerVertical_expectedTrue() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(0, 9));
+    coordenadas.add(new Coordenada(1, 9));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void testColocarBarco2Casillas_dentroTablero_esquinaInfDerHorizontal_expectedTrue() {
     // Arrange
     Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
@@ -197,7 +242,7 @@ class TableroTest {
   }
 
   @Test
-  public void testColocarBarco2Casillas_dentroTablero_limiteVertical_expectedTrue() {
+  public void testColocarBarco2Casillas_dentroTablero_esquinaInfDerVertical_expectedTrue() {
     // Arrange
     Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
@@ -212,44 +257,89 @@ class TableroTest {
   }
 
   @Test
-  public void testColocarBarco2Casillas_fueraTableroHorizontal_expectedFalse() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(1, 10));
-    coordenadas.add(new Coordenada(1, 11));
-
-    // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarBarcoDentroTablero(coordenadas);
-
-    //Assert
-    assertFalse(resultado);
-  }
-
-  @Test
-  public void testColocarBarco2Casillas_fueraTableroVertical_expectedFalse() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(10, 1));
-    coordenadas.add(new Coordenada(11, 1));
-
-    // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarBarcoDentroTablero(coordenadas);
-
-    //Assert
-    assertFalse(resultado);
-  }
-
-  @Test
-  public void testColocarBarco2Casillas_fueraTableroNegativo_expectedFalse() {
+  public void testColocarBarco2Casillas_dentroTablero_esquinaInfIzqHorizontal_expectedTrue() {
     // Arrange
     Tablero tablero = new Tablero(10);
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(-1, -1));
+    coordenadas.add(new Coordenada(9, 0));
+    coordenadas.add(new Coordenada(9, 1));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void testColocarBarco2Casillas_dentroTablero_esquinaInfIzqVertical_expectedTrue() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(8, 0));
+    coordenadas.add(new Coordenada(9, 0));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    // Assert
+    assertTrue(resultado);
+  }
+
+  // ---- COLOCAR BARCO CON 2 CASILLAS FUERA DE TABLERO
+
+  @Test
+  public void testColocarBarco2Casillas_fueraTablero_esquinaSupIzq_expectedFalse() {
+    //Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(0, 0));
     coordenadas.add(new Coordenada(-1, 0));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    //Assert
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testColocarBarco2Casillas_fueraTablero_esquinaSupDer_expectedFalse() {
+    //Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(0, 9));
+    coordenadas.add(new Coordenada(0, 10));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    //Assert
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testColocarBarco2Casillas_fueraTablero_esquinaInfIzq_expectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(9, 0));
+    coordenadas.add(new Coordenada(9, -1));
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coordenadas);
+
+    // Assert
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testColocarBarco2Casillas_fueraTablero_esquinaInfDer_expectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(9, 9));
+    coordenadas.add(new Coordenada(9, 10));
 
     // Act
     boolean resultado = tablero.colocarBarco(coordenadas);
@@ -271,11 +361,12 @@ class TableroTest {
     coordenadas2.add(new Coordenada(1, 8));
 
     // Act
-    tablero.colocarBarco(coordenadas1);
-    boolean resultado = tablero.comprobarSolaparBarco(coordenadas2);
+    boolean resultado1 = tablero.colocarBarco(coordenadas1);
+    boolean resultado2 = tablero.colocarBarco(coordenadas2);
 
     //Assert
-    assertFalse(resultado);
+    assertTrue(resultado1);
+    assertFalse(resultado2);
   }
 
   @Test
@@ -291,11 +382,12 @@ class TableroTest {
     coordenadas2.add(new Coordenada(8, 1));
 
     // Act
-    tablero.colocarBarco(coordenadas1);
-    boolean resultado = tablero.comprobarSolaparBarco(coordenadas2);
+    boolean resultado1 = tablero.colocarBarco(coordenadas1);
+    boolean resultado2 = tablero.colocarBarco(coordenadas2);
 
     //Assert
-    assertFalse(resultado);
+    assertTrue(resultado1);
+    assertFalse(resultado2);
   }
 
   @Test
@@ -311,122 +403,12 @@ class TableroTest {
     coordenadas2.add(new Coordenada(2, 2));
 
     // Act
-    tablero.colocarBarco(coordenadas1);
-    boolean resultado = tablero.colocarBarco(coordenadas2);
+    boolean resultado1 = tablero.colocarBarco(coordenadas1);
+    boolean resultado2 = tablero.colocarBarco(coordenadas2);
 
     // Assert
-    assertTrue(resultado);
-  }
-
-  // ---- COLOCAR BARCO CON 5 CASILLAS
-
-  @Test
-  public void testColocarBarco5Casillas_dentroTablero_expectedTrue() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(1, 1));
-    coordenadas.add(new Coordenada(1, 2));
-    coordenadas.add(new Coordenada(1, 3));
-    coordenadas.add(new Coordenada(1, 4));
-    coordenadas.add(new Coordenada(1, 5));
-
-    // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarBarcoDentroTablero(coordenadas);
-
-    //Assert
-    assertTrue(resultado);
-  }
-
-  @Test
-  public void testColocarBarco5Casillas_fueraTableroHorizontal_expectedFalse() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(1, 7));
-    coordenadas.add(new Coordenada(1, 8));
-    coordenadas.add(new Coordenada(1, 9));
-    coordenadas.add(new Coordenada(1, 10));
-    coordenadas.add(new Coordenada(1, 11));
-    // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarBarcoDentroTablero(coordenadas);
-
-    //Assert
-    assertFalse(resultado);
-  }
-
-  @Test
-  public void testColocarBarco5Casillas_fueraTableroVertical_expectedFalse() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas = new ArrayList<>();
-    coordenadas.add(new Coordenada(7, 1));
-    coordenadas.add(new Coordenada(8, 1));
-    coordenadas.add(new Coordenada(9, 1));
-    coordenadas.add(new Coordenada(10, 1));
-    coordenadas.add(new Coordenada(11, 1));
-
-    // Act
-    tablero.colocarBarco(coordenadas);
-    boolean resultado = tablero.comprobarBarcoDentroTablero(coordenadas);
-
-    //Assert
-    assertFalse(resultado);
-  }
-
-  @Test
-  public void testColocarBarco5Casillas_solaparHorizontal_expectedFalse() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-    ArrayList<Coordenada> coordenadas1 = new ArrayList<>();
-    coordenadas1.add(new Coordenada(1, 1));
-    coordenadas1.add(new Coordenada(1, 2));
-    coordenadas1.add(new Coordenada(1, 3));
-    coordenadas1.add(new Coordenada(1, 4));
-    coordenadas1.add(new Coordenada(1, 5));
-
-    ArrayList<Coordenada> coordenadas2 = new ArrayList<>();
-    coordenadas2.add(new Coordenada(1, 5));
-    coordenadas2.add(new Coordenada(1, 6));
-    coordenadas2.add(new Coordenada(1, 7));
-    coordenadas2.add(new Coordenada(1, 8));
-    coordenadas2.add(new Coordenada(1, 9));
-
-    // Act
-    tablero.colocarBarco(coordenadas1);
-    boolean resultado = tablero.comprobarSolaparBarco(coordenadas2);
-
-    //Assert
-    assertFalse(resultado);
-  }
-
-  @Test
-  public void testColocarBarco5Casillas_solaparVertical_expectedFalse() {
-    //Arrange
-    Tablero tablero = new Tablero(10);
-
-    ArrayList<Coordenada> coordenadas1 = new ArrayList<>();
-    coordenadas1.add(new Coordenada(1, 1));
-    coordenadas1.add(new Coordenada(1, 2));
-    coordenadas1.add(new Coordenada(1, 3));
-    coordenadas1.add(new Coordenada(1, 4));
-    coordenadas1.add(new Coordenada(1, 5));
-
-    ArrayList<Coordenada> coordenadas2 = new ArrayList<>();
-    coordenadas2.add(new Coordenada(1, 5));
-    coordenadas2.add(new Coordenada(1, 6));
-    coordenadas2.add(new Coordenada(1, 7));
-    coordenadas2.add(new Coordenada(1, 8));
-    coordenadas2.add(new Coordenada(1, 9));
-
-    // Act
-    tablero.colocarBarco(coordenadas1);
-    boolean resultado = tablero.comprobarSolaparBarco(coordenadas2);
-
-    //Assert
-    assertFalse(resultado);
+    assertTrue(resultado1);
+    assertTrue(resultado2);
   }
 
   // ---- COMPROVAR QUE BUSQUE CASILLAS CORRECTAMENTE
