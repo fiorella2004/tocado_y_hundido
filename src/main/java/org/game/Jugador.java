@@ -38,7 +38,10 @@ public abstract class Jugador {
 
   public abstract void recibirGolpe(Coordenada coordenada);
 
-  public abstract void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente);
+  public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente){
+    adaptarTableroSecundario(coordenada, tableroPrincipalOponente);
+    tableroSecundario.recibirGolpe(coordenada);
+  };
 
   public void adaptarTableroSecundario(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     ArrayList<Coordenada> coordenadaGolpeada = new ArrayList<>();
