@@ -17,7 +17,7 @@ class CoordenadaTest {
   }
 
   @Test
-  void testEquals_expectedTrue() {
+  public void testEquals_expectedTrue() {
     // Arrange
     Coordenada coordenada1 = new Coordenada(5, 6);
     Coordenada coordenada2 = new Coordenada(5, 6);
@@ -27,7 +27,7 @@ class CoordenadaTest {
   }
 
   @Test
-  void testEquals_expectedFalseRow() {
+  public void testEquals_expectedFalseRow() {
     // Arrange
     Coordenada coordenada1 = new Coordenada(5, 6);
     Coordenada coordenada2 = new Coordenada(1, 6);
@@ -37,7 +37,7 @@ class CoordenadaTest {
   }
 
   @Test
-  void testEquals_expectedFalseCol() {
+  public void testEquals_expectedFalseCol() {
     // Arrange
     Coordenada coordenada1 = new Coordenada(5, 6);
     Coordenada coordenada2 = new Coordenada(5, 7);
