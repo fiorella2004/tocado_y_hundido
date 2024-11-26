@@ -190,6 +190,7 @@ class PartidaTest {
 
     // Act
     partida.cambiarTurno();
+    partida.cambiarTurno();
     int resultado = partida.obtenerTurno();
 
     // Assert
@@ -205,7 +206,7 @@ class PartidaTest {
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
-    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    Mockito.when(mockJugadorIA.comprobarTodosBarcosHundidos()).thenReturn(false);
     boolean resultado = partida.comprovarFinPartida();
 
     //Assert
@@ -221,7 +222,7 @@ class PartidaTest {
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
-    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
+    Mockito.when(mockJugadorIA.comprobarTodosBarcosHundidos()).thenReturn(true);
     boolean resultado = partida.comprovarFinPartida();
 
     //Assert
@@ -237,7 +238,7 @@ class PartidaTest {
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
-    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    Mockito.when(mockJugadorIA.comprobarTodosBarcosHundidos()).thenReturn(true);
     boolean resultado = partida.comprovarFinPartida();
 
     //Assert
@@ -245,7 +246,7 @@ class PartidaTest {
   }
 
   @Test
-  public void comprovarFinPartida2_expectedFalse() {
+  public void comprovarFinPartida4_expectedFalse() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -253,7 +254,7 @@ class PartidaTest {
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
-    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    Mockito.when(mockJugadorIA.comprobarTodosBarcosHundidos()).thenReturn(false);
     boolean resultado = partida.comprovarFinPartida();
 
     //Assert
