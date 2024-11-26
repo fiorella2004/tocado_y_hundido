@@ -38,9 +38,11 @@ public class Partida {
     int[] dimensionesBarcos = {2, 3, 3, 4, 5};
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(0, 0));
+
     for (int dimension : dimensionesBarcos) {
-      while(!jugadorIA.colocarBarco(coordenadas, dimension)){
-        jugadorIA.colocarBarco(coordenadas, dimension);
+      boolean barcoColocado = false;
+      while(!barcoColocado){
+        barcoColocado = jugadorIA.colocarBarco(coordenadas, dimension);
       }
     }
   }

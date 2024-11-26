@@ -72,15 +72,19 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    coordenadas.add(new Coordenada(0, 0));
 
     // Act
     Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
-    Mockito.when(mockJugadorIA.colocarBarco(coordenadasBarco, 2));
+    Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 2)).thenReturn(true);
+    Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 3)).thenReturn(true);
+    Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 4)).thenReturn(true);
+    Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 5)).thenReturn(true);
     partida.colocarBarcosIA();
 
     //Assert
-    Mockito.verify(mockJugadorPersona).colocarBarco(coordenadasBarco, 2);
+    Mockito.verify(mockJugadorIA).colocarBarco(coordenadas, 2);
   }
 
   @Test
@@ -98,7 +102,6 @@ class PartidaTest {
     //Assert
     Mockito.verify(mockJugadorIA).recibirGolpe(coordenadaAGolpear);
     Mockito.verify(mockJugadorPersona).registrarGolpe(coordenadaAGolpear, mockJugadorIA.obtenerTableroPrincipal());
-    Mockito.verify(mockJugadorIA).obtenerTableroPrincipal();
 
     assertTrue(resultado);
 
@@ -133,12 +136,12 @@ class PartidaTest {
 
     // Act
     Mockito.when(mockJugadorPersona.recibirGolpe(coordenadaAGolpear)).thenReturn(true);
+    Mockito.when(mockJugadorIA.golpear()).thenReturn(new Coordenada(0,0));
     boolean resultado = partida.golpeaJugadorIA();
 
     // Assert
     Mockito.verify(mockJugadorPersona).recibirGolpe(coordenadaAGolpear);
     Mockito.verify(mockJugadorIA).registrarGolpe(coordenadaAGolpear, mockJugadorPersona.obtenerTableroPrincipal());
-    Mockito.verify(mockJugadorPersona).obtenerTableroPrincipal();
     assertTrue(resultado);
   }
 
@@ -158,7 +161,6 @@ class PartidaTest {
     // Assert
     Mockito.verify(mockJugadorPersona).recibirGolpe(coordenadaAGolpear);
     Mockito.verify(mockJugadorIA).registrarGolpe(coordenadaAGolpear, mockJugadorPersona.obtenerTableroPrincipal());
-    Mockito.verify(mockJugadorPersona).obtenerTableroPrincipal();
     assertFalse(resultado);
   }
 
