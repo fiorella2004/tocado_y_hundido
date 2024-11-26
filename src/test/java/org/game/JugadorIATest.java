@@ -306,14 +306,14 @@ public class JugadorIATest {
     Coordenada coordenadaAGolpear = jugadorIA.golpear();
 
     //Assert
-    assertEquals(9, coordenadaAGolpear.getFila());
-    assertEquals(9, coordenadaAGolpear.getCol());
+    assertEquals(coordenadaAGolpear.getCol(), 0);
+    assertEquals(coordenadaAGolpear.getFila(), 9);
   }
 
   @Test
   public void testGolpearCoordenadaNoExistenteMenorLimite_ExpectedTrue() {
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {-1, -1}); // fila: -1; col: -1
+    MockRandom mockRandom = new MockRandom(new int[] {-1, -1, 0, 0}); // fila: -1; col: -1
 
     //Act
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
@@ -321,13 +321,14 @@ public class JugadorIATest {
     Coordenada coordenadaAGolpear = jugadorIA.golpear();
 
     //Assert
-    assertNull(coordenadaAGolpear);
+    assertEquals(coordenadaAGolpear.getCol(), 0);
+    assertEquals(coordenadaAGolpear.getFila(), 0);
   }
 
   @Test
   public void testGolpearCoordenadaNoExistenteMayorLimite_ExpectedTrue() {
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {10, 10}); // fila: 10; col: 10
+    MockRandom mockRandom = new MockRandom(new int[] {10, 10, 9, 9}); // fila: 10; col: 10
 
     //Act
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
@@ -335,7 +336,8 @@ public class JugadorIATest {
     Coordenada coordenadaAGolpear = jugadorIA.golpear();
 
     //Assert
-    assertNull(coordenadaAGolpear);
+    assertEquals(coordenadaAGolpear.getCol(), 9);
+    assertEquals(coordenadaAGolpear.getFila(), 9);
   }
 
   @Test

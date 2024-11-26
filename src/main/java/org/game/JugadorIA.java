@@ -72,9 +72,22 @@ public class JugadorIA extends Jugador {
   }
 
   public Coordenada golpear() {
-    int fila = generarCoordenadaAleatoria();
-    int col = generarCoordenadaAleatoria();
-    Coordenada coordenadaAGolpear = new Coordenada(fila, col);
+    boolean coordenadaValida = false;
+    Coordenada coordenadaAGolpear = new Coordenada(0, 0);
+    while(!coordenadaValida){
+      int fila = generarCoordenadaAleatoria();
+      int col = generarCoordenadaAleatoria();
+      if (fila >= 0 && fila <= 9 && col >= 0 && col <= 9) {
+        coordenadaAGolpear.setCol(col);
+        coordenadaAGolpear.setFila(fila);
+        Casilla casilla = tableroSecundario.buscarCasilla(coordenadaAGolpear);
+        if (casilla != null) {
+          if (!casilla.esGolpeada()) {
+            coordenadaValida = true;
+          }
+        }
+      }
+    }
     return coordenadaAGolpear;
   }
 }

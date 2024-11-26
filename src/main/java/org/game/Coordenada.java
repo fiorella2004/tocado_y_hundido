@@ -21,6 +21,10 @@ public class Coordenada {
     this.col = col;
   }
 
+  public void setFila(int fila) {
+    this.fila = fila;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
