@@ -85,7 +85,19 @@ public class Tablero {
   }
 
   private boolean comprobarCoordenadasContiguas(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
-    return false;
+    if (coordenadas.size() != dimensionBarco) {
+      return false;
+    }
+    for (int i = 1; i < coordenadas.size(); i++) {
+      Coordenada anterior = coordenadas.get(i - 1);
+      Coordenada actual = coordenadas.get(i);
+      boolean esAdyacente = (anterior.getFila() == actual.getFila() && Math.abs(anterior.getCol() - actual.getCol()) == 1) ||
+          (anterior.getCol() == actual.getCol() && Math.abs(anterior.getFila() - actual.getFila()) == 1);
+      if (!esAdyacente) {
+        return false;
+      }
+    }
+    return true;
   }
 
   public boolean recibirGolpe(Coordenada coordenada) {
