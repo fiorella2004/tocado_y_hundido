@@ -14,7 +14,7 @@ public class JugadorPersona extends Jugador {
   }
 
   @Override
-  public void recibirGolpe(Coordenada coordenada) {
-    tableroPrincipal.recibirGolpe(coordenada);
+  public boolean recibirGolpe(Coordenada coordenada) {
+    return tableroPrincipal.recibirGolpe(coordenada);
   }
 }

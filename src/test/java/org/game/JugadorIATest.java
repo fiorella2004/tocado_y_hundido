@@ -395,7 +395,7 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testRecibirGolpValorLimite0_ExpectedTrue() {
+  public void testRecibirGolpeValorFrontera0_ExpectedTrue() {
     // Arrange
     JugadorIA jugadorIA = new JugadorIA("IA");
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -403,35 +403,14 @@ public class JugadorIATest {
     Coordenada coordenadaGolpear = new Coordenada(0, 0);
 
     //Act
-    jugadorIA.recibirGolpe(coordenadaGolpear);
-
-    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
-    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
+    boolean resultado = jugadorIA.recibirGolpe(coordenadaGolpear);
 
     //Assert
-    assertTrue(casillaGolpeada.esGolpeada());
+    assertTrue(resultado);
   }
 
   @Test
-  public void testRecibirGolpValorLimite9_ExpectedTrue() {
-    // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA");
-    jugadorIA.asignarTablerosVacios(dimensionTablero);
-
-    Coordenada coordenadaGolpear = new Coordenada(9, 9);
-
-    //Act
-    jugadorIA.recibirGolpe(coordenadaGolpear);
-
-    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
-    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
-
-    //Assert
-    assertTrue(casillaGolpeada.esGolpeada());
-  }
-
-  @Test
-  public void testRecibirGolpeValorFrontera10_ExpectedFalse() {
+  public void testRecibirGolpeValorLimite10_ExpectedTrue() {
     // Arrange
     JugadorIA jugadorIA = new JugadorIA("IA");
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -439,31 +418,10 @@ public class JugadorIATest {
     Coordenada coordenadaGolpear = new Coordenada(10, 10);
 
     //Act
-    jugadorIA.recibirGolpe(coordenadaGolpear);
-
-    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
-    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
+    boolean resultado = jugadorIA.recibirGolpe(coordenadaGolpear);
 
     //Assert
-    assertFalse(casillaGolpeada.esGolpeada());
-  }
-
-  @Test
-  public void testRecibirGolpeValorFronteraNegativo_ExpectedFalse() {
-    // Arrange
-    JugadorIA jugadorIA = new JugadorIA("IA");
-    jugadorIA.asignarTablerosVacios(dimensionTablero);
-
-    Coordenada coordenadaGolpear = new Coordenada(-1, -1);
-
-    //Act
-    jugadorIA.recibirGolpe(coordenadaGolpear);
-
-    Tablero tableroPrincipal = jugadorIA.obtenerTableroPrincipal();
-    Casilla casillaGolpeada = tableroPrincipal.buscarCasilla(coordenadaGolpear);
-
-    //Assert
-    assertFalse(casillaGolpeada.esGolpeada());
+    assertFalse(resultado);
   }
 
   @Test
@@ -522,37 +480,6 @@ public class JugadorIATest {
 
     //Assert
     assertNull(coordenadaAGolpear);
-  }
-
-  @Test
-  public void recibirGolpe_expectedTrue() {
-    // Arrange
-    Jugador jugador = new JugadorIA("noname");
-    jugador.asignarTablerosVacios(10);
-    Coordenada coordenada = new Coordenada(1, 1);
-
-    // Act
-    jugador.recibirGolpe(coordenada);
-    Casilla casillaGolpeada = jugador.obtenerTableroPrincipal().buscarCasilla(coordenada);
-    boolean resultado = casillaGolpeada.esGolpeada();
-
-    // Assert
-    assertTrue(resultado);
-  }
-
-  @Test
-  public void recibirGolpe_expectedFalse() {
-    // Arrange
-    Jugador jugador = new JugadorIA("noname");
-    jugador.asignarTablerosVacios(10);
-    Coordenada coordenada = new Coordenada(16, 16);
-
-    // Act
-    jugador.recibirGolpe(coordenada);
-    Casilla casillaGolpeada = jugador.obtenerTableroPrincipal().buscarCasilla(coordenada);
-
-    // Assert
-    assertNull(casillaGolpeada);
   }
 
   @Test

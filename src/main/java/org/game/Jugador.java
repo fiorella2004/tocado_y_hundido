@@ -38,7 +38,7 @@ public abstract class Jugador {
 
   public abstract boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco);
 
-  public abstract void recibirGolpe(Coordenada coordenada);
+  public abstract boolean recibirGolpe(Coordenada coordenada);
 
   public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     adaptarTableroSecundario(coordenada, tableroPrincipalOponente);

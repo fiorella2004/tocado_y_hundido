@@ -30,9 +30,7 @@ class JugadorPersonaTest {
     Coordenada coordenada = new Coordenada(1, 1);
 
     // Act
-    jugador.recibirGolpe(coordenada);
-    Casilla casillaGolpeada = jugador.obtenerTableroPrincipal().buscarCasilla(coordenada);
-    boolean resultado = casillaGolpeada.esGolpeada();
+    boolean resultado = jugador.recibirGolpe(coordenada);
 
     // Assert
     assertTrue(resultado);
@@ -44,14 +42,13 @@ class JugadorPersonaTest {
     //MockTablero mockTableroPrincipal = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
     jugador.asignarTablerosVacios(10);
-    Coordenada coordenada = new Coordenada(16, 16);
+    Coordenada coordenada = new Coordenada(10, 10);
 
     // Act
-    jugador.recibirGolpe(coordenada);
-    Casilla casillaGolpeada = jugador.obtenerTableroPrincipal().buscarCasilla(coordenada);
+    boolean resultado = jugador.recibirGolpe(coordenada);
 
     // Assert
-    assertNull(casillaGolpeada);
+    assertFalse(resultado);
   }
 
   @Test

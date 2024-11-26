@@ -32,8 +32,8 @@ public class JugadorIA extends Jugador {
   }
 
   @Override
-  public void recibirGolpe(Coordenada coordenada) {
-    tableroPrincipal.recibirGolpe(coordenada);
+  public boolean recibirGolpe(Coordenada coordenada) {
+    return tableroPrincipal.recibirGolpe(coordenada);
   }
 
   private int generarCoordenadaAleatoria() {
