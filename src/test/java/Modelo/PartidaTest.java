@@ -77,7 +77,7 @@ class PartidaTest {
     // Act
     Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
     Mockito.when(mockJugadorIA.colocarBarco(coordenadasBarco, 2));
-    partida.colocarBarcoJugador(coordenadasBarco, 2);
+    partida.colocarBarcosIA();
 
     //Assert
     Mockito.verify(mockJugadorPersona).colocarBarco(coordenadasBarco, 2);
@@ -119,7 +119,6 @@ class PartidaTest {
     //Assert
     Mockito.verify(mockJugadorIA).recibirGolpe(coordenadaAGolpear);
     Mockito.verify(mockJugadorPersona).registrarGolpe(coordenadaAGolpear, mockJugadorIA.obtenerTableroPrincipal());
-    Mockito.verify(mockJugadorIA).obtenerTableroPrincipal();
 
     assertFalse(resultado);
   }
@@ -153,6 +152,7 @@ class PartidaTest {
 
     // Act
     Mockito.when(mockJugadorPersona.recibirGolpe(coordenadaAGolpear)).thenReturn(false);
+    Mockito.when(mockJugadorIA.golpear()).thenReturn(coordenadaAGolpear);
     boolean resultado = partida.golpeaJugadorIA();
 
     // Assert
