@@ -11,6 +11,7 @@ import static org.mockito.Mockito.when;
 
 public class JugadorIATest {
 
+
   int dimensionTablero = 10;
   ArrayList<Coordenada> casillasBarco = new ArrayList<>();
 
