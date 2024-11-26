@@ -18,19 +18,17 @@ public class JugadorIA extends Jugador {
 
   @Override
   public boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco) {
-    boolean barcoColocado = false;
-    while (!barcoColocado) {
-      int fila = generarCoordenadaAleatoria();
-      int col = generarCoordenadaAleatoria();
-      int direccion = generarDireccionAleatoria();
-      ArrayList<Coordenada> coordenadas = calcularCoordenadasBarco(fila, col, direccion, dimensionBarco);
-      if (coordenadas != null) {
-        barcoColocado = tableroPrincipal.colocarBarco(coordenadas);
-      } else{
-        return barcoColocado;
-      }
+    boolean barcoColocado;
+    int fila = generarCoordenadaAleatoria();
+    int col = generarCoordenadaAleatoria();
+    int direccion = generarDireccionAleatoria();
+    ArrayList<Coordenada> coordenadas = calcularCoordenadasBarco(fila, col, direccion, dimensionBarco);
+    if (coordenadas != null) {
+      barcoColocado = tableroPrincipal.colocarBarco(coordenadas);
+    } else {
+      barcoColocado = false;
     }
-    return true;
+    return barcoColocado;
   }
 
   @Override

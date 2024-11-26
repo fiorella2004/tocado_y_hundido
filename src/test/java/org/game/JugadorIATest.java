@@ -199,7 +199,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 5);
 
     // Assert
     assertFalse(barcoColocado);
@@ -214,7 +214,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 5);
 
     // Assert
     assertFalse(barcoColocado);
@@ -229,7 +229,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 5);
 
     // Assert
     assertFalse(barcoColocado);
@@ -244,7 +244,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 5);
 
     // Assert
     assertFalse(barcoColocado);
