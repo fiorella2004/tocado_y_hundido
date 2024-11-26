@@ -1,19 +1,18 @@
-package org.game;
+package Modelo;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AguaTest {
+public class BarcoTest {
 
   @Test
   public void testEsGolpeada_expectedFalse() {
     // Arrange
     Coordenada coordenada = new Coordenada(1, 1);
-    Agua agua = new Agua(coordenada);
+    Barco barco = new Barco(coordenada);
 
     // Act
-    boolean golpeada = agua.esGolpeada();
+    boolean golpeada = barco.esGolpeada();
 
     // Assert
     assertFalse(golpeada);
@@ -22,12 +21,12 @@ public class AguaTest {
   @Test
   public void testRecibirGolpe_expectedTrue() {
     // Arrange
-    Coordenada coordenada = new Coordenada(2, 2);
-    Agua agua = new Agua(coordenada);
+    Coordenada coordenada = new Coordenada(1, 1);
+    Barco barco = new Barco(coordenada);
 
     // Act
-    agua.recibirGolpe();
-    boolean golpeada = agua.esGolpeada();
+    barco.recibirGolpe();
+    boolean golpeada = barco.esGolpeada();
 
     // Assert
     assertTrue(golpeada);
@@ -36,16 +35,15 @@ public class AguaTest {
   @Test
   public void testRecibirVariosGolpes_expectedTrue() {
     // Arrange
-    Coordenada coordenada = new Coordenada(3, 3);
-    Agua agua = new Agua(coordenada);
+    Coordenada coordenada = new Coordenada(1, 1);
+    Barco barco = new Barco(coordenada);
 
     // Act
-    agua.recibirGolpe();
-    agua.recibirGolpe();
-    boolean golpeada = agua.esGolpeada();
+    barco.recibirGolpe();
+    barco.recibirGolpe();
+    boolean golpeada = barco.esGolpeada();
 
     // Assert
     assertTrue(golpeada);
   }
 }
-

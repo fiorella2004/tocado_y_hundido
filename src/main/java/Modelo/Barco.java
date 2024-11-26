@@ -1,4 +1,4 @@
-package org.game;
+package Modelo;
 
 public class Barco extends Casilla {
 

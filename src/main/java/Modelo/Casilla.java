@@ -1,4 +1,4 @@
-package org.game;
+package Modelo;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package org.game;
+package Modelo;
 
 public class Agua extends Casilla {
 
