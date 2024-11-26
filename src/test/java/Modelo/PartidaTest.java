@@ -164,4 +164,97 @@ class PartidaTest {
     assertFalse(resultado);
   }
 
+  @Test
+  public void cambiarTurno_primerCambio_turno2_expectedTrue() {
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    partida.cambiarTurno();
+    int resultado = partida.obtenerTurno();
+
+    // Assert
+    assertEquals(resultado, 2);
+  }
+
+  @Test
+  public void cambiarTurno_segundoCambio_turno1_expectedTrue() {
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    partida.cambiarTurno();
+    int resultado = partida.obtenerTurno();
+
+    // Assert
+    assertEquals(resultado, 1);
+  }
+
+  @Test
+  public void comprovarFinPartida1_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    boolean resultado = partida.comprovarFinPartida();
+
+    //Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void comprovarFinPartida2_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
+    boolean resultado = partida.comprovarFinPartida();
+
+    //Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void comprovarFinPartida3_expectedTrue(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    boolean resultado = partida.comprovarFinPartida();
+
+    //Assert
+    assertTrue(resultado);
+  }
+
+  @Test
+  public void comprovarFinPartida2_expectedFalse(){
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
+    boolean resultado = partida.comprovarFinPartida();
+
+    //Assert
+    assertFalse(resultado);
+  }
 }

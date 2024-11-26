@@ -9,7 +9,7 @@ public class Partida {
   private int dimensionTablero;
   private boolean finPartida;
 
-  public Partida(int dimensionTablero, JugadorPersona jugadorPersona, JugadorIA jugadorIA){
+  public Partida(int dimensionTablero, JugadorPersona jugadorPersona, JugadorIA jugadorIA) {
     this.jugadorPersona = jugadorPersona;
     this.jugadorIA = jugadorIA;
     this.dimensionTablero = dimensionTablero;
@@ -30,33 +30,44 @@ public class Partida {
     jugadorIA.asignarTablerosVacios(dimension);
   }
 
-  public boolean colocarBarcoJugador(ArrayList<Coordenada> coordenadas, int dimensionBarco){
+  public boolean colocarBarcoJugador(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
     return jugadorPersona.colocarBarco(coordenadas, dimensionBarco);
   }
 
-  public void colocarBarcosIA(){
+  public void colocarBarcosIA() {
     int[] dimensionesBarcos = {2, 3, 3, 4, 5};
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(new Coordenada(0, 0));
 
     for (int dimension : dimensionesBarcos) {
       boolean barcoColocado = false;
-      while(!barcoColocado){
+      while (!barcoColocado) {
         barcoColocado = jugadorIA.colocarBarco(coordenadas, dimension);
       }
     }
   }
 
-  public boolean golpeaJugadorPersona(Coordenada coordenada){
+  public boolean golpeaJugadorPersona(Coordenada coordenada) {
     boolean result = jugadorIA.recibirGolpe(coordenada);
     jugadorPersona.registrarGolpe(coordenada, jugadorIA.obtenerTableroPrincipal());
     return result;
   }
 
-  public boolean golpeaJugadorIA(){
+  public boolean golpeaJugadorIA() {
     Coordenada coordenada = jugadorIA.golpear();
     boolean result = jugadorPersona.recibirGolpe(coordenada);
     jugadorIA.registrarGolpe(coordenada, jugadorPersona.obtenerTableroPrincipal());
     return result;
+  }
+
+  public int obtenerTurno() {
+    return turno;
+  }
+
+  public void cambiarTurno() {
+  }
+
+  public boolean comprovarFinPartida() {
+
   }
 }
