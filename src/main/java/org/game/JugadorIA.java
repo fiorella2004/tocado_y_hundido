@@ -26,9 +26,11 @@ public class JugadorIA extends Jugador {
       ArrayList<Coordenada> coordenadas = calcularCoordenadasBarco(fila, col, direccion, dimensionBarco);
       if (coordenadas != null) {
         barcoColocado = tableroPrincipal.colocarBarco(coordenadas);
+      } else{
+        return barcoColocado;
       }
     }
-    return barcoColocado;
+    return true;
   }
 
   @Override
@@ -37,13 +39,11 @@ public class JugadorIA extends Jugador {
   }
 
   private int generarCoordenadaAleatoria() {
-    Random random = new Random();
     return random.nextInt(10); //0-9
   }
 
   private int generarDireccionAleatoria() {
-    Random random = new Random();
-    return random.nextInt(4) + 1;
+    return random.nextInt(4); //0-3
   }
 
   private ArrayList<Coordenada> calcularCoordenadasBarco(int fila, int col, int direccion, int dimensionBarco) {
@@ -52,20 +52,20 @@ public class JugadorIA extends Jugador {
       int nuevaFila = fila;
       int nuevaCol = col;
       switch (direccion) {
-        case 1: // Arriba
+        case 0: // Arriba
           nuevaFila = fila - i;
           break;
-        case 2: // Abajo
+        case 1: // Abajo
           nuevaFila = fila + i;
           break;
-        case 3: // Izquierda
+        case 2: // Izquierda
           nuevaCol = col - i;
           break;
-        case 4: // Derecha
+        case 3: // Derecha
           nuevaCol = col + i;
           break;
       }
-      if (nuevaFila <= 0 || nuevaFila >= 10 || nuevaCol <= 0 || nuevaCol >= 10) {
+      if (nuevaFila < 0 || nuevaFila > 9 || nuevaCol < 0 || nuevaCol > 9) {
         return null;
       }
       coordenadas.add(new Coordenada(nuevaFila, nuevaCol));

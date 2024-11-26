@@ -13,6 +13,7 @@ public class MockRandom extends Random {
   @Override
   public int nextInt(int valorMaximo) {
     int valor = valores[posicion];
+    posicion++;
     return valor;
   }
 }
