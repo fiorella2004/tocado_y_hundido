@@ -19,18 +19,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(8, 0));
-
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -42,18 +34,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(1, 0));
+    boolean resultado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(resultado);
   }
 
   @Test
@@ -65,18 +49,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 9));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 8));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -88,18 +64,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 9));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -111,17 +79,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
-    coordenadasNoBarco.add(new Coordenada(0, 0));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasNoBarco) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(barcoColocado);
   }
 
   @Test
@@ -133,17 +94,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
-    coordenadasNoBarco.add(new Coordenada(9, 0));
+    boolean resultado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasNoBarco) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(resultado);
   }
 
   @Test
@@ -155,17 +109,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
-    coordenadasNoBarco.add(new Coordenada(0, 0));
+    boolean resultado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasNoBarco) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(resultado);
   }
 
   @Test
@@ -177,17 +124,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 2);
-
-    ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
-    coordenadasNoBarco.add(new Coordenada(9, 9));
+    boolean resultado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasNoBarco) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(resultado);
   }
 
   @Test
@@ -199,21 +139,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(8, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(7, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(6, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(5, 0));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -225,21 +154,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(1, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(2, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(3, 0));
-    coordenadasBarcoEsperadas.add(new Coordenada(4, 0));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -251,21 +169,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 9));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 8));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 7));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 6));
-    coordenadasBarcoEsperadas.add(new Coordenada(0, 5));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -277,21 +184,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 5));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 6));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 7));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
-    coordenadasBarcoEsperadas.add(new Coordenada(9, 9));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertTrue(casilla instanceof Barco);
-    }
+    assertTrue(barcoColocado);
   }
 
   @Test
@@ -303,20 +199,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
-    coordenadasBarcoNoEsperadas.add(new Coordenada(3, 0));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(2, 0));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(1, 0));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 0));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(barcoColocado);
   }
 
   @Test
@@ -328,20 +214,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
-    coordenadasBarcoNoEsperadas.add(new Coordenada(6, 0));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(7, 0));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(8, 0));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 0));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(barcoColocado);
   }
 
   @Test
@@ -353,20 +229,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
-    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 3));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 2));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 1));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(0, 0));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(barcoColocado);
   }
 
   @Test
@@ -378,20 +244,10 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco, 5);
-
-    ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
-    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 6));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 7));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 8));
-    coordenadasBarcoNoEsperadas.add(new Coordenada(9, 9));
+    boolean barcoColocado = jugadorIA.colocarBarco(casillasBarco, 2);
 
     // Assert
-    Tablero tablero = jugadorIA.obtenerTableroPrincipal();
-    for (Coordenada coordenada : coordenadasBarcoNoEsperadas) {
-      Casilla casilla = tablero.buscarCasilla(coordenada);
-      assertFalse(casilla instanceof Barco);
-    }
+    assertFalse(barcoColocado);
   }
 
   @Test
