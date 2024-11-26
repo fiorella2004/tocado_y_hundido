@@ -2,13 +2,15 @@ package Modelo;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PartidaTest {
 
   @Test
-  public void constructorPartida_expectedTrue(){
+  public void constructorPartida_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -24,14 +26,14 @@ class PartidaTest {
   }
 
   @Test
-  public void colocarBarcoJugador_expectedTrue(){
+  public void colocarBarcoJugador_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
 
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
-    Coordenada coordenada1 = new Coordenada(0,0);
-    Coordenada coordenada2 = new Coordenada(1,0);
+    Coordenada coordenada1 = new Coordenada(0, 0);
+    Coordenada coordenada2 = new Coordenada(1, 0);
     coordenadasBarco.add(coordenada1);
     coordenadasBarco.add(coordenada2);
 
@@ -46,14 +48,14 @@ class PartidaTest {
   }
 
   @Test
-  public void colocarBarcoJugador_expectedFalse(){
+  public void colocarBarcoJugador_expectedFalse() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
 
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
-    Coordenada coordenada1 = new Coordenada(0,0);
-    Coordenada coordenada2 = new Coordenada(1,0);
+    Coordenada coordenada1 = new Coordenada(0, 0);
+    Coordenada coordenada2 = new Coordenada(1, 0);
     coordenadasBarco.add(coordenada1);
     coordenadasBarco.add(coordenada2);
 
@@ -88,12 +90,12 @@ class PartidaTest {
   }
 
   @Test
-  public void golpeaJugadorPersona_expectedTrue(){
+  public void golpeaJugadorPersona_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
-    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+    Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
     Mockito.when(mockJugadorIA.recibirGolpe(coordenadaAGolpear)).thenReturn(true);
@@ -108,12 +110,12 @@ class PartidaTest {
   }
 
   @Test
-  public void golpeaJugadorPersona_expectedFalse(){
+  public void golpeaJugadorPersona_expectedFalse() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
-    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+    Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
     Mockito.when(mockJugadorIA.recibirGolpe(coordenadaAGolpear)).thenReturn(false);
@@ -127,16 +129,16 @@ class PartidaTest {
   }
 
   @Test
-  public void golpeaJugadorIA_expectedTrue(){
+  public void golpeaJugadorIA_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
-    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+    Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
     Mockito.when(mockJugadorPersona.recibirGolpe(coordenadaAGolpear)).thenReturn(true);
-    Mockito.when(mockJugadorIA.golpear()).thenReturn(new Coordenada(0,0));
+    Mockito.when(mockJugadorIA.golpear()).thenReturn(new Coordenada(0, 0));
     boolean resultado = partida.golpeaJugadorIA();
 
     // Assert
@@ -146,12 +148,12 @@ class PartidaTest {
   }
 
   @Test
-  public void golpeaJugadorIA_expectedFalse(){
+  public void golpeaJugadorIA_expectedFalse() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
-    Coordenada coordenadaAGolpear = new Coordenada(0,0);
+    Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
     Mockito.when(mockJugadorPersona.recibirGolpe(coordenadaAGolpear)).thenReturn(false);
@@ -195,7 +197,7 @@ class PartidaTest {
   }
 
   @Test
-  public void comprovarFinPartida1_expectedTrue(){
+  public void comprovarFinPartida1_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -211,7 +213,7 @@ class PartidaTest {
   }
 
   @Test
-  public void comprovarFinPartida2_expectedTrue(){
+  public void comprovarFinPartida2_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -227,7 +229,7 @@ class PartidaTest {
   }
 
   @Test
-  public void comprovarFinPartida3_expectedTrue(){
+  public void comprovarFinPartida3_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -243,7 +245,7 @@ class PartidaTest {
   }
 
   @Test
-  public void comprovarFinPartida2_expectedFalse(){
+  public void comprovarFinPartida2_expectedFalse() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
