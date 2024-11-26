@@ -636,4 +636,72 @@ class TableroTest {
     // Assert
     assertFalse(resultado);
   }
+
+  // ---- COMPROBAR QUE TODOS LOS BARCOS SE HAN HUNDIDO
+
+  @Test
+  public void testComprobarCoordenadasContiguas_filaNoContigua_expectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0, 0);
+    Coordenada coordenada2 = new Coordenada(2, 0);
+    coords.add(coordenada1);
+    coords.add(coordenada2);
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coords);
+
+    // Assert
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testComprobarCoordenadasContiguas_columnaNoContigua_expectedFalse() {
+    //Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0, 0);
+    Coordenada coordenada2 = new Coordenada(0, 2);
+    coords.add(coordenada1);
+    coords.add(coordenada2);
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coords);
+
+    // Assert
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testComprobarCoordenadasContiguas_diagonal_expectedFalse() {
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0, 1);
+    Coordenada coordenada2 = new Coordenada(1, 0);
+    coords.add(coordenada1);
+    coords.add(coordenada2);
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coords);
+
+    // Assert
+    assertFalse(resultado);
+  }
+
+  @Test
+  public void testComprobarCoordenadasContiguas_expectedTrue() {
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0, 1);
+    Coordenada coordenada2 = new Coordenada(0, 0);
+    coords.add(coordenada1);
+    coords.add(coordenada2);
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coords);
+
+    // Assert
+    assertTrue(resultado);
+  }
 }
