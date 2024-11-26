@@ -46,12 +46,12 @@ public abstract class Jugador {
   }
 
   public void adaptarTableroSecundario(Coordenada coordenada, Tablero tableroPrincipalOponente) {
-    ArrayList<Coordenada> coordenadaGolpeada = new ArrayList<>();
+    ArrayList<Coordenada> coordenadasGolpeadas = new ArrayList<>();
     Casilla casillaGolpeada = tableroPrincipalOponente.buscarCasilla(coordenada);
     Coordenada coordGolpeada = casillaGolpeada.obtenerCoordenada();
-    coordenadaGolpeada.add(coordGolpeada);
+    coordenadasGolpeadas.add(coordGolpeada);
     if (casillaGolpeada.getId() != 0) { // hay un barco en la casilla
-      tableroSecundario.colocarBarco(coordenadaGolpeada);
+      tableroSecundario.colocarBarco(coordenadasGolpeadas, 1); //solo se muestra 1 casilla
     }
   }
 }

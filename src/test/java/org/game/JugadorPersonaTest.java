@@ -406,7 +406,7 @@ class JugadorPersonaTest {
     ArrayList<Coordenada> coordenadas = new ArrayList<>();
     coordenadas.add(coordenada);
     Tablero tableroPrincipalOponente = new Tablero(10);
-    tableroPrincipalOponente.colocarBarco(coordenadas);
+    tableroPrincipalOponente.colocarBarco(coordenadas, 1);
 
     // Act
     jugador.registrarGolpe(coordenada, tableroPrincipalOponente);
@@ -444,7 +444,7 @@ class JugadorPersonaTest {
     Tablero tableroPrincipalOponente = new Tablero(10);
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
     coordenadasBarco.add(new Coordenada(2, 3));
-    tableroPrincipalOponente.colocarBarco(coordenadasBarco);
+    tableroPrincipalOponente.colocarBarco(coordenadasBarco, 1);
 
     // Act
     Coordenada coordenadaGolpeada = new Coordenada(2, 3);
@@ -482,7 +482,7 @@ class JugadorPersonaTest {
     ArrayList<Coordenada> coordenadasBarco = new ArrayList<>();
     coordenadasBarco.add(new Coordenada(2, 3));
     coordenadasBarco.add(new Coordenada(2, 4));
-    tableroPrincipalOponente.colocarBarco(coordenadasBarco);
+    tableroPrincipalOponente.colocarBarco(coordenadasBarco, 2);
 
     // Act
     jugador.adaptarTableroSecundario(new Coordenada(2, 3), tableroPrincipalOponente);

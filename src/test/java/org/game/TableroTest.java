@@ -159,7 +159,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(1, 2));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     //Assert
     assertTrue(resultado);
@@ -174,7 +174,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(0, 1));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -189,7 +189,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(1, 0));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -205,7 +205,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(0, 9));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -220,7 +220,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(1, 9));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -235,7 +235,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(9, 9));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -250,7 +250,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(9, 9));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -265,7 +265,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(9, 1));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -280,7 +280,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(9, 0));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertTrue(resultado);
@@ -297,7 +297,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(-1, 0));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     //Assert
     assertFalse(resultado);
@@ -312,7 +312,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(0, 10));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     //Assert
     assertFalse(resultado);
@@ -327,7 +327,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(9, -1));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertFalse(resultado);
@@ -342,7 +342,7 @@ class TableroTest {
     coordenadas.add(new Coordenada(9, 10));
 
     // Act
-    boolean resultado = tablero.colocarBarco(coordenadas);
+    boolean resultado = tablero.colocarBarco(coordenadas, 2);
 
     // Assert
     assertFalse(resultado);
@@ -361,8 +361,8 @@ class TableroTest {
     coordenadas2.add(new Coordenada(1, 8));
 
     // Act
-    boolean resultado1 = tablero.colocarBarco(coordenadas1);
-    boolean resultado2 = tablero.colocarBarco(coordenadas2);
+    boolean resultado1 = tablero.colocarBarco(coordenadas1, 2);
+    boolean resultado2 = tablero.colocarBarco(coordenadas2, 2);
 
     //Assert
     assertTrue(resultado1);
@@ -382,8 +382,8 @@ class TableroTest {
     coordenadas2.add(new Coordenada(8, 1));
 
     // Act
-    boolean resultado1 = tablero.colocarBarco(coordenadas1);
-    boolean resultado2 = tablero.colocarBarco(coordenadas2);
+    boolean resultado1 = tablero.colocarBarco(coordenadas1, 2);
+    boolean resultado2 = tablero.colocarBarco(coordenadas2, 2);
 
     //Assert
     assertTrue(resultado1);
@@ -403,8 +403,8 @@ class TableroTest {
     coordenadas2.add(new Coordenada(2, 2));
 
     // Act
-    boolean resultado1 = tablero.colocarBarco(coordenadas1);
-    boolean resultado2 = tablero.colocarBarco(coordenadas2);
+    boolean resultado1 = tablero.colocarBarco(coordenadas1, 2);
+    boolean resultado2 = tablero.colocarBarco(coordenadas2, 2);
 
     // Assert
     assertTrue(resultado1);
@@ -479,12 +479,15 @@ class TableroTest {
     Tablero tablero = new Tablero(10);
 
     ArrayList<Coordenada> coords = new ArrayList<>();
-    Coordenada coordenada = new Coordenada(0, 1);
-    coords.add(coordenada);
-    tablero.colocarBarco(coords);
-    tablero.recibirGolpe(coordenada);
+    Coordenada coord1 = new Coordenada(0, 1);
+    Coordenada coord2 = new Coordenada(0, 2);
+    coords.add(coord1);
+    coords.add(coord2);
+    tablero.colocarBarco(coords, 2);
 
     // Act
+    tablero.recibirGolpe(coord1);
+    tablero.recibirGolpe(coord2);
     boolean resultado = tablero.comprobarTodosBarcosHundidos();
 
     // Test
@@ -500,21 +503,21 @@ class TableroTest {
     ArrayList<Coordenada> coords1 = new ArrayList<>();
     coords1.add(new Coordenada(0, 1));
     coords1.add(new Coordenada(0, 2));
-    tablero.colocarBarco(coords1);
+    tablero.colocarBarco(coords1, 2);
 
     // Barco de 3 coordenadas
     ArrayList<Coordenada> coords2 = new ArrayList<>();
     coords2.add(new Coordenada(1, 1));
     coords2.add(new Coordenada(1, 2));
     coords2.add(new Coordenada(1, 3));
-    tablero.colocarBarco(coords2);
+    tablero.colocarBarco(coords2, 3);
 
     // Barco de 3 coordenadas
     ArrayList<Coordenada> coords3 = new ArrayList<>();
     coords3.add(new Coordenada(2, 1));
     coords3.add(new Coordenada(2, 2));
     coords3.add(new Coordenada(2, 3));
-    tablero.colocarBarco(coords3);
+    tablero.colocarBarco(coords3, 3);
 
     // Barco de 4 coordenadas
     ArrayList<Coordenada> coords4 = new ArrayList<>();
@@ -522,7 +525,7 @@ class TableroTest {
     coords4.add(new Coordenada(3, 2));
     coords4.add(new Coordenada(3, 3));
     coords4.add(new Coordenada(3, 4));
-    tablero.colocarBarco(coords4);
+    tablero.colocarBarco(coords4, 4);
 
     // Barco de 5 coordenadas
     ArrayList<Coordenada> coords5 = new ArrayList<>();
@@ -531,7 +534,7 @@ class TableroTest {
     coords5.add(new Coordenada(4, 3));
     coords5.add(new Coordenada(4, 4));
     coords5.add(new Coordenada(4, 5));
-    tablero.colocarBarco(coords5);
+    tablero.colocarBarco(coords5, 5);
 
     // Act
     for (Coordenada coord : coords1) {
@@ -566,7 +569,7 @@ class TableroTest {
     Coordenada coordenada2 = new Coordenada(0, 2);
     coords.add(coordenada);
     coords.add(coordenada2);
-    tablero.colocarBarco(coords);
+    tablero.colocarBarco(coords, 2);
     tablero.recibirGolpe(coordenada);
 
     // Act
@@ -585,21 +588,21 @@ class TableroTest {
     ArrayList<Coordenada> coords1 = new ArrayList<>();
     coords1.add(new Coordenada(0, 1));
     coords1.add(new Coordenada(0, 2));
-    tablero.colocarBarco(coords1);
+    tablero.colocarBarco(coords1, 2);
 
     // Barco de 3 coordenadas
     ArrayList<Coordenada> coords2 = new ArrayList<>();
     coords2.add(new Coordenada(1, 1));
     coords2.add(new Coordenada(1, 2));
     coords2.add(new Coordenada(1, 3));
-    tablero.colocarBarco(coords2);
+    tablero.colocarBarco(coords2, 3);
 
     // Barco de 3 coordenadas
     ArrayList<Coordenada> coords3 = new ArrayList<>();
     coords3.add(new Coordenada(2, 1));
     coords3.add(new Coordenada(2, 2));
     coords3.add(new Coordenada(2, 3));
-    tablero.colocarBarco(coords3);
+    tablero.colocarBarco(coords3, 3);
 
     // Barco de 4 coordenadas
     ArrayList<Coordenada> coords4 = new ArrayList<>();
@@ -607,7 +610,7 @@ class TableroTest {
     coords4.add(new Coordenada(3, 2));
     coords4.add(new Coordenada(3, 3));
     coords4.add(new Coordenada(3, 4));
-    tablero.colocarBarco(coords4);
+    tablero.colocarBarco(coords4, 4);
 
     // Barco de 5 coordenadas
     ArrayList<Coordenada> coords5 = new ArrayList<>();
@@ -616,7 +619,7 @@ class TableroTest {
     coords5.add(new Coordenada(4, 3));
     coords5.add(new Coordenada(4, 4));
     coords5.add(new Coordenada(4, 5));
-    tablero.colocarBarco(coords5);
+    tablero.colocarBarco(coords5, 5);
 
     // Act
     for (Coordenada coord : coords1) {
@@ -637,7 +640,7 @@ class TableroTest {
     assertFalse(resultado);
   }
 
-  // ---- COMPROBAR QUE TODOS LOS BARCOS SE HAN HUNDIDO
+  // ---- COMPROBAR QUE LOS BARCOS SE COLOQUEN DE MANERA CONTIGUA
 
   @Test
   public void testComprobarCoordenadasContiguas_filaNoContigua_expectedFalse() {
@@ -650,7 +653,7 @@ class TableroTest {
     coords.add(coordenada2);
 
     // Act
-    boolean resultado = tablero.colocarBarco(coords);
+    boolean resultado = tablero.colocarBarco(coords, 2);
 
     // Assert
     assertFalse(resultado);
@@ -667,7 +670,7 @@ class TableroTest {
     coords.add(coordenada2);
 
     // Act
-    boolean resultado = tablero.colocarBarco(coords);
+    boolean resultado = tablero.colocarBarco(coords, 2);
 
     // Assert
     assertFalse(resultado);
@@ -683,7 +686,7 @@ class TableroTest {
     coords.add(coordenada2);
 
     // Act
-    boolean resultado = tablero.colocarBarco(coords);
+    boolean resultado = tablero.colocarBarco(coords, 2);
 
     // Assert
     assertFalse(resultado);
@@ -699,7 +702,7 @@ class TableroTest {
     coords.add(coordenada2);
 
     // Act
-    boolean resultado = tablero.colocarBarco(coords);
+    boolean resultado = tablero.colocarBarco(coords, 2);
 
     // Assert
     assertTrue(resultado);

@@ -43,8 +43,9 @@ public class Tablero {
     return tablero;
   }
 
-  public boolean colocarBarco(ArrayList<Coordenada> coordenadas) {
-    if (!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas)) {
+  public boolean colocarBarco(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
+    if (!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas) ||
+        !comprobarCoordenadasContiguas(coordenadas, dimensionBarco)) {
       return false;
     }
     for (Coordenada coordenada : coordenadas) {
