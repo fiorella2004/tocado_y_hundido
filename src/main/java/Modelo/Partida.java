@@ -65,9 +65,18 @@ public class Partida {
   }
 
   public void cambiarTurno() {
+    if (turno == 1)
+      turno = 2;
+    else
+      turno = 1;
   }
 
   public boolean comprovarFinPartida() {
-
+    boolean jugador1Perdido = jugadorPersona.comprobarTodosBarcosHundidos();
+    boolean jugador2Perdido = jugadorIA.comprobarTodosBarcosHundidos();
+    if (jugador1Perdido || jugador2Perdido) {
+      return true;
+    }
+    return false;
   }
 }
