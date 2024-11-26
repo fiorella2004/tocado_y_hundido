@@ -1,6 +1,7 @@
 package org.game;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -51,7 +52,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
@@ -77,7 +78,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(0, 9));
@@ -103,7 +104,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(9, 8));
@@ -129,7 +130,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
     coordenadasNoBarco.add(new Coordenada(0, 0));
@@ -154,7 +155,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
     coordenadasNoBarco.add(new Coordenada(9, 0));
@@ -179,7 +180,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
     coordenadasNoBarco.add(new Coordenada(0, 0));
@@ -204,7 +205,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,2);
+    jugadorIA.colocarBarco(casillasBarco, 2);
 
     ArrayList<Coordenada> coordenadasNoBarco = new ArrayList<>();
     coordenadasNoBarco.add(new Coordenada(9, 9));
@@ -229,7 +230,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(9, 0));
@@ -258,7 +259,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(0, 0));
@@ -287,7 +288,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(0, 9));
@@ -316,7 +317,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoEsperadas = new ArrayList<>();
     coordenadasBarcoEsperadas.add(new Coordenada(9, 5));
@@ -345,7 +346,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
     coordenadasBarcoNoEsperadas.add(new Coordenada(3, 0));
@@ -373,7 +374,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
     coordenadasBarcoNoEsperadas.add(new Coordenada(6, 0));
@@ -401,7 +402,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
     coordenadasBarcoNoEsperadas.add(new Coordenada(0, 3));
@@ -429,7 +430,7 @@ public class JugadorIATest {
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
     // Act
-    jugadorIA.colocarBarco(casillasBarco,5);
+    jugadorIA.colocarBarco(casillasBarco, 5);
 
     ArrayList<Coordenada> coordenadasBarcoNoEsperadas = new ArrayList<>();
     coordenadasBarcoNoEsperadas.add(new Coordenada(9, 6));
@@ -446,12 +447,12 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testRecibirGolpValorLimite0_ExpectedTrue(){
+  public void testRecibirGolpValorLimite0_ExpectedTrue() {
     // Arrange
     JugadorIA jugadorIA = new JugadorIA("IA");
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
-    Coordenada coordenadaGolpear = new Coordenada(0,0);
+    Coordenada coordenadaGolpear = new Coordenada(0, 0);
 
     //Act
     jugadorIA.recibirGolpe(coordenadaGolpear);
@@ -464,12 +465,12 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testRecibirGolpValorLimite9_ExpectedTrue(){
+  public void testRecibirGolpValorLimite9_ExpectedTrue() {
     // Arrange
     JugadorIA jugadorIA = new JugadorIA("IA");
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
-    Coordenada coordenadaGolpear = new Coordenada(9,9);
+    Coordenada coordenadaGolpear = new Coordenada(9, 9);
 
     //Act
     jugadorIA.recibirGolpe(coordenadaGolpear);
@@ -482,12 +483,12 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testRecibirGolpeValorFrontera10_ExpectedFalse(){
+  public void testRecibirGolpeValorFrontera10_ExpectedFalse() {
     // Arrange
     JugadorIA jugadorIA = new JugadorIA("IA");
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
-    Coordenada coordenadaGolpear = new Coordenada(10,10);
+    Coordenada coordenadaGolpear = new Coordenada(10, 10);
 
     //Act
     jugadorIA.recibirGolpe(coordenadaGolpear);
@@ -500,12 +501,12 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testRecibirGolpeValorFronteraNegativo_ExpectedFalse(){
+  public void testRecibirGolpeValorFronteraNegativo_ExpectedFalse() {
     // Arrange
     JugadorIA jugadorIA = new JugadorIA("IA");
     jugadorIA.asignarTablerosVacios(dimensionTablero);
 
-    Coordenada coordenadaGolpear = new Coordenada(-1,-1);
+    Coordenada coordenadaGolpear = new Coordenada(-1, -1);
 
     //Act
     jugadorIA.recibirGolpe(coordenadaGolpear);
@@ -518,7 +519,7 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testGolpearCoordenadaExistenteValorFrontera0_ExpectedTrue(){
+  public void testGolpearCoordenadaExistenteValorFrontera0_ExpectedTrue() {
     // Arrange
     Random randomMock = mock(Random.class);
     when(randomMock.nextInt(10)).thenReturn(0, 0);
@@ -534,7 +535,7 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testGolpearCoordenadaExistenteValorFrontera9_ExpectedTrue(){
+  public void testGolpearCoordenadaExistenteValorFrontera9_ExpectedTrue() {
     // Arrange
     Random randomMock = mock(Random.class);
     when(randomMock.nextInt(10)).thenReturn(9, 9);
@@ -550,7 +551,7 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testGolpearCoordenadaNoExistenteMenorLimite_ExpectedTrue(){
+  public void testGolpearCoordenadaNoExistenteMenorLimite_ExpectedTrue() {
     // Arrange
     Random randomMock = mock(Random.class);
     when(randomMock.nextInt(10)).thenReturn(-1, -1);
@@ -565,7 +566,7 @@ public class JugadorIATest {
   }
 
   @Test
-  public void testGolpearCoordenadaNoExistenteMayorLimite_ExpectedTrue(){
+  public void testGolpearCoordenadaNoExistenteMayorLimite_ExpectedTrue() {
     // Arrange
     Random randomMock = mock(Random.class);
     when(randomMock.nextInt(10)).thenReturn(10, 10);

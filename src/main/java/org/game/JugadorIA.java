@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class JugadorIA extends Jugador{
+public class JugadorIA extends Jugador {
   public Random random;
 
-  public JugadorIA(String nombre , Random random) {
+  public JugadorIA(String nombre, Random random) {
     super(nombre);
     this.random = random;
   }
@@ -73,10 +73,10 @@ public class JugadorIA extends Jugador{
     return coordenadas;
   }
 
-  public Coordenada golpear(){
+  public Coordenada golpear() {
     int fila = generarCoordenadaAleatoria();
     int col = generarCoordenadaAleatoria();
-    Coordenada coordenadaAGolpear = new Coordenada(fila,col);
+    Coordenada coordenadaAGolpear = new Coordenada(fila, col);
     return coordenadaAGolpear;
   }
 }

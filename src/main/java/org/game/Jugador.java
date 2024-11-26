@@ -32,16 +32,18 @@ public abstract class Jugador {
     return tableroSecundario;
   }
 
-  public boolean comprobarTodosBarcosHundidos() {return tableroPrincipal.comprobarTodosBarcosHundidos();}
+  public boolean comprobarTodosBarcosHundidos() {
+    return tableroPrincipal.comprobarTodosBarcosHundidos();
+  }
 
   public abstract boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco);
 
   public abstract void recibirGolpe(Coordenada coordenada);
 
-  public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente){
+  public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     adaptarTableroSecundario(coordenada, tableroPrincipalOponente);
     tableroSecundario.recibirGolpe(coordenada);
-  };
+  }
 
   public void adaptarTableroSecundario(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     ArrayList<Coordenada> coordenadaGolpeada = new ArrayList<>();
