@@ -324,6 +324,7 @@ class ControladorTest {
     Mockito.verify(mockPartida).colocarBarcoJugador(coords4,4);
     Mockito.verify(mockPartida).colocarBarcoJugador(coords5,5);
 
-    Mockito.verify(mockVista, Mockito.times(5)).mostrarTableros();
+    // El tablero se muestra 5 veces + 1 vez en el constructor
+    Mockito.verify(mockVista, Mockito.times(6)).mostrarTableros();
   }
 }
