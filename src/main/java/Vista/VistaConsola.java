@@ -19,6 +19,10 @@ public class VistaConsola {
   public void mostrarTableros(){
   }
 
+  public void mostrarErrorColocarBarco() {
+
+  }
+
   public String pedirColocarBarco(int dimensionBarco) {
     return null;
   }

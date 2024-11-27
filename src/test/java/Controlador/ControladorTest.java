@@ -317,5 +317,13 @@ class ControladorTest {
     Mockito.verify(mockVista, Mockito.times(2)).pedirColocarBarco(3);
     Mockito.verify(mockVista).pedirColocarBarco(4);
     Mockito.verify(mockVista).pedirColocarBarco(5);
+
+    Mockito.verify(mockPartida).colocarBarcoJugador(coords1,2);
+    Mockito.verify(mockPartida).colocarBarcoJugador(coords2,3);
+    Mockito.verify(mockPartida).colocarBarcoJugador(coords3,3);
+    Mockito.verify(mockPartida).colocarBarcoJugador(coords4,4);
+    Mockito.verify(mockPartida).colocarBarcoJugador(coords5,5);
+
+    Mockito.verify(mockVista, Mockito.times(5)).mostrarTableros();
   }
 }

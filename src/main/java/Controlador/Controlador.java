@@ -115,10 +115,34 @@ public class Controlador {
   }
 
   public Coordenada parsearCoordenada(String coordenada) {
-
+    int fila = Integer.parseInt(coordenada.substring(0, coordenada.length() - 1));
+    char columnaChar = coordenada.charAt(coordenada.length() - 1);
+    int columna = columnaChar - 'A';
+    return new Coordenada(fila, columna);
   }
 
   public void colocarBarcosJugadorPersona() {
-    
+    int[] dimensionesBarcos = {2, 3, 3, 4, 5};
+    for (int dimension : dimensionesBarcos) {
+      boolean barcoColocado = false;
+      while (!barcoColocado) {
+        String casillasBarcoString = vista.pedirColocarBarco(dimension);
+        if (comprobarFormatoCoordenadas(casillasBarcoString, dimension)) {
+          String[] coordenadas = casillasBarcoString.split(" ");
+          ArrayList<Coordenada> casillasBarcoCoordenadas = new ArrayList<>();
+          for (String coordenada : coordenadas) {
+            Coordenada coord = parsearCoordenada(coordenada);
+            casillasBarcoCoordenadas.add(coord);
+          }
+          barcoColocado = partida.colocarBarcoJugador(casillasBarcoCoordenadas, dimension);
+          if (barcoColocado) {
+            vista.mostrarTableros();
+          }
+          else {
+            vista.mostrarErrorColocarBarco();
+          }
+        }
+      }
+    }
   }
 }
