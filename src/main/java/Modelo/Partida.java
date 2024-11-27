@@ -9,12 +9,10 @@ public class Partida {
   private int dimensionTablero;
   private boolean finPartida;
 
-  public Partida(int dimensionTablero, JugadorPersona jugadorPersona, JugadorIA jugadorIA) {
+  public Partida(JugadorPersona jugadorPersona, JugadorIA jugadorIA) {
     this.jugadorPersona = jugadorPersona;
     this.jugadorIA = jugadorIA;
-    this.dimensionTablero = dimensionTablero;
     finPartida = false;
-    crearTablero(dimensionTablero);
   }
 
   public JugadorPersona getJugadorPersona() {
@@ -23,6 +21,11 @@ public class Partida {
 
   public JugadorIA getjugadorIA() {
     return jugadorIA;
+  }
+
+  public void setDimensionTablero(int dimension) {
+    this.dimensionTablero = dimension;
+    crearTablero(dimension);
   }
 
   private void crearTablero(int dimension) {

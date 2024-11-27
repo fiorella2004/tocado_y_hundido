@@ -2,9 +2,7 @@ package Modelo;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PartidaTest {
@@ -16,7 +14,8 @@ class PartidaTest {
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
 
     // Act
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     //Assert
     Mockito.verify(mockJugadorPersona).asignarTablerosVacios(10);
@@ -38,7 +37,8 @@ class PartidaTest {
     coordenadasBarco.add(coordenada2);
 
     // Act
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Mockito.when(mockJugadorPersona.colocarBarco(coordenadasBarco, 2)).thenReturn(true);
     boolean resultado = partida.colocarBarcoJugador(coordenadasBarco, 2);
 
@@ -60,7 +60,8 @@ class PartidaTest {
     coordenadasBarco.add(coordenada2);
 
     // Act
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Mockito.when(mockJugadorPersona.colocarBarco(coordenadasBarco, 2)).thenReturn(false);
     boolean resultado = partida.colocarBarcoJugador(coordenadasBarco, 2);
 
@@ -78,7 +79,8 @@ class PartidaTest {
     coordenadas.add(new Coordenada(0, 0));
 
     // Act
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 2)).thenReturn(true);
     Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 3)).thenReturn(true);
     Mockito.when(mockJugadorIA.colocarBarco(coordenadas, 4)).thenReturn(true);
@@ -94,7 +96,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
@@ -114,7 +117,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
@@ -133,7 +137,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
@@ -152,7 +157,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
     Coordenada coordenadaAGolpear = new Coordenada(0, 0);
 
     // Act
@@ -171,7 +177,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     // Act
     partida.cambiarTurno();
@@ -186,7 +193,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     // Act
     partida.cambiarTurno();
@@ -202,7 +210,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
@@ -218,7 +227,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
@@ -234,7 +244,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(true);
@@ -250,7 +261,8 @@ class PartidaTest {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
-    Partida partida = new Partida(10, mockJugadorPersona, mockJugadorIA);
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
 
     // Act
     Mockito.when(mockJugadorPersona.comprobarTodosBarcosHundidos()).thenReturn(false);
