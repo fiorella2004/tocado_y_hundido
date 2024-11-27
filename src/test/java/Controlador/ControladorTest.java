@@ -188,7 +188,7 @@ class ControladorTest {
   }
 
   @Test
-  public void testComprobarFormatoCoordenadas_dimTablero15_barco5casillas_CoordenadasPequeñas_expectedFalse() {
+  public void testComprobarFormatoCoordenadas_dimTablero15_barco5casillas_coordenadasPequeñas_expectedFalse() {
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -196,7 +196,7 @@ class ControladorTest {
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
     Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
-    String input = "1A 2A 3A 4A 5A";
+    String input = "0A 0A 0A 0A 0A";
 
     // Act
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);

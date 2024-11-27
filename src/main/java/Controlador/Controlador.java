@@ -40,74 +40,75 @@ public class Controlador {
 
   public boolean comprobarFormatoCoordenadas(String coordenadasJugador, int casillasBarco) {
     String[] coordenadas = coordenadasJugador.split(" ");
-
     int numeroDeCasillasAColocar = coordenadas.length;
     if (numeroDeCasillasAColocar != casillasBarco) {
       return false;
     }
-
     int limiteFila = dimensionTablero;
     char limiteColumna = (char) ('A' + limiteFila);
-
     for (String coordenada : coordenadas) {
-
+      if (!validarLongitudCoordenada(coordenada)) {
+        return false;
+      }
+      char[] caracteres = coordenada.toCharArray();
       if (dimensionTablero == 10) {
-        if (coordenada.length() != 2) {
+        if (!validarCoordenada2Caracteres(caracteres, limiteFila, limiteColumna)) {
           return false;
         }
       } else {
-        if (coordenada.length() != 3) {
-          return false;
-        }
-      }
-
-      char[] caracteres = coordenada.toCharArray();
-      if(dimensionTablero == 10){
-        char filaChar = caracteres[0];
-        char columna = caracteres[1];
-        if (!Character.isDigit(filaChar)) {
-          return false;
-        }
-
-        int filaNum = Character.getNumericValue(filaChar);
-        if (filaNum < 0 || filaNum >= limiteFila && columna <= 'A' || columna >= limiteColumna) {
-          return false;
-        }
-      }
-      else{
-
-        if(coordenada.length() == 2){
-          char filaChar = caracteres[0];
-          char columna = caracteres[1];
-          if (!Character.isDigit(filaChar)) {
+        if (coordenada.length() == 2) {
+          if (!validarCoordenada2Caracteres(caracteres, limiteFila, limiteColumna)) {
             return false;
           }
-
-          int filaNum = Character.getNumericValue(filaChar);
-          if (filaNum < 0 || filaNum >= limiteFila && columna <= 'A' || columna >= limiteColumna) {
-            return false;
-          }
-        }
-        else{
-          char filaChar1 = caracteres[0];
-          char filaChar2 = caracteres[1];
-          char columna = caracteres[2];
-
-          if (!Character.isDigit(filaChar1)) {
-            return false;
-          }
-          if (!Character.isDigit(filaChar2)) {
-            return false;
-          }
-          int filaNum1 = Character.getNumericValue(filaChar1);
-          int filaNum2 = Character.getNumericValue(filaChar2);
-          int filaNum = filaNum1 + filaNum2;
-
-          if (filaNum < 0 || filaNum > limiteFila && columna < 'A' || columna > limiteColumna) {
+        } else {
+          if (!validarCoordenada3Caracteres(caracteres, limiteFila, limiteColumna)) {
             return false;
           }
         }
       }
+    }
+    return true;
+  }
+
+  private boolean validarLongitudCoordenada(String coordenada) {
+    if (dimensionTablero == 10) {
+      return coordenada.length() == 2;
+    } else {
+      return coordenada.length() == 3;
+    }
+  }
+
+  private boolean validarCoordenada2Caracteres(char[] caracteres, int limiteFila, char limiteColumna) {
+    char filaChar = caracteres[0];
+    char columna = caracteres[1];
+    if (!Character.isDigit(filaChar)) {
+      return false;
+    }
+    int filaNum = Character.getNumericValue(filaChar);
+    if (filaNum < 0 || filaNum >= limiteFila) {
+      return false;
+    }
+    if (columna < 'A' || columna >= limiteColumna) {
+      return false;
+    }
+    return true;
+  }
+
+  private boolean validarCoordenada3Caracteres(char[] caracteres, int limiteFila, char limiteColumna) {
+    char filaChar1 = caracteres[0];
+    char filaChar2 = caracteres[1];
+    char columna = caracteres[2];
+    if (!Character.isDigit(filaChar1) || !Character.isDigit(filaChar2)) {
+      return false;
+    }
+    int filaNum1 = Character.getNumericValue(filaChar1);
+    int filaNum2 = Character.getNumericValue(filaChar2);
+    int filaNum = filaNum1 * 10 + filaNum2;
+    if (filaNum < 0 || filaNum > limiteFila) {
+      return false;
+    }
+    if (columna < 'A' || columna > limiteColumna) {
+      return false;
     }
     return true;
   }
