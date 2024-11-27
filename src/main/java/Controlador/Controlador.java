@@ -50,16 +50,63 @@ public class Controlador {
     char limiteColumna = (char) ('A' + limiteFila);
 
     for (String coordenada : coordenadas) {
-      char[] caracteres = coordenada.toCharArray();
-      char filaChar = caracteres[0];
-      char columna = caracteres[1];
-      if (!Character.isDigit(filaChar)) {
-        return false;
+
+      if (dimensionTablero == 10) {
+        if (coordenada.length() != 2) {
+          return false;
+        }
+      } else {
+        if (coordenada.length() != 3) {
+          return false;
+        }
       }
 
-      int filaNum = Character.getNumericValue(filaChar);
-      if (filaNum <= 0 || filaNum >= limiteFila && columna <= 'A' || columna >= limiteColumna) {
-        return false;
+      char[] caracteres = coordenada.toCharArray();
+      if(dimensionTablero == 10){
+        char filaChar = caracteres[0];
+        char columna = caracteres[1];
+        if (!Character.isDigit(filaChar)) {
+          return false;
+        }
+
+        int filaNum = Character.getNumericValue(filaChar);
+        if (filaNum < 0 || filaNum >= limiteFila && columna <= 'A' || columna >= limiteColumna) {
+          return false;
+        }
+      }
+      else{
+
+        if(coordenada.length() == 2){
+          char filaChar = caracteres[0];
+          char columna = caracteres[1];
+          if (!Character.isDigit(filaChar)) {
+            return false;
+          }
+
+          int filaNum = Character.getNumericValue(filaChar);
+          if (filaNum < 0 || filaNum >= limiteFila && columna <= 'A' || columna >= limiteColumna) {
+            return false;
+          }
+        }
+        else{
+          char filaChar1 = caracteres[0];
+          char filaChar2 = caracteres[1];
+          char columna = caracteres[2];
+
+          if (!Character.isDigit(filaChar1)) {
+            return false;
+          }
+          if (!Character.isDigit(filaChar2)) {
+            return false;
+          }
+          int filaNum1 = Character.getNumericValue(filaChar1);
+          int filaNum2 = Character.getNumericValue(filaChar2);
+          int filaNum = filaNum1 + filaNum2;
+
+          if (filaNum < 0 || filaNum > limiteFila && columna < 'A' || columna > limiteColumna) {
+            return false;
+          }
+        }
       }
     }
     return true;
