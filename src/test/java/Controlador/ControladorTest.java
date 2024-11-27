@@ -355,7 +355,7 @@ class ControladorTest {
     Mockito.verify(mockPartida, Mockito.times(2)).comprovarFinPartida();
     Mockito.verify(mockVista).pedirGolpe();
     Mockito.verify(mockPartida).golpeaJugadorPersona(coordenadaGolpear);
-    Mockito.verify(mockVista).mostrarTableros();
+    Mockito.verify(mockVista, Mockito.times(2)).mostrarTableros();
     Mockito.verify(mockPartida).cambiarTurno();
   }
 
@@ -382,9 +382,9 @@ class ControladorTest {
     controlador.comenzarPartida();
 
     //Assert
-    Mockito.verify(mockPartida).comprovarFinPartida();
+    Mockito.verify(mockPartida, Mockito.times(2)).comprovarFinPartida();
     Mockito.verify(mockVista).mostrarMensajeInicioJuego();
-    Mockito.verify(mockVista).mostrarTableros();
+    Mockito.verify(mockVista, Mockito.times(2)).mostrarTableros();
   }
 
   @Test
