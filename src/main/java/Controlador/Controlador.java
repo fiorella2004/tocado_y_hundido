@@ -147,11 +147,30 @@ public class Controlador {
   }
 
   public void comenzarPartida(){
+    vista.mostrarMensajeInicioJuego();
+    while (!partida.comprovarFinPartida()) {
+      if (partida.obtenerTurno() == 1) {
+        turnoJugadorpersona();
+      } else {
+        turnoJugadorIA();
+      }
+      partida.cambiarTurno();
+    }
+    vista.mostrarMensajeFinJuego();
   }
 
   private void turnoJugadorpersona(){
+    String coordenadaGolpe = vista.pedirGolpe();
+    if(comprobarFormatoCoordenadas(coordenadaGolpe, 1)) {
+      Coordenada coordenadaAGolpear = parsearCoordenada(coordenadaGolpe);
+      partida.golpeaJugadorPersona(coordenadaAGolpear);
+      vista.mostrarTableros();
+    }
   }
 
   private void turnoJugadorIA(){
+    vista.mostrarMensajeTurnoIA();
+    partida.golpeaJugadorIA();
+    vista.mostrarTableros();
   }
 }
