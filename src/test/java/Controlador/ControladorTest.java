@@ -202,7 +202,7 @@ class ControladorTest {
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);
 
     // Assert
-    assertFalse(resultado);
+    assertTrue(resultado);
   }
 
   @Test

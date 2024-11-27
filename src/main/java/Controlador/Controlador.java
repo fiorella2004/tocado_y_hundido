@@ -76,8 +76,8 @@ public class Controlador {
   private boolean validarLongitudCoordenada(String coordenada) {
     if (dimensionTablero == 10) {
       return coordenada.length() == 2;
-    } else {
-      return coordenada.length() == 3;
+    } else{
+      return (coordenada.length() == 2 || coordenada.length() == 3);
     }
   }
 
