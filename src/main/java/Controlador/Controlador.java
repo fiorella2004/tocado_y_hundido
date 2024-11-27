@@ -39,10 +39,10 @@ public class Controlador {
     return jugadorIA;
   }
 
-  public boolean comprobarFormatoCoordenadas(String coordenadasJugador, int casillasBarco) {
+  public boolean comprobarFormatoCoordenadas(String coordenadasJugador, int casillasTotales) {
     String[] coordenadas = coordenadasJugador.split(" ");
     int numeroDeCasillasAColocar = coordenadas.length;
-    if (numeroDeCasillasAColocar != casillasBarco) {
+    if (numeroDeCasillasAColocar != casillasTotales) {
       return false;
     }
     int limiteFila = dimensionTablero;
@@ -144,5 +144,14 @@ public class Controlador {
         }
       }
     }
+  }
+
+  public void comenzarPartida(){
+  }
+
+  private void turnoJugadorpersona(){
+  }
+
+  private void turnoJugadorIA(){
   }
 }

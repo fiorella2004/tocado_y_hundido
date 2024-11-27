@@ -8,6 +8,22 @@ public class VistaConsola {
 
   public VistaConsola(){};
 
+  public void mostrarMensajeInicioJuego(){
+
+  }
+
+  public void mostrarMensajeFinJuego(){
+
+  }
+
+  public void mostrarMensajeTurnoIA(){
+
+  }
+
+  public String pedirGolpe(){
+    return "0";
+  }
+
   public int pedirDimensionTablero(){
     return 10;
   }

@@ -327,4 +327,84 @@ class ControladorTest {
     // El tablero se muestra 5 veces + 1 vez en el constructor
     Mockito.verify(mockVista, Mockito.times(6)).mostrarTableros();
   }
+
+  @Test
+  public void comenzarPartida_NoFinPartida_TurnoJugador1(){
+    // Arrange
+    Partida mockPartida = Mockito.mock(Partida.class);
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
+    Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
+
+    Mockito.when(mockPartida.comprovarFinPartida())
+        .thenReturn(false)
+        .thenReturn(true);
+    Mockito.when(mockPartida.obtenerTurno()).thenReturn(1);
+    Mockito.when(mockVista.pedirGolpe()).thenReturn("1A");
+    Coordenada coordenadaGolpear = new Coordenada(1, 0);
+    Mockito.when(mockPartida.golpeaJugadorPersona(coordenadaGolpear)).thenReturn(true);
+    Mockito.doNothing().when(mockVista).mostrarTableros();
+
+    // Act
+    controlador.comenzarPartida();
+
+    // Assert
+    Mockito.verify(mockVista).mostrarMensajeInicioJuego();
+    Mockito.verify(mockPartida, Mockito.times(2)).comprovarFinPartida();
+    Mockito.verify(mockVista).pedirGolpe();
+    Mockito.verify(mockPartida).golpeaJugadorPersona(coordenadaGolpear);
+    Mockito.verify(mockVista).mostrarTableros();
+    Mockito.verify(mockPartida).cambiarTurno();
+  }
+
+  @Test
+  public void comenzarPartida_NoFinPartida_TurnoJugador2(){
+    // Arrange
+    Partida mockPartida = Mockito.mock(Partida.class);
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+
+    //Act
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
+    Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
+    Mockito.doNothing().when(mockVista).mostrarMensajeInicioJuego();
+    Mockito.when(mockPartida.comprovarFinPartida())
+        .thenReturn(false)
+        .thenReturn(true);
+    Mockito.when(mockPartida.obtenerTurno()).thenReturn(2);
+    Mockito.doNothing().when(mockVista).mostrarMensajeTurnoIA();
+    Mockito.when(mockPartida.golpeaJugadorIA()).thenReturn(true);
+    Mockito.doNothing().when(mockVista).mostrarTableros();
+
+    controlador.comenzarPartida();
+
+    //Assert
+    Mockito.verify(mockPartida).comprovarFinPartida();
+    Mockito.verify(mockVista).mostrarMensajeInicioJuego();
+    Mockito.verify(mockVista).mostrarTableros();
+  }
+
+  @Test
+  public void comenzarPartida_FinPartida(){
+    // Arrange
+    Partida mockPartida = Mockito.mock(Partida.class);
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+
+    //Act
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
+    Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
+    Mockito.doNothing().when(mockVista).mostrarMensajeInicioJuego();
+    Mockito.when(mockPartida.comprovarFinPartida()).thenReturn(true);
+    Mockito.doNothing().when(mockVista).mostrarMensajeFinJuego();
+    controlador.comenzarPartida();
+
+    //Assert
+    Mockito.verify(mockVista).mostrarMensajeFinJuego();
+    Mockito.verify(mockPartida).comprovarFinPartida();
+  }
 }
