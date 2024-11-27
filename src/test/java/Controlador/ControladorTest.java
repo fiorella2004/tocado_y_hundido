@@ -50,11 +50,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "0A 0B";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 2);
 
     // Assert
@@ -68,11 +68,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "0A 0B 0C 0D 0E";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);
 
     // Assert
@@ -86,11 +86,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "14A 14B";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 2);
 
     // Assert
@@ -104,11 +104,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "14A 14B 14C 14D 14E";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);
 
     // Assert
@@ -122,11 +122,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "10A 10B";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 2);
 
     // Assert
@@ -140,11 +140,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "0P 0Q 0R 0S 0T";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);
 
     // Assert
@@ -158,11 +158,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "14A";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 2);
 
     // Assert
@@ -176,11 +176,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "14A14B14C14D14E";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);
 
     // Assert
@@ -194,11 +194,11 @@ class ControladorTest {
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
     String input = "A0 B0";
 
     // Act
-    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 2);
 
     // Assert

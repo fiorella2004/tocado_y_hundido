@@ -63,7 +63,7 @@ public class Controlador {
         noValida = false;
       }
     }
-    return noValida;    
+    return noValida;
   }
 
   public void colocarBarcosJugadorPersona() {
