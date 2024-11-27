@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class JugadorIA extends Jugador {
-  public Random random;
+  public Random random = new Random();
 
+  /*
   public JugadorIA(String nombre, Random random) {
     super(nombre);
     this.random = random;
-  }
+  }*/
 
   public JugadorIA(String nombre) {
     super(nombre);

@@ -17,6 +17,7 @@ public class Controlador {
     this.partida = partida;
     this.jugadorPersona = jugadorPersona;
     this.jugadorIA = jugadorIA;
+    vista.mostrarMensajeInicioJuego();
     dimensionTablero = vista.pedirDimensionTablero();
     partida.setDimensionTablero(dimensionTablero);
     partida.colocarBarcosIA();
@@ -139,15 +140,16 @@ public class Controlador {
           if (barcoColocado) {
             vista.mostrarTableros();
           } else {
-            vista.mostrarErrorColocarBarco();
+            vista.mostrarErrorCoordenada();
           }
+        } else {
+          vista.mostrarErrorCoordenada();
         }
       }
     }
   }
 
   public void comenzarPartida() {
-    vista.mostrarMensajeInicioJuego();
     while (!partida.comprovarFinPartida()) {
       if (partida.obtenerTurno() == 1) {
         turnoJugadorpersona();
@@ -160,12 +162,20 @@ public class Controlador {
   }
 
   private void turnoJugadorpersona() {
-    String coordenadaGolpe = vista.pedirGolpe();
-    if (comprobarFormatoCoordenadas(coordenadaGolpe, 1)) {
-      Coordenada coordenadaAGolpear = parsearCoordenada(coordenadaGolpe);
-      partida.golpeaJugadorPersona(coordenadaAGolpear);
-      vista.mostrarTableros();
+    boolean golpeado = false;
+    while (!golpeado) {
+      String coordenadaGolpe = vista.pedirGolpe();
+      if (comprobarFormatoCoordenadas(coordenadaGolpe, 1)) {
+        Coordenada coordenadaAGolpear = parsearCoordenada(coordenadaGolpe);
+        golpeado = partida.golpeaJugadorPersona(coordenadaAGolpear);
+        if (!golpeado) {
+          vista.mostrarErrorCoordenada();
+        }
+      } else {
+        vista.mostrarErrorCoordenada();
+      }
     }
+    vista.mostrarTableros();
   }
 
   private void turnoJugadorIA() {

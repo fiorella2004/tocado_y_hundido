@@ -16,7 +16,6 @@ public class VistaConsola {
     this.partida = partida;
   }
 
-
   public void mostrarMensajeInicioJuego() {
     System.out.println("Bienvenido/a al juego de Tocado y Hundido");
     System.out.println();
@@ -34,18 +33,19 @@ public class VistaConsola {
 
   public int pedirDimensionTablero() {
     System.out.println("Indica qué medida de tablero deseas:\n");
-    System.out.println("Opción 1: 10x10\n");
-    System.out.println("Opción 2: 11x11\n");
-    System.out.println("Opción 3: 12x12\n");
-    System.out.println("Opción 4: 13x13\n");
-    System.out.println("Opción 5: 14x14\n");
-    System.out.println("Opción 6: 15x15\n");
+    System.out.println("Opción 1: 10x10");
+    System.out.println("Opción 2: 11x11");
+    System.out.println("Opción 3: 12x12");
+    System.out.println("Opción 4: 13x13");
+    System.out.println("Opción 5: 14x14");
+    System.out.println("Opción 6: 15x15");
 
     int opcionSeleccionada;
 
     while (true) {
       if (scanner.hasNextInt()) {
         opcionSeleccionada = scanner.nextInt();
+        scanner.nextLine();
 
         if (opcionSeleccionada >= 1 && opcionSeleccionada <= 6) {
           return convertirDimensionTablero(opcionSeleccionada);
@@ -94,7 +94,8 @@ public class VistaConsola {
 
   public String pedirColocarBarco2casilla() {
     System.out.println("Introduce las coordenadas del barco de 2 casillas (ejemplo: 1A 2A): ");
-    return scanner.nextLine();
+    String coordenada = scanner.nextLine();
+    return coordenada;
   }
 
   public String pedirColocarBarco3casilla() {
@@ -117,8 +118,8 @@ public class VistaConsola {
     return scanner.nextLine();
   }
 
-  public void mostrarErrorColocarBarco() {
-    System.out.println("Las coordenadas no se han introducido en el formato correcto\n");
+  public void mostrarErrorCoordenada() {
+    System.out.println("La/s coordenada/s no es/son correcta/s. Vuelve a intentarlo! \n");
   }
 
   public void mostrarTableros() {

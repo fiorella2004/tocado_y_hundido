@@ -104,7 +104,7 @@ public class Tablero {
   public boolean recibirGolpe(Coordenada coordenada) {
     Casilla casillaGolpeada = buscarCasilla(coordenada);
 
-    if (casillaGolpeada != null) {
+    if (casillaGolpeada != null && !casillaGolpeada.esGolpeada()) {
       casillaGolpeada.recibirGolpe();
       return true;
     }
