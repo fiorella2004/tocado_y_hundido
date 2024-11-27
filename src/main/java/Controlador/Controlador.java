@@ -40,11 +40,10 @@ public class Controlador {
 
   public boolean comprobarFormatoCoordenadas(String coordenadasJugador, int casillasBarco) {
     String[] coordenadas = coordenadasJugador.split(" ");
-    boolean noValida = true;
 
     int numeroDeCasillasAColocar = coordenadas.length;
     if (numeroDeCasillasAColocar != casillasBarco) {
-      noValida = false;
+      return false;
     }
 
     int limiteFila = dimensionTablero;
@@ -55,15 +54,15 @@ public class Controlador {
       char filaChar = caracteres[0];
       char columna = caracteres[1];
       if (!Character.isDigit(filaChar)) {
-        noValida = false;
+        return false;
       }
 
       int filaNum = Character.getNumericValue(filaChar);
       if (filaNum <= 0 || filaNum >= limiteFila && columna <= 'A' || columna >= limiteColumna) {
-        noValida = false;
+        return false;
       }
     }
-    return noValida;
+    return true;
   }
 
   public void colocarBarcosJugadorPersona() {
