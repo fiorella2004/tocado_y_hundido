@@ -196,7 +196,7 @@ class ControladorTest {
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
     Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(15);
     Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
-    String input = "0A 0A 0A 0A 0A";
+    String input = "0A 0B 0C 0D 0E";
 
     // Act
     boolean resultado = controlador.comprobarFormatoCoordenadas(input, 5);
@@ -221,5 +221,101 @@ class ControladorTest {
 
     // Assert
     assertFalse(resultado);
+  }
+
+  @Test
+  void testParsearCoordenada_2Caracteres_expectedTrue() {
+    // Arrange
+    Partida mockPartida = Mockito.mock(Partida.class);
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
+    Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    Coordenada coordenada = controlador.parsearCoordenada("0A");
+
+    // Assert
+    assertEquals(0, coordenada.getFila());
+    assertEquals(0, coordenada.getCol());
+  }
+
+  @Test
+  void testParsearCoordenada_3Caracteres_expectedTrue() {
+    // Arrange
+    Partida mockPartida = Mockito.mock(Partida.class);
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
+    Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    Coordenada coordenada = controlador.parsearCoordenada("10A");
+
+    // Assert
+    assertEquals(10, coordenada.getFila());
+    assertEquals(0, coordenada.getCol());
+  }
+
+  @Test
+  public void testColocarBarcosJugadorPersona_expectedTrue() {
+    // Arrange
+    Partida mockPartida = Mockito.mock(Partida.class);
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+    VistaConsola mockVista = Mockito.mock(VistaConsola.class);
+    Mockito.when(mockVista.pedirDimensionTablero()).thenReturn(10);
+
+    Mockito.when(mockVista.pedirColocarBarco(2)).thenReturn("0A 0B");
+    ArrayList<Coordenada> coords1 = new ArrayList<>();
+    coords1.add(new Coordenada(0,0));
+    coords1.add(new Coordenada(0,1));
+
+    Mockito.when(mockVista.pedirColocarBarco(3))
+        .thenReturn("1A 1B 1C")
+        .thenReturn("2A 2B 2C");
+
+    ArrayList<Coordenada> coords2 = new ArrayList<>();
+    coords2.add(new Coordenada(1,0));
+    coords2.add(new Coordenada(1,1));
+    coords2.add(new Coordenada(1,2));
+
+    ArrayList<Coordenada> coords3 = new ArrayList<>();
+    coords3.add(new Coordenada(2,0));
+    coords3.add(new Coordenada(2,1));
+    coords3.add(new Coordenada(2,2));
+
+    Mockito.when(mockVista.pedirColocarBarco(4)).thenReturn("3A 3B 3C 3D");
+    ArrayList<Coordenada> coords4 = new ArrayList<>();
+    coords4.add(new Coordenada(3, 0));
+    coords4.add(new Coordenada(3, 1));
+    coords4.add(new Coordenada(3, 2));
+    coords4.add(new Coordenada(3, 3));
+
+    Mockito.when(mockVista.pedirColocarBarco(5)).thenReturn("4A 4B 4C 4D 4E");
+    ArrayList<Coordenada> coords5 = new ArrayList<>();
+    coords5.add(new Coordenada(4, 0));
+    coords5.add(new Coordenada(4, 1));
+    coords5.add(new Coordenada(4, 2));
+    coords5.add(new Coordenada(4, 3));
+    coords5.add(new Coordenada(4, 4));
+
+    Mockito.when(mockPartida.colocarBarcoJugador(coords1, 2)).thenReturn(true);
+    Mockito.when(mockPartida.colocarBarcoJugador(coords2, 3)).thenReturn(true);
+    Mockito.when(mockPartida.colocarBarcoJugador(coords3, 3)).thenReturn(true);
+    Mockito.when(mockPartida.colocarBarcoJugador(coords4, 4)).thenReturn(true);
+    Mockito.when(mockPartida.colocarBarcoJugador(coords5, 5)).thenReturn(true);
+    Controlador controlador = new Controlador(mockVista, mockPartida, mockJugadorPersona, mockJugadorIA);
+
+    // Act
+    controlador.colocarBarcosJugadorPersona();
+
+    // Assert
+    Mockito.verify(mockVista).pedirColocarBarco(2);
+    Mockito.verify(mockVista, Mockito.times(2)).pedirColocarBarco(3);
+    Mockito.verify(mockVista).pedirColocarBarco(4);
+    Mockito.verify(mockVista).pedirColocarBarco(5);
   }
 }

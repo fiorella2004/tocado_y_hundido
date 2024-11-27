@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import Vista.VistaConsola;
+import java.util.ArrayList;
 
 public class Controlador {
   private Partida partida;
@@ -113,7 +114,11 @@ public class Controlador {
     return true;
   }
 
+  public Coordenada parsearCoordenada(String coordenada) {
+
+  }
+
   public void colocarBarcosJugadorPersona() {
-    //llamar a comprobar formato coordenadas
+    
   }
 }

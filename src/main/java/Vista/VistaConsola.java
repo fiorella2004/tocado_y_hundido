@@ -1,6 +1,8 @@
 package Vista;
 import Modelo.*;
 
+import java.util.ArrayList;
+
 public class VistaConsola {
   private Partida partida;
 
@@ -15,5 +17,9 @@ public class VistaConsola {
   }
 
   public void mostrarTableros(){
+  }
+
+  public String pedirColocarBarco(int dimensionBarco) {
+    return null;
   }
 }
