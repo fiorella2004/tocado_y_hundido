@@ -59,7 +59,7 @@ public class VistaConsola {
     }
   }
 
-  public int convertirDimensionTablero(int opcionSeleccionada){
+  public int convertirDimensionTablero(int opcionSeleccionada) {
     switch (opcionSeleccionada) {
       case 1:
         return 10;
@@ -97,21 +97,20 @@ public class VistaConsola {
     return scanner.nextLine();
   }
 
-  public String pedirColocarBarco3casilla(){
+  public String pedirColocarBarco3casilla() {
     System.out.println("Introduce las coordenadas del barco de 3 casillas (ejemplo: 1A 2A 3A): ");
     return scanner.nextLine();
   }
 
-  public String pedirColocarBarco4casilla(){
+  public String pedirColocarBarco4casilla() {
     System.out.println("Introduce las coordenadas del barco de 4 casillas (ejemplo: 1A 2A 3A 4A): ");
     return scanner.nextLine();
   }
 
-  public String pedirColocarBarco5casilla(){
+  public String pedirColocarBarco5casilla() {
     System.out.println("Introduce las coordenadas del barco de 5 casillas (ejemplo: 1A 2A 3A 4A 5A):");
     return scanner.nextLine();
   }
-
 
   public String pedirGolpe() {
     System.out.println("Introduce las coordenadas donde quieras lanzar un golpe (ejemplo: 1A):");
@@ -120,5 +119,49 @@ public class VistaConsola {
 
   public void mostrarErrorColocarBarco() {
     System.out.println("Las coordenadas no se han introducido en el formato correcto\n");
+  }
+
+  public void mostrarTableros() {
+    Jugador jugador = partida.getJugadorPersona();
+    Tablero tableroPrincipal = jugador.obtenerTableroPrincipal();
+    Tablero tableroSecundario = jugador.obtenerTableroSecundario();
+    printTableros(tableroPrincipal.obtenerTablero(), tableroSecundario.obtenerTablero(),
+        tableroSecundario.getNumFilas(), tableroSecundario.getNumCol());
+  }
+
+  private void printTableros(ArrayList<Casilla> tableroPrincipal, ArrayList<Casilla> tableroSecundario,
+                             int filas, int columnas) {
+
+    final String separadorLetras = "   ";
+    System.out.println("           Tablero Principal                                  Tablero Secundario");
+
+    System.out.print("    ");
+    for (int col = 0; col < columnas; col++) {
+      char columnaLetra = (char) ('A' + col);
+      System.out.print(columnaLetra + separadorLetras);
+    }
+
+    System.out.print("|      ");
+    for (int col = 0; col < columnas; col++) {
+      char columnaLetra = (char) ('A' + col);
+      System.out.print(columnaLetra + separadorLetras);
+    }
+    System.out.println();
+
+    for (int fila = 0; fila < filas; fila++) {
+      System.out.printf("%-3d", fila);
+      for (int col = 0; col < columnas; col++) {
+        Casilla casilla1 = tableroPrincipal.get(fila * columnas + col);
+        System.out.print(casilla1.getDibujo() + "  ");
+      }
+      System.out.print("|   ");
+
+      System.out.printf("%-3d", fila);
+      for (int col = 0; col < columnas; col++) {
+        Casilla casilla2 = tableroSecundario.get(fila * columnas + col);
+        System.out.print(casilla2.getDibujo() + "  ");
+      }
+      System.out.println();
+    }
   }
 }

@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import Vista.VistaConsola;
+
 import java.util.ArrayList;
 
 public class Controlador {
@@ -137,8 +138,7 @@ public class Controlador {
           barcoColocado = partida.colocarBarcoJugador(casillasBarcoCoordenadas, dimension);
           if (barcoColocado) {
             vista.mostrarTableros();
-          }
-          else {
+          } else {
             vista.mostrarErrorColocarBarco();
           }
         }
@@ -146,7 +146,7 @@ public class Controlador {
     }
   }
 
-  public void comenzarPartida(){
+  public void comenzarPartida() {
     vista.mostrarMensajeInicioJuego();
     while (!partida.comprovarFinPartida()) {
       if (partida.obtenerTurno() == 1) {
@@ -159,16 +159,16 @@ public class Controlador {
     vista.mostrarMensajeFinJuego();
   }
 
-  private void turnoJugadorpersona(){
+  private void turnoJugadorpersona() {
     String coordenadaGolpe = vista.pedirGolpe();
-    if(comprobarFormatoCoordenadas(coordenadaGolpe, 1)) {
+    if (comprobarFormatoCoordenadas(coordenadaGolpe, 1)) {
       Coordenada coordenadaAGolpear = parsearCoordenada(coordenadaGolpe);
       partida.golpeaJugadorPersona(coordenadaAGolpear);
       vista.mostrarTableros();
     }
   }
 
-  private void turnoJugadorIA(){
+  private void turnoJugadorIA() {
     vista.mostrarMensajeTurnoIA();
     partida.golpeaJugadorIA();
     vista.mostrarTableros();

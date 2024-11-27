@@ -23,6 +23,10 @@ public class Partida {
     return jugadorIA;
   }
 
+  public int getDimensionTablero() {
+    return dimensionTablero;
+  }
+
   public void setDimensionTablero(int dimension) {
     this.dimensionTablero = dimension;
     crearTablero(dimension);
