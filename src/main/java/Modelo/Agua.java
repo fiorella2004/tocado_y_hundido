@@ -1,7 +1,6 @@
 package Modelo;
 
 public class Agua extends Casilla {
-
   private String aguaDibujo = "🌊";
 
   Agua(Coordenada coordenada) {
@@ -16,6 +15,6 @@ public class Agua extends Casilla {
   @Override
   public void recibirGolpe() {
     golpeada = true;
-    aguaDibujo = "⬜";
+    aguaDibujo = "⬜"; //
   }
 }

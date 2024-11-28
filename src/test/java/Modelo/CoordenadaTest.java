@@ -8,6 +8,9 @@ class CoordenadaTest {
 
   @Test
   public void testConstructor_expectedTrue() {
+    // Verifica que el constructor de Coordenada inicializa
+    // correctamente los valores de fila y columna
+
     //Arrange
     Coordenada coordenada = new Coordenada(5, 6);
 
@@ -18,6 +21,9 @@ class CoordenadaTest {
 
   @Test
   public void testEquals_expectedTrue() {
+    // Verifica que equals devueleve true cuando dos
+    // coordenadas tienen los mismos valores de fila y columna
+
     // Arrange
     Coordenada coordenada1 = new Coordenada(5, 6);
     Coordenada coordenada2 = new Coordenada(5, 6);
@@ -28,6 +34,9 @@ class CoordenadaTest {
 
   @Test
   public void testEquals_expectedFalseRow() {
+    // Verifica que equals devuelve false cuando
+    // las filas son distintas
+
     // Arrange
     Coordenada coordenada1 = new Coordenada(5, 6);
     Coordenada coordenada2 = new Coordenada(1, 6);
@@ -38,6 +47,9 @@ class CoordenadaTest {
 
   @Test
   public void testEquals_expectedFalseCol() {
+    // Verifica que equals devuelve false cuando
+    // las columnas son distintas
+
     // Arrange
     Coordenada coordenada1 = new Coordenada(5, 6);
     Coordenada coordenada2 = new Coordenada(5, 7);

@@ -1,7 +1,6 @@
 package Modelo;
 
 public class Barco extends Casilla {
-
   private String dibujo = "⛵";
 
   public Barco(Coordenada coordenada) {

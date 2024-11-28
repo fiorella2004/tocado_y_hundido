@@ -1,9 +1,7 @@
 package Modelo;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class JugadorPersonaTest {
@@ -11,7 +9,8 @@ class JugadorPersonaTest {
   @Test
   public void testAsignarNombre_expectedTrue() {
     // Arrange
-    //MockTablero mockTablero = new MockTablero(10, true);
+    // Ya no se usa MockTablero
+    // MockTablero mockTablero = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
 
     // Act
@@ -22,7 +21,7 @@ class JugadorPersonaTest {
   }
 
   @Test
-  public void recibirGolpe_expectedTrue() {
+  public void testRecibirGolpe_expectedTrue() {
     // Arrange
     //MockTablero mockTableroPrincipal = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
@@ -37,7 +36,7 @@ class JugadorPersonaTest {
   }
 
   @Test
-  public void recibirGolpe_expectedFalse() {
+  public void testRecibirGolpe_expectedFalse() {
     // Arrange
     //MockTablero mockTableroPrincipal = new MockTablero(10, true);
     Jugador jugador = new JugadorPersona("noname");
