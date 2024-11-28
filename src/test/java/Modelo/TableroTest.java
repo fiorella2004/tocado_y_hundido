@@ -9,15 +9,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class TableroTest {
 
   @Test
-  public void testObtenerTablero_expectedTrue() {
-    //Arrange
+  public void testObtenerTablero_instanceofArrayList_expectedTrue() {
+    // Arrange
     Tablero tablero = new Tablero(10);
 
     // Act
-    boolean resultado = tablero instanceof Tablero;
+    ArrayList<Casilla> resultado = tablero.obtenerTablero();
 
-    //Assert
-    assertTrue(resultado);
+    // Assert
+    assertTrue(resultado instanceof ArrayList);
   }
 
   @Test
@@ -718,5 +718,24 @@ class TableroTest {
 
     // Assert
     assertTrue(resultado);
+  }
+
+  @Test
+  public void testComprobarCoordenadasContiguas_tamanoIncorrecto_expectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    ArrayList<Coordenada> coords = new ArrayList<>();
+    Coordenada coordenada1 = new Coordenada(0, 0);
+    Coordenada coordenada2 = new Coordenada(0, 1);
+    Coordenada coordenada3 = new Coordenada(0, 2);
+    coords.add(coordenada1);
+    coords.add(coordenada2);
+    coords.add(coordenada3);
+
+    // Act
+    boolean resultado = tablero.colocarBarco(coords, 2);
+
+    // Assert
+    assertFalse(resultado);
   }
 }
