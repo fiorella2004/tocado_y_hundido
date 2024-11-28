@@ -34,7 +34,7 @@ public class AguaTest {
   }
 
   @Test
-  public void testRecibirVariosGolpes_expectedTrue() {
+  public void testRecibirGolpe_variosGolpes_expectedTrue() {
     // Arrange
     Coordenada coordenada = new Coordenada(3, 3);
     Agua agua = new Agua(coordenada);
@@ -46,6 +46,33 @@ public class AguaTest {
 
     // Assert
     assertTrue(golpeada);
+  }
+
+  @Test
+  public void testGetDibujo_sinGolpear_expectedTrue() {
+    // Arrange
+    Coordenada coordenada = new Coordenada(3, 3);
+    Agua agua = new Agua(coordenada);
+
+    // Act
+    String dibujo = agua.getDibujo();
+
+    // Assert
+    assertEquals("🌊", dibujo);
+  }
+
+  @Test
+  public void testGetDibujo_conGolpe_expectedTrue() {
+    // Arrange
+    Coordenada coordenada = new Coordenada(3, 3);
+    Agua agua = new Agua(coordenada);
+
+    // Act
+    agua.recibirGolpe();
+    String dibujo = agua.getDibujo();
+
+    // Assert
+    assertEquals("⬜", dibujo);
   }
 }
 
