@@ -483,6 +483,34 @@ class TableroTest {
     assertFalse(golpeada);
   }
 
+  @Test
+  public void testRecibirGolpe_CasillaNull_expectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    Coordenada coordenada = null;
+
+    //Act
+    boolean golpeada = tablero.recibirGolpe(coordenada);
+
+    //Test
+    assertFalse(golpeada);
+  }
+
+  @Test
+  public void testRecibirGolpe_CasillaYaGolpeada_expectedFalse() {
+    // Arrange
+    Tablero tablero = new Tablero(10);
+    Coordenada coordenada = new Coordenada(2, 2);
+
+    //Act
+    boolean golpeada = tablero.recibirGolpe(coordenada);
+    boolean golpeada2 = tablero.recibirGolpe(coordenada);
+
+    //Test
+    assertTrue(golpeada);
+    assertFalse(golpeada2);
+  }
+
   // ---- COMPROBAR QUE TODOS LOS BARCOS SE HAN HUNDIDO
 
   @Test
