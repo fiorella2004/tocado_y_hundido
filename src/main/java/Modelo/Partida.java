@@ -7,12 +7,10 @@ public class Partida {
   private JugadorIA jugadorIA;
   private int turno = 1;
   private int dimensionTablero;
-  private boolean finPartida;
 
   public Partida(JugadorPersona jugadorPersona, JugadorIA jugadorIA) {
     this.jugadorPersona = jugadorPersona;
     this.jugadorIA = jugadorIA;
-    finPartida = false;
   }
 
   public JugadorPersona getJugadorPersona() {

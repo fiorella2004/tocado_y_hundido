@@ -9,6 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class TableroTest {
 
   @Test
+  public void testObtenerTablero_expectedTrue() {
+    //Arrange
+    Tablero tablero = new Tablero(10);
+
+    // Act
+    boolean resultado = tablero instanceof Tablero;
+
+    //Assert
+    assertTrue(resultado);
+  }
+
+  @Test
   public void testConstructorDimension10_expectedTrue() {
     //Arrange
     Tablero tablero = new Tablero(10);

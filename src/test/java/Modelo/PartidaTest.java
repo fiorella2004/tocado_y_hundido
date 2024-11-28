@@ -25,6 +25,20 @@ class PartidaTest {
   }
 
   @Test
+  public void testGetDimensionTablero_expectedTrue() {
+    // Arrange
+    JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
+    JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
+
+    // Act
+    Partida partida = new Partida(mockJugadorPersona, mockJugadorIA);
+    partida.setDimensionTablero(10);
+
+    //Assert
+    assertEquals(10, partida.getDimensionTablero());
+  }
+
+  @Test
   public void colocarBarcoJugador_expectedTrue() {
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
