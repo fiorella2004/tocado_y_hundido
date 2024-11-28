@@ -88,10 +88,7 @@ public class Controlador {
       return false;
     }
     int filaNum = Character.getNumericValue(filaChar);
-    if (filaNum < 0 || filaNum >= limiteFila) {
-      return false;
-    }
-    if (columna < 'A' || columna >= limiteColumna) {
+    if (filaNum < 0 || filaNum >= limiteFila || columna < 'A' || columna >= limiteColumna) {
       return false;
     }
     return true;
@@ -107,12 +104,10 @@ public class Controlador {
     int filaNum1 = Character.getNumericValue(filaChar1);
     int filaNum2 = Character.getNumericValue(filaChar2);
     int filaNum = filaNum1 * 10 + filaNum2;
-    if (filaNum < 0 || filaNum > limiteFila) {
+    if (filaNum < 0 || filaNum > limiteFila || columna < 'A' || columna > limiteColumna) {
       return false;
     }
-    if (columna < 'A' || columna > limiteColumna) {
-      return false;
-    }
+
     return true;
   }
 
