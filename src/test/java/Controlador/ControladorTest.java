@@ -18,6 +18,10 @@ class ControladorTest {
 
   @Test
   public void constructorControlador_expectedTrue() {
+    // Verificamos que se construye correctamente un objeto de Controlador
+    // Utilizamos mockito para los objetos de las clases que recibe el constructor
+    // Comprobamos que se realizan las llamadas que aparecen dentro del constructor
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     VistaConsola mockVista = Mockito.mock(VistaConsola.class);
@@ -45,6 +49,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero10_barco2casillas_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce bien las coordendas
+    // Dimension tablero: 10; Dimension barco: 2; Esquina superior derecha (valor limite)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -63,6 +71,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero10_barco5casillas_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce bien las coordendas
+    // Dimension tablero: 10; Dimension barco: 5; Esquina superior derecha (valor limite)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -81,6 +93,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero15_barco2casillas_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce bien las coordendas
+    // Dimension tablero: 15; Dimension barco: 2; Esquina superior izquierda (valor limite)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -99,6 +115,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero15_barco5casillas_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce bien las coordendas
+    // Dimension tablero: 15; Dimension barco: 5; Esquina superior izquierda (valor limite)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -117,6 +137,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero10_barco2casillas_numeroFueraDeRango_expectedFalse() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce fila coordenada fuera de rango
+    // Dimension tablero: 10; Dimension barco: 2; (valor frontera)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -135,6 +159,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero10_barco5casillas_letraFueraDeRango_expectedFalse() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce columna coordenada fuera de rango
+    // Dimension tablero: 10; Dimension barco: 2; (valor frontera)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -153,6 +181,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero15_barco2casillas_cantidadIncorrecta_expectedFalse() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce numero de coordenadas incorrecto
+    // Dimension tablero: 15; Dimension barco: 2;
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -171,6 +203,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero15_barco5casillas_sinEspacios_expectedFalse() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce coordenadas sin espacios
+    // Dimension tablero: 15; Dimension barco: 5;
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -188,7 +224,11 @@ class ControladorTest {
   }
 
   @Test
-  public void testComprobarFormatoCoordenadas_dimTablero15_barco5casillas_coordenadasPequeñas_expectedFalse() {
+  public void testComprobarFormatoCoordenadas_dimTablero15_barco5casillas_coordenadasPequeñas_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce numero de coordenadas de forma correcta
+    // Dimension tablero: 15; Dimension barco: 2; esquina superior izquierda (valor frontera)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -207,6 +247,10 @@ class ControladorTest {
 
   @Test
   public void testComprobarFormatoCoordenadas_dimTablero10_barco2casillas_letraAntesQueNumero_expectedFalse() {
+    // Verifica que las coordenadas introducidas por el usuario se introducen correctamente
+    // Usuario introduce la columna antes que la letra
+    // Dimension tablero: 10; Dimension barco: 2;
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -225,6 +269,9 @@ class ControladorTest {
 
   @Test
   public void testParsearCoordenada_2Caracteres_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario (String) se convierten correctamente a un objeto de la clase Coordenada
+    // Coordenada de 2 caracteres (ejemplo 0A)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -243,6 +290,9 @@ class ControladorTest {
 
   @Test
   public void testParsearCoordenada_3Caracteres_expectedTrue() {
+    // Verifica que las coordenadas introducidas por el usuario (String) se convierten correctamente a un objeto de la clase Coordenada
+    // Coordenada de 3 caracteres (ejemplo 10A)
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -261,6 +311,9 @@ class ControladorTest {
 
   @Test
   public void testColocarBarcosJugadorPersona_expectedTrue() {
+    // Verifica que se realizan las correspondientes llamadas dentro del metodo colocarBarcosJugador
+    // Simulamos las coordenadas introducidas por el usuario
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -330,6 +383,9 @@ class ControladorTest {
 
   @Test
   public void testColocarBarcosJugadorPersonaIncFilaIntento1_expectedTrue() {
+    // Verifica que se realizan las correspondientes llamadas dentro del metodo colocarBarcosJugador
+    // Usuario introduce mal la primera coordenada
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -401,6 +457,9 @@ class ControladorTest {
 
   @Test
   public void testColocarBarcosJugadorPersonaFilaFueraRango3CaracteresIntento1_expectedTrue() {
+    // Verifica que se realizan las correspondientes llamadas dentro del metodo colocarBarcosJugador
+    // Usuario introduce mal la primera coordenada, fuera de rango
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -472,6 +531,9 @@ class ControladorTest {
 
   @Test
   public void testColocarBarcosJugadorPersonaInc3caracteresIntento1_expectedTrue() {
+    // Verifica que se realizan las correspondientes llamadas dentro del metodo colocarBarcosJugador
+    // Usuario introduce mal una coordenada
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -543,6 +605,9 @@ class ControladorTest {
 
   @Test
   public void testColocarBarcosJugadorPersonaSolapaBarco1Intento_expectedTrue() {
+    // Verifica que se realizan las correspondientes llamadas dentro del metodo colocarBarcosJugador
+    // Usuario introduce correctamente coordenadas pero alguna de ellas se solapa con un barco ya colocado
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -613,6 +678,8 @@ class ControladorTest {
 
   @Test
   public void comenzarPartida_NoFinPartida_TurnoJugador1(){
+    //Comprobamos que el metodo comenzarPartida llama al metodo turnoJudador1 cuando es su turno
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -644,6 +711,9 @@ class ControladorTest {
 
   @Test
   public void comenzarPartida_NoFinPartida_TurnoJugador1_GolpeRepetido(){
+    // Comprobamos que el metodo comenzarPartida llama al metodo turnoJudador1 cuando es su turno
+    // Jugador1 introduce una coordenada que ya ha golpeada, se le vuelve a pedir que introduza una coordenada
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -689,6 +759,9 @@ class ControladorTest {
 
   @Test
   public void comenzarPartida_NoFinPartida_TurnoJugador1_GolpeFormatoIncorrecto(){
+    // Comprobamos que el metodo comenzarPartida llama al metodo turnoJudador1 cuando es su turno
+    // Jugador1 introduce una coordenada con un formato incorrecto
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -723,6 +796,8 @@ class ControladorTest {
 
   @Test
   public void comenzarPartida_NoFinPartida_TurnoJugador2(){
+    // Comprobamos que el metodo comenzarPartida llama al metodo turnoJudador2 cuando es su turno
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
@@ -751,6 +826,8 @@ class ControladorTest {
 
   @Test
   public void comenzarPartida_FinPartida(){
+    // Comprobamos finPartida
+
     // Arrange
     Partida mockPartida = Mockito.mock(Partida.class);
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);

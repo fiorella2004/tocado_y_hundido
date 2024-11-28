@@ -41,9 +41,12 @@ public class Controlador {
     return jugadorIA;
   }
 
+  //Comprobar que las coordenadas introducidas por el usuario sigue el forma correcto
   public boolean comprobarFormatoCoordenadas(String coordenadasJugador, int casillasTotales) {
     String[] coordenadas = coordenadasJugador.split(" ");
     int numeroDeCasillasAColocar = coordenadas.length;
+
+    //El numero de coordendas debe ser igual al numero de casillas totales (barco o casilla a golpear)
     if (numeroDeCasillasAColocar != casillasTotales) {
       return false;
     }
@@ -74,9 +77,11 @@ public class Controlador {
   }
 
   private boolean validarLongitudCoordenada(String coordenada) {
+    //Si la dimension del tablero es 10 el length de coordenada debe ser 2 (Ejemplo 1A)
     if (dimensionTablero == 10) {
       return coordenada.length() == 2;
     } else {
+      //Si la dimension del tablero es superior a 10 las coordenadas pueden tener un length de 2 o 3 (ejemplo 9A o 10A)
       return (coordenada.length() == 2 || coordenada.length() == 3);
     }
   }
@@ -84,10 +89,14 @@ public class Controlador {
   private boolean validarCoordenada2Caracteres(char[] caracteres, int limiteFila, char limiteColumna) {
     char filaChar = caracteres[0];
     char columna = caracteres[1];
+
+    //Comprobar que el primer caracter es un numero (fila)
     if (!Character.isDigit(filaChar)) {
       return false;
     }
     int filaNum = Character.getNumericValue(filaChar);
+
+    //Comprobar que la coordenada no sale de los limites del tablero
     if (filaNum < 0 || filaNum >= limiteFila || columna < 'A' || columna >= limiteColumna) {
       return false;
     }
@@ -98,12 +107,16 @@ public class Controlador {
     char filaChar1 = caracteres[0];
     char filaChar2 = caracteres[1];
     char columna = caracteres[2];
+
+    //Comprobar que si la coordenada tiene 3 caracteres, los dos primeros deben ser numeros
     if (!Character.isDigit(filaChar1) || !Character.isDigit(filaChar2)) {
       return false;
     }
     int filaNum1 = Character.getNumericValue(filaChar1);
     int filaNum2 = Character.getNumericValue(filaChar2);
     int filaNum = filaNum1 * 10 + filaNum2;
+
+    //Comprobar que la coordenada no sale de los limites del tablero
     if (filaNum < 0 || filaNum > limiteFila || columna < 'A' || columna > limiteColumna) {
       return false;
     }
@@ -112,6 +125,7 @@ public class Controlador {
   }
 
   public Coordenada parsearCoordenada(String coordenada) {
+    //Convertimos a int fila y columna para generar un objeto de la clase Coordenada
     int fila = Integer.parseInt(coordenada.substring(0, coordenada.length() - 1));
     char columnaChar = coordenada.charAt(coordenada.length() - 1);
     int columna = columnaChar - 'A';
@@ -119,11 +133,14 @@ public class Controlador {
   }
 
   public void colocarBarcosJugadorPersona() {
+    //Array con las dimensiones de los barcos del juego
     int[] dimensionesBarcos = {2, 3, 3, 4, 5};
     for (int dimension : dimensionesBarcos) {
       boolean barcoColocado = false;
+      //Mientras no coloque el barco seguiremos en el bucle
       while (!barcoColocado) {
         String casillasBarcoString = vista.pedirColocarBarco(dimension);
+        //Comprobamos que el usuario ha seguido el formato solicitado para la coordenada
         if (comprobarFormatoCoordenadas(casillasBarcoString, dimension)) {
           String[] coordenadas = casillasBarcoString.split(" ");
           ArrayList<Coordenada> casillasBarcoCoordenadas = new ArrayList<>();
@@ -160,13 +177,14 @@ public class Controlador {
     boolean golpeado = false;
     while (!golpeado) {
       String coordenadaGolpe = vista.pedirGolpe();
+      //Comprobamos que el usuario ha seguido el formato solicitado para la coordenada
       if (comprobarFormatoCoordenadas(coordenadaGolpe, 1)) {
         Coordenada coordenadaAGolpear = parsearCoordenada(coordenadaGolpe);
         golpeado = partida.golpeaJugadorPersona(coordenadaAGolpear);
         if (!golpeado) {
           vista.mostrarErrorCoordenada();
         }
-      } else {
+      } else { //La casilla ya ha sido golpeada
         vista.mostrarErrorCoordenada();
       }
     }

@@ -21,7 +21,8 @@ public class JugadorIA extends Jugador {
     boolean barcoColocado;
     int fila = generarCoordenadaAleatoria();
     int col = generarCoordenadaAleatoria();
-    int direccion = generarDireccionAleatoria();
+    int direccion = generarDireccionAleatoria(); // Direccion del barco
+    // Calculamos las coordenadas del barco según la primera coordenada generada aleatoriamente y la dirección
     ArrayList<Coordenada> coordenadas = calcularCoordenadasBarco(fila, col, direccion, dimensionBarco);
     if (coordenadas != null) {
       barcoColocado = tableroPrincipal.colocarBarco(coordenadas, dimensionBarco);

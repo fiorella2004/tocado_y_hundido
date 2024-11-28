@@ -7,8 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PartidaTest {
 
+  // Para estos test se ha utilizado mockito para simular la colocacion aleatoria de barcos y coordenadas de golpe
+  // en el jugadorIA y simular la introduccion de coordenadas por parte del usuario
+
   @Test
   public void constructorPartida_expectedTrue() {
+    // Verificamos que se construye correctamente un objeto de Partida
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -26,6 +31,8 @@ class PartidaTest {
 
   @Test
   public void testGetDimensionTablero_expectedTrue() {
+    // Verificar que se introduce la dimension del barco correctamente
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -40,6 +47,9 @@ class PartidaTest {
 
   @Test
   public void colocarBarcoJugador_expectedTrue() {
+    // Verificar que la función colocarBarcoJugador llama correctamente a las funciones correspondientes
+    // Usuario introduce bien las coordenadas
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -63,6 +73,9 @@ class PartidaTest {
 
   @Test
   public void colocarBarcoJugador_expectedFalse() {
+    // Verificar que la función colocarBarcoJugador llama correctamente a las funciones correspondientes
+    // Usuario introduce mal las coordendas, barco en diagonal
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -86,6 +99,8 @@ class PartidaTest {
 
   @Test
   public void colocarBarcosIA_verifyMethod() {
+    // Verificar que la función colocarBarcosIA llama correctamente a las funciones correspondientes
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -107,6 +122,9 @@ class PartidaTest {
 
   @Test
   public void golpeaJugadorPersona_expectedTrue() {
+    // Verificar que la función golpeaJugadorPersona llama correctamente a las funciones correspondientes
+    // Usuario introduce bien la coordenada
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -128,6 +146,9 @@ class PartidaTest {
 
   @Test
   public void golpeaJugadorPersona_expectedFalse() {
+    // Verificar que la función golpeaJugadorPersona llama correctamente a las funciones correspondientes
+    // Simulamos que usuario introduce una coordenada que ya ha golpeado
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -148,6 +169,9 @@ class PartidaTest {
 
   @Test
   public void golpeaJugadorIA_expectedTrue() {
+    // Verificar que la función golpeaJugadorIA llama correctamente a las funciones correspondientes
+    // Simulamos que la funcion de golpear de jugadorIA devuelve true
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -168,6 +192,9 @@ class PartidaTest {
 
   @Test
   public void golpeaJugadorIA_expectedFalse() {
+    // Verificar que la función golpeaJugadorIA llama correctamente a las funciones correspondientes
+    // Simulamos que la funcion de golpear de jugadorIA devuelve false
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -188,6 +215,9 @@ class PartidaTest {
 
   @Test
   public void cambiarTurno_primerCambio_turno2_expectedTrue() {
+    // Verificar que se hace correctamente los cambios de turno de los jugadores
+    // Cambiamos de turno1 a turno2
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -204,6 +234,9 @@ class PartidaTest {
 
   @Test
   public void cambiarTurno_segundoCambio_turno1_expectedTrue() {
+    // Verificar que se hace correctamente los cambios de turno de los jugadores
+    // Cambiamos de turno1 a turno2 y de turno2 a turno1
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -221,6 +254,9 @@ class PartidaTest {
 
   @Test
   public void comprovarFinPartida1_expectedTrue() {
+    // Verificar el fin de partida llamando a las funciones de comprobarTodosBarcosHundidos
+    // comprobarBarcosHundidos devuelve true en jugadorPersona, es el ganador
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -238,6 +274,9 @@ class PartidaTest {
 
   @Test
   public void comprovarFinPartida2_expectedTrue() {
+    // Verificar el fin de partida llamando a las funciones de comprobarTodosBarcosHundidos
+    // comprobarBarcosHundidos devuelve true en jugadorIA, es el ganador
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -255,6 +294,9 @@ class PartidaTest {
 
   @Test
   public void comprovarFinPartida3_expectedTrue() {
+    // Verificar el fin de partida llamando a las funciones de comprobarTodosBarcosHundidos
+    // comprobarBarcosHundidos devuelve true en jugadorPersona y jugadorIA
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
@@ -272,6 +314,9 @@ class PartidaTest {
 
   @Test
   public void comprovarFinPartida4_expectedFalse() {
+    // Verificar el fin de partida llamando a las funciones de comprobarTodosBarcosHundidos
+    // comprobarBarcosHundidos devuelve false en jugadorPersona
+
     // Arrange
     JugadorIA mockJugadorIA = Mockito.mock(JugadorIA.class);
     JugadorPersona mockJugadorPersona = Mockito.mock(JugadorPersona.class);
