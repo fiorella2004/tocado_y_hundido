@@ -3,6 +3,8 @@ package Modelo;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
 
 class TableroTest {
 
@@ -863,5 +865,191 @@ class TableroTest {
 
     // Assert
     assertTrue(resultado);
+  }
+
+  @Test
+  public void comprobarBarcoDentroTablero_LoopTesting_0pasadas_ExpectedTrue(){
+    //Arrange
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    Coordenada coordenada = mock(Coordenada.class);
+
+    Tablero tablero = new Tablero(10);
+
+    //Act
+    tablero.comprobarBarcoDentroTablero(coordenadas);
+
+    //Assert
+    verifyNoInteractions(coordenada);
+  }
+
+  @Test
+  public void comprobarBarcoDentroTablero_LoopTesting_1pasada_ExpectedTrue(){
+    //Arrange
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    Coordenada coord1 = mock(Coordenada.class);
+    coordenadas.add(coord1);
+    Tablero tablero = new Tablero(10);
+
+    //Act
+    when(coord1.getFila()).thenReturn(0);
+    when(coord1.getCol()).thenReturn(0);
+
+    tablero.comprobarBarcoDentroTablero(coordenadas);
+
+    //Assert
+    // Nos aseguramos que haya llamado dos veces ya que en la condicion if se llama por cada pasada
+    // 2 veces para fila y columna
+    verify(coord1, times(2)).getFila();
+    verify(coord1, times(2)).getCol();
+  }
+
+  @Test
+  public void comprobarBarcoDentroTablero_LoopTesting_2pasadas_ExpectedTrue(){
+    //Arrange
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    Coordenada coord1 = mock(Coordenada.class);
+    Coordenada coord2 = mock(Coordenada.class);
+    coordenadas.add(coord1);
+    coordenadas.add(coord2);
+    Tablero tablero = new Tablero(10);
+
+    //Act
+    when(coord1.getFila()).thenReturn(0);
+    when(coord1.getCol()).thenReturn(0);
+    when(coord2.getFila()).thenReturn(0);
+    when(coord2.getCol()).thenReturn(1);
+
+    tablero.comprobarBarcoDentroTablero(coordenadas);
+
+    //Assert
+    // Pasada 1
+    verify(coord1, times(2)).getFila();
+    verify(coord1, times(2)).getCol();
+    // Pasada 2
+    verify(coord2, times(2)).getFila();
+    verify(coord2, times(2)).getCol();
+  }
+
+  @Test
+  public void comprobarBarcoDentroTablero_LoopTesting_MMenorQueNPasadas_ExpectedTrue(){
+    //Arrange
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    Coordenada coord1 = mock(Coordenada.class);
+    Coordenada coord2 = mock(Coordenada.class);
+    Coordenada coord3 = mock(Coordenada.class);
+    coordenadas.add(coord1);
+    coordenadas.add(coord2);
+    coordenadas.add(coord3);
+    Tablero tablero = new Tablero(10);
+
+    //Act
+    when(coord1.getFila()).thenReturn(0);
+    when(coord1.getCol()).thenReturn(0);
+    when(coord2.getFila()).thenReturn(0);
+    when(coord2.getCol()).thenReturn(1);
+    when(coord3.getFila()).thenReturn(0);
+    when(coord3.getCol()).thenReturn(2);
+
+    tablero.comprobarBarcoDentroTablero(coordenadas);
+
+    //Assert
+    // Pasada 1
+    verify(coord1, times(2)).getFila();
+    verify(coord1, times(2)).getCol();
+    // Pasada 2
+    verify(coord2, times(2)).getFila();
+    verify(coord2, times(2)).getCol();
+    // Pasada 3
+    verify(coord3, times(2)).getFila();
+    verify(coord3, times(2)).getCol();
+  }
+
+  @Test
+  public void comprobarBarcoDentroTablero_LoopTesting_NMenos1pasadas_ExpectedTrue(){
+    //Arrange
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    Coordenada coord1 = mock(Coordenada.class);
+    Coordenada coord2 = mock(Coordenada.class);
+    Coordenada coord3 = mock(Coordenada.class);
+    Coordenada coord4 = mock(Coordenada.class);
+    coordenadas.add(coord1);
+    coordenadas.add(coord2);
+    coordenadas.add(coord3);
+    coordenadas.add(coord4);
+    Tablero tablero = new Tablero(10);
+
+    //Act
+    when(coord1.getFila()).thenReturn(0);
+    when(coord1.getCol()).thenReturn(0);
+    when(coord2.getFila()).thenReturn(0);
+    when(coord2.getCol()).thenReturn(1);
+    when(coord3.getFila()).thenReturn(0);
+    when(coord3.getCol()).thenReturn(2);
+    when(coord4.getFila()).thenReturn(0);
+    when(coord4.getCol()).thenReturn(3);
+
+    tablero.comprobarBarcoDentroTablero(coordenadas);
+
+    //Assert
+    // Pasada 1
+    verify(coord1, times(2)).getFila();
+    verify(coord1, times(2)).getCol();
+    // Pasada 2
+    verify(coord2, times(2)).getFila();
+    verify(coord2, times(2)).getCol();
+    // Pasada 3
+    verify(coord3, times(2)).getFila();
+    verify(coord3, times(2)).getCol();
+    // Pasada 4
+    verify(coord4, times(2)).getFila();
+    verify(coord4, times(2)).getCol();
+  }
+
+  @Test
+  public void comprobarBarcoDentroTablero_LoopTesting_Npasadas_ExpectedTrue(){
+    //Arrange
+    ArrayList<Coordenada> coordenadas = new ArrayList<>();
+    Coordenada coord1 = mock(Coordenada.class);
+    Coordenada coord2 = mock(Coordenada.class);
+    Coordenada coord3 = mock(Coordenada.class);
+    Coordenada coord4 = mock(Coordenada.class);
+    Coordenada coord5 = mock(Coordenada.class);
+    coordenadas.add(coord1);
+    coordenadas.add(coord2);
+    coordenadas.add(coord3);
+    coordenadas.add(coord4);
+    coordenadas.add(coord5);
+    Tablero tablero = new Tablero(10);
+
+    //Act
+    when(coord1.getFila()).thenReturn(0);
+    when(coord1.getCol()).thenReturn(0);
+    when(coord2.getFila()).thenReturn(0);
+    when(coord2.getCol()).thenReturn(1);
+    when(coord3.getFila()).thenReturn(0);
+    when(coord3.getCol()).thenReturn(2);
+    when(coord4.getFila()).thenReturn(0);
+    when(coord4.getCol()).thenReturn(3);
+    when(coord5.getFila()).thenReturn(0);
+    when(coord5.getCol()).thenReturn(3);
+
+    tablero.comprobarBarcoDentroTablero(coordenadas);
+
+    //Assert
+    // Pasada 1
+    verify(coord1, times(2)).getFila();
+    verify(coord1, times(2)).getCol();
+    // Pasada 2
+    verify(coord2, times(2)).getFila();
+    verify(coord2, times(2)).getCol();
+    // Pasada 3
+    verify(coord3, times(2)).getFila();
+    verify(coord3, times(2)).getCol();
+    // Pasada 4
+    verify(coord4, times(2)).getFila();
+    verify(coord4, times(2)).getCol();
+    // Pasada 5
+    verify(coord5, times(2)).getFila();
+    verify(coord5, times(2)).getCol();
   }
 }

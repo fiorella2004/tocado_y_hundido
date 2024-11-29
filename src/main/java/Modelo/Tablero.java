@@ -77,7 +77,7 @@ public class Tablero {
     return true;
   }
 
-  private boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas) {
+  public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas) {
     // Verificar si todas las coordenadas del barco están dentro del tablero
     for (Coordenada coordenada : coordenadas) {
       if (coordenada.getFila() >= numFilas || coordenada.getFila() < 0 ||
