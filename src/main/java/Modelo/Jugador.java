@@ -20,7 +20,7 @@ public abstract class Jugador {
   }
 
   public void asignarTablerosVacios(int dimension) {
-    // Precondición:
+    // Precondición
     assert dimension > 0 : "la dimensión del tablero debe ser mayor que 0";
 
     // Inicializa tableros vacíos con casillas de agua
@@ -50,7 +50,7 @@ public abstract class Jugador {
 
   public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     // Precondición
-    assert coordenada != null : "la coordenada no pueden ser nulas";
+    assert coordenada != null : "la coordenada no pueden ser nula";
     assert tableroPrincipalOponente != null : "el tablero principal del oponente no existe";
 
     // Registra un golpe en el tablero secundario tras atacar al oponente
@@ -61,7 +61,7 @@ public abstract class Jugador {
 
   public void adaptarTableroSecundario(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     // Precondición
-    assert coordenada != null : "la coordenada no pueden ser nula";
+    assert coordenada != null : "la coordenada no puede ser nula";
     assert tableroPrincipalOponente != null : "el tablero principal del oponente no existe";
 
     // Actualiza el tablero secundario según el resultado de un ataque al oponente
