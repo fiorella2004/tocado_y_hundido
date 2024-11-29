@@ -27,7 +27,7 @@ public class Partida {
 
   public void setDimensionTablero(int dimension) {
     // Precondición
-    assert dimension > 0 : "la dimensión del barco debe ser mayor que 0";
+    assert dimension > 0 : "la dimensión del tablero debe ser mayor que 0";
 
     this.dimensionTablero = dimension;
     crearTablero(dimension);
@@ -38,7 +38,7 @@ public class Partida {
 
   private void crearTablero(int dimension) {
     // Precondición
-    assert dimension > 0 : "la dimensión del barco debe ser mayor que 0";
+    assert dimension > 0 : "la dimensión del tablero debe ser mayor que 0";
 
     jugadorPersona.asignarTablerosVacios(dimension);
     jugadorIA.asignarTablerosVacios(dimension);
@@ -71,7 +71,7 @@ public class Partida {
 
   public boolean golpeaJugadorPersona(Coordenada coordenada) {
     // Precondición
-    assert coordenada != null : "las coordenadas no pueden ser nulas";
+    assert coordenada != null : "la coordenada no puede ser nula";
 
     boolean result = jugadorIA.recibirGolpe(coordenada);
     jugadorPersona.registrarGolpe(coordenada, jugadorIA.obtenerTableroPrincipal());
