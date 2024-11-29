@@ -21,4 +21,3 @@ jobs:
 
       - name: Run Checkstyle
         run: mvn checkstyle:check
-        needs: Install dependencies
