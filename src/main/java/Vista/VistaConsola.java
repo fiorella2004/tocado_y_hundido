@@ -1,7 +1,6 @@
 package Vista;
 
 import Modelo.*;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -73,10 +72,11 @@ public class VistaConsola {
         return 14;
       case 6:
         return 15;
+      default:
+        break;
     }
     return -1;
   }
-
 
   public String pedirColocarBarco(int dimensionBarco) {
     switch (dimensionBarco) {
@@ -88,6 +88,8 @@ public class VistaConsola {
         return pedirColocarBarco4casilla();
       case 5:
         return pedirColocarBarco5casilla();
+      default:
+        break;
     }
     return "null";
   }
@@ -104,12 +106,14 @@ public class VistaConsola {
   }
 
   public String pedirColocarBarco4casilla() {
-    System.out.println("Introduce las coordenadas del barco de 4 casillas (ejemplo: 1A 2A 3A 4A): ");
+    System.out.println("Introduce las coordenadas del barco de 4 casillas " +
+        "(ejemplo: 1A 2A 3A 4A): ");
     return scanner.nextLine();
   }
 
   public String pedirColocarBarco5casilla() {
-    System.out.println("Introduce las coordenadas del barco de 5 casillas (ejemplo: 1A 2A 3A 4A 5A):");
+    System.out.println("Introduce las coordenadas del barco de 5 casillas " +
+        "(ejemplo: 1A 2A 3A 4A 5A):");
     return scanner.nextLine();
   }
 
@@ -130,7 +134,8 @@ public class VistaConsola {
         tableroSecundario.getNumFilas(), tableroSecundario.getNumCol());
   }
 
-  private void printTableros(ArrayList<Casilla> tableroPrincipal, ArrayList<Casilla> tableroSecundario,
+  private void printTableros(ArrayList<Casilla> tableroPrincipal,
+                             ArrayList<Casilla> tableroSecundario,
                              int filas, int columnas) {
 
     final String separadorLetras = "   ";

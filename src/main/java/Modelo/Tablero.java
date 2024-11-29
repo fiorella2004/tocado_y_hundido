@@ -44,8 +44,11 @@ public class Tablero {
   }
 
   public boolean colocarBarco(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
-    if (!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas) ||
-        !comprobarCoordenadasContiguas(coordenadas, dimensionBarco)) {
+    // Precondición
+    assert coordenadas != null : "las coordenadas no pueden ser nulas";
+
+    if (!comprobarBarcoDentroTablero(coordenadas) || !comprobarSolaparBarco(coordenadas)
+        || !comprobarCoordenadasContiguas(coordenadas, dimensionBarco)) {
       return false;
     }
     for (Coordenada coordenada : coordenadas) {
@@ -72,8 +75,9 @@ public class Tablero {
       for (Casilla casilla : tablero) {
         Coordenada coordenadaCasilla = casilla.obtenerCoordenada();
         if (coordenadaCasilla.equals(coordenada)) {
-          if (casilla.getId() != 0) // Si la casilla ya tiene un barco, no se puede colocar otro
+          if (casilla.getId() != 0) { // Si la casilla ya tiene un barco, no se puede colocar otro
             return false;
+          }
         }
       }
     }
@@ -86,15 +90,16 @@ public class Tablero {
 
     // Verificar si todas las coordenadas del barco están dentro del tablero
     for (Coordenada coordenada : coordenadas) {
-      if (coordenada.getFila() >= numFilas || coordenada.getFila() < 0 ||
-          coordenada.getCol() >= numCols || coordenada.getCol() < 0) {
+      if (coordenada.getFila() >= numFilas || coordenada.getFila() < 0
+          || coordenada.getCol() >= numCols || coordenada.getCol() < 0) {
         return false;
       }
     }
     return true;
   }
 
-  private boolean comprobarCoordenadasContiguas(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
+  private boolean comprobarCoordenadasContiguas(ArrayList<Coordenada> coordenadas,
+                                                int dimensionBarco) {
     // Precondición
     assert coordenadas != null : "las coordenadas no pueden ser nulas";
 
@@ -105,8 +110,10 @@ public class Tablero {
     for (int i = 1; i < coordenadas.size(); i++) {
       Coordenada anterior = coordenadas.get(i - 1);
       Coordenada actual = coordenadas.get(i);
-      boolean esAdyacente = (anterior.getFila() == actual.getFila() && Math.abs(anterior.getCol() - actual.getCol()) == 1) ||
-          (anterior.getCol() == actual.getCol() && Math.abs(anterior.getFila() - actual.getFila()) == 1);
+      boolean esAdyacente = (anterior.getFila() == actual.getFila()
+          && Math.abs(anterior.getCol() - actual.getCol()) == 1)
+          || (anterior.getCol() == actual.getCol()
+          && Math.abs(anterior.getFila() - actual.getFila()) == 1);
       if (!esAdyacente) {
         return false;
       }

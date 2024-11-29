@@ -50,7 +50,7 @@ public abstract class Jugador {
 
   public void registrarGolpe(Coordenada coordenada, Tablero tableroPrincipalOponente) {
     // Precondición
-    assert coordenada != null : "la coordenada no pueden ser nula";
+    assert coordenada != null : "la coordenada no puede ser nula";
     assert tableroPrincipalOponente != null : "el tablero principal del oponente no existe";
 
     // Registra un golpe en el tablero secundario tras atacar al oponente
