@@ -27,12 +27,8 @@ public class Coordenada {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
     Coordenada that = (Coordenada) o;
     return fila == that.fila && col == that.col;
   }
