@@ -1,6 +1,7 @@
 package Modelo;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +23,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 0, 0}); // fila: 9; col : 0; direccion: 0 (arriba)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 0, 0}); // fila: 9; col : 0; direccion: 0 (arriba)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -41,7 +42,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 0, 1}); // fila: 0; col : 0; direccion: 1 (abajo)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 0, 1}); // fila: 0; col : 0; direccion: 1 (abajo)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -60,7 +61,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 9, 2}); // fila: 0; col : 9; direccion: 2 (izquierda)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 9, 2}); // fila: 0; col : 9; direccion: 2 (izquierda)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -79,7 +80,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 8, 3}); // fila: 9; col : 8; direccion: 3 (derecha)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 8, 3}); // fila: 9; col : 8; direccion: 3 (derecha)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -98,7 +99,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 0, 0}); // fila: 0; col : 0; direccion: 0 (arriba)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 0, 0}); // fila: 0; col : 0; direccion: 0 (arriba)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -117,7 +118,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 0, 1}); // fila: 9; col : 0; direccion: 1 (abajo)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 0, 1}); // fila: 9; col : 0; direccion: 1 (abajo)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -136,7 +137,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 0, 2}); // fila: 0; col : 0; direccion: 2 (izquierda)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 0, 2}); // fila: 0; col : 0; direccion: 2 (izquierda)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -155,7 +156,7 @@ public class JugadorIATest {
     // Dimension barco: 2
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 9, 3}); // fila: 9; col : 9; direccion: 3 (derecha)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 9, 3}); // fila: 9; col : 9; direccion: 3 (derecha)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -174,7 +175,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 0, 0}); // fila: 9; col : 0; direccion: 0 (arriba)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 0, 0}); // fila: 9; col : 0; direccion: 0 (arriba)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -193,7 +194,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 0, 1}); // fila: 0; col : 0; direccion: 1 (abajo)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 0, 1}); // fila: 0; col : 0; direccion: 1 (abajo)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -212,7 +213,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 9, 2}); // fila: 0; col : 9; direccion: 2 (izquierda)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 9, 2}); // fila: 0; col : 9; direccion: 2 (izquierda)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -231,7 +232,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 5, 3}); // fila: 9; col: 5; direccion: 3 (derecha)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 5, 3}); // fila: 9; col: 5; direccion: 3 (derecha)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -250,7 +251,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {3, 0, 0}); // fila: 3; col: 0; direccion: 0 (arriba)
+    MockRandom mockRandom = new MockRandom(new int[]{3, 0, 0}); // fila: 3; col: 0; direccion: 0 (arriba)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -269,7 +270,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {6, 0, 1}); // fila: 6; col: 0; direccion: 1 (abajo)
+    MockRandom mockRandom = new MockRandom(new int[]{6, 0, 1}); // fila: 6; col: 0; direccion: 1 (abajo)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -288,7 +289,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 3, 2}); // fila: 0; col: 3; direccion: 2 (izquierda)
+    MockRandom mockRandom = new MockRandom(new int[]{0, 3, 2}); // fila: 0; col: 3; direccion: 2 (izquierda)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -307,7 +308,7 @@ public class JugadorIATest {
     // Dimension barco: 5
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 6, 3}); // fila: 9; col: 6; direccion: 3 (derecha)
+    MockRandom mockRandom = new MockRandom(new int[]{9, 6, 3}); // fila: 9; col: 6; direccion: 3 (derecha)
 
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
     jugadorIA.asignarTablerosVacios(dimensionTablero);
@@ -397,7 +398,7 @@ public class JugadorIATest {
     // Coordenada a golpear (0,0) (valor frontera)
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {0, 0}); // fila: 0; col: 0
+    MockRandom mockRandom = new MockRandom(new int[]{0, 0}); // fila: 0; col: 0
 
     //Act
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
@@ -415,7 +416,7 @@ public class JugadorIATest {
     // Coordenada a golpear (9,9) (valor frontera)
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {9, 0}); // fila: 9; col: 0
+    MockRandom mockRandom = new MockRandom(new int[]{9, 0}); // fila: 9; col: 0
 
     //Act
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
@@ -433,7 +434,7 @@ public class JugadorIATest {
     // Coordenada a golpear (-1,-1) (valor limite)
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {-1, -1, 0, 0}); // fila: -1; col: -1
+    MockRandom mockRandom = new MockRandom(new int[]{-1, -1, 0, 0}); // fila: -1; col: -1
 
     //Act
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);
@@ -451,7 +452,7 @@ public class JugadorIATest {
     // Coordenada a golpear (10,10) (valor limite)
 
     // Arrange
-    MockRandom mockRandom = new MockRandom(new int[] {10, 10, 9, 9}); // fila: 10; col: 10
+    MockRandom mockRandom = new MockRandom(new int[]{10, 10, 9, 9}); // fila: 10; col: 10
 
     //Act
     JugadorIA jugadorIA = new JugadorIA("IA", mockRandom);

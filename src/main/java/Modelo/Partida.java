@@ -51,7 +51,7 @@ public class Partida {
   public boolean colocarBarcoJugador(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
     // Precondición
     assert coordenadas != null : "las coordenadas no pueden ser nulas";
-    assert dimensionBarco > 0 : "la dimensión del barco debe ser mayor que 0";
+    assert dimensionBarco >= 2 && dimensionBarco <= 5: "la dimensión del tablero solo puede ser 2, 3, 4 o 5";
 
     return jugadorPersona.colocarBarco(coordenadas, dimensionBarco);
   }

@@ -10,11 +10,18 @@ public class JugadorPersona extends Jugador {
 
   @Override
   public boolean colocarBarco(ArrayList<Coordenada> casillasBarco, int dimensionBarco) {
+    // Precondición
+    assert casillasBarco != null : "las casillas del barco no pueden ser nulas";
+    assert dimensionBarco >= 2 && dimensionBarco <= 5 : "la dimensión del tablero solo puede ser 2, 3, 4 o 5";
+
     return tableroPrincipal.colocarBarco(casillasBarco, dimensionBarco);
   }
 
   @Override
   public boolean recibirGolpe(Coordenada coordenada) {
+    // Precondición
+    assert coordenada != null : "la coordenada no pueden ser nula";
+
     return tableroPrincipal.recibirGolpe(coordenada);
   }
 }

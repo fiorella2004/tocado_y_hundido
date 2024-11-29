@@ -64,6 +64,9 @@ public class Tablero {
   }
 
   private boolean comprobarSolaparBarco(ArrayList<Coordenada> coordenadas) {
+    // Precondición
+    assert coordenadas != null : "las coordenadas no pueden ser nulas";
+
     // Verificar si el barco se solapa con otro ya colocado en el tablero
     for (Coordenada coordenada : coordenadas) {
       for (Casilla casilla : tablero) {
@@ -78,6 +81,9 @@ public class Tablero {
   }
 
   public boolean comprobarBarcoDentroTablero(ArrayList<Coordenada> coordenadas) {
+    // Precondición
+    assert coordenadas != null : "las coordenadas no pueden ser nulas";
+
     // Verificar si todas las coordenadas del barco están dentro del tablero
     for (Coordenada coordenada : coordenadas) {
       if (coordenada.getFila() >= numFilas || coordenada.getFila() < 0 ||
@@ -89,6 +95,9 @@ public class Tablero {
   }
 
   private boolean comprobarCoordenadasContiguas(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
+    // Precondición
+    assert coordenadas != null : "las coordenadas no pueden ser nulas";
+
     if (coordenadas.size() != dimensionBarco) {
       return false;
     }

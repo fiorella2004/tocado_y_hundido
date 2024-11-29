@@ -9,6 +9,9 @@ public abstract class Casilla {
   protected boolean golpeada;
 
   public Casilla(Coordenada coordenada) {
+    // Precondición
+    assert coordenada != null : "la coordenada no pueden ser nula";
+
     this.coordenada = coordenada;
     golpeada = false;
     id = 0;
