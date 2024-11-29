@@ -1,9 +1,6 @@
 name: Checkstyle
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   checkstyle:
