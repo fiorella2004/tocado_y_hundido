@@ -26,16 +26,33 @@ public class Partida {
   }
 
   public void setDimensionTablero(int dimension) {
+    // Precondición
+    assert dimension > 0 : "la dimensión del barco debe ser mayor que 0";
+
     this.dimensionTablero = dimension;
     crearTablero(dimension);
+
+    // Postcondición
+    assert this.dimensionTablero == dimension : "la dimensión del tablero es incorrecta";
   }
 
   private void crearTablero(int dimension) {
+    // Precondición
+    assert dimension > 0 : "la dimensión del barco debe ser mayor que 0";
+
     jugadorPersona.asignarTablerosVacios(dimension);
     jugadorIA.asignarTablerosVacios(dimension);
+
+    // Postcondición
+    assert jugadorPersona.obtenerTableroPrincipal() == null : "el jugador persona no tiene tablero";
+    assert jugadorIA.obtenerTableroPrincipal() == null : "el jugador IA no tiene tablero";
   }
 
   public boolean colocarBarcoJugador(ArrayList<Coordenada> coordenadas, int dimensionBarco) {
+    // Precondición
+    assert coordenadas != null : "las coordenadas no pueden ser nulas";
+    assert dimensionBarco > 0 : "la dimensión del barco debe ser mayor que 0";
+
     return jugadorPersona.colocarBarco(coordenadas, dimensionBarco);
   }
 
@@ -53,6 +70,9 @@ public class Partida {
   }
 
   public boolean golpeaJugadorPersona(Coordenada coordenada) {
+    // Precondición
+    assert coordenada != null : "las coordenadas no pueden ser nulas";
+
     boolean result = jugadorIA.recibirGolpe(coordenada);
     jugadorPersona.registrarGolpe(coordenada, jugadorIA.obtenerTableroPrincipal());
     return result;
@@ -79,9 +99,6 @@ public class Partida {
   public boolean comprovarFinPartida() {
     boolean jugador1Perdido = jugadorPersona.comprobarTodosBarcosHundidos();
     boolean jugador2Perdido = jugadorIA.comprobarTodosBarcosHundidos();
-    if (jugador1Perdido || jugador2Perdido) {
-      return true;
-    }
-    return false;
+    return jugador1Perdido || jugador2Perdido;
   }
 }
