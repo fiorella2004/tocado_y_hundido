@@ -1,9 +1,6 @@
 name: Checkstyle
 
-on:
-  pull_request:
-    branches:
-      - master
+on: push
 
 jobs:
   checkstyle:
@@ -24,3 +21,4 @@ jobs:
 
       - name: Run Checkstyle
         run: mvn checkstyle:check
+        needs: Install dependencies
