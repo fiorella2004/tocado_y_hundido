@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Install dependencies
-        run: mvn install --no-transfer-progress
+        run: mvn install -DskipTests --no-transfer-progress
 
       - name: Run Tests
         run: mvn test
